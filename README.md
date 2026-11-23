@@ -8,7 +8,7 @@
 ## מבנה
 | קובץ | תפקיד |
 |---|---|
-| `index.html` | דף הנחיתה (RTL, רספונסיבי, SEO + Open Graph) |
+| `index.html` | דף הנחיתה — אותו עיצוב ומבנה כמו www.thirdmaster.com, עם תוכן טכנולוגי. הטופס שולח דרך FormSubmit כמו באתר הראשי |
 | `api/contact.js` | פונקציית Vercel לשליחת טופס הפנייה במייל (אותו מנגנון כמו באתר הראשי) |
 | `og-image.png` | תמונת שיתוף 1200×630 (נוצרת מ־`tools/og-image.html`) |
 | `robots.txt`, `sitemap.xml` | אינדוקס |
