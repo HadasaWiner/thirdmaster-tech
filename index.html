@@ -425,6 +425,117 @@ main{flex:1;position:relative;min-height:0}
   .pg-next-label{display:none}.pager .prog{width:70px}
   .big{justify-content:flex-start;direction:rtl}
 }
+
+/* ===== Fit every screen in the window on desktop ===== */
+@media (min-width:981px){
+  h1{font-size:clamp(34px,min(4.6vw,7.6vh),82px);margin-bottom:min(26px,2.6vh)}
+  h2{font-size:clamp(28px,min(3.4vw,5.6vh),58px);margin-bottom:min(18px,2vh)}
+  .eyebrow{margin-bottom:min(18px,1.8vh)}
+  .lead{font-size:clamp(15px,min(1.3vw,2.2vh),20px);margin-bottom:min(30px,3vh);line-height:1.7}
+  .screen{padding:min(48px,4.5vh) 0}
+  .trio{max-width:min(600px,calc((100dvh - var(--hh) - 68px - 10vh) / 1.02))}
+  .hero-foot{margin-top:min(28px,2.6vh)}
+  /* method */
+  .method-copy p{font-size:clamp(14px,min(1.15vw,2vh),16.5px);line-height:1.75;margin-bottom:min(14px,1.4vh)}
+  .fp-body{min-height:0;padding:10px 22px 20px}
+  .stepper{padding:min(22px,2.2vh) 18px 4px}
+  .art{padding:12px 16px;line-height:1.75}
+  .values{margin-top:min(44px,3.6vh);padding-top:min(24px,2.2vh)}
+  .value h3{font-size:clamp(16px,min(1.4vw,2.3vh),19px);margin:6px 0 4px}
+  .value p{font-size:13.5px}
+  /* in action */
+  .action-head{margin-bottom:min(24px,2.2vh)}
+  .action-head h2{font-size:clamp(26px,min(3vw,5vh),50px)}
+  .action-head p{font-size:14px}
+  .sim-body{min-height:0}
+  .sim-top{padding:10px 16px}
+  .sim-task{padding:min(14px,1.4vh) 22px}
+  .rail{padding:12px 12px}
+  .rail li{padding:min(8px,.8vh) 8px}
+  .stage{padding:min(18px,1.8vh) 22px}
+  .stage-top{min-height:0;margin-bottom:min(12px,1.2vh)}
+  .stage .sub{margin-bottom:min(12px,1.2vh)}
+  .stage-foot{margin-top:min(14px,1.4vh);padding-top:min(12px,1.2vh)}
+  .box,.doc{padding:min(14px,1.4vh) 16px;line-height:1.65}
+  .before{padding:min(20px,2vh) 22px}.chore{padding:min(11px,1.1vh) 14px}.chores{gap:min(9px,.9vh)}
+  .more-roles{margin-top:min(16px,1.6vh)}
+  /* proof */
+  .big{font-size:clamp(90px,min(13vw,21vh),210px);margin:min(18px,1.6vh) 0 min(14px,1.2vh)}
+  .person{margin-top:min(30px,2.6vh)}
+  /* workshop */
+  .ws{align-items:center}
+  .ws-head{margin-bottom:min(18px,1.8vh)}
+  .ws-head h2{margin-bottom:min(12px,1.2vh)}
+  .not-course{font-size:13.5px;line-height:1.65;margin-bottom:min(16px,1.6vh)}
+  .parts{margin-bottom:min(16px,1.6vh)}
+  .parts li{padding:min(10px,1vh) 0}
+  .parts b{font-size:14.5px;margin-bottom:1px}
+  .parts p{font-size:12.5px;line-height:1.5}
+  .takeaways{padding:min(14px,1.4vh) 18px;margin-bottom:min(14px,1.4vh)}
+  .takeaways h3{margin-bottom:6px;font-size:14px}
+  .takeaways li{font-size:12.5px}
+  .takeaways ul{gap:4px 18px}
+  .fits{margin-bottom:0}
+  #ws-cta{display:none}
+  .ws-legal{margin-top:min(14px,1.4vh)}
+  .form-card{padding:min(28px,2.8vh) 28px;position:static}
+  .form-card h3{font-size:clamp(19px,min(1.7vw,2.8vh),25px)}
+  .form-card .intro{margin-bottom:min(16px,1.6vh)}
+  .field{margin-bottom:min(11px,1.1vh);gap:4px}
+  .field input,.field select,.field textarea{padding:min(11px,1.15vh) 12px}
+  .field textarea{min-height:min(70px,7vh)}
+  .form-foot{margin-top:8px}
+}
+@media (min-width:981px){
+  .parts{grid-template-columns:1fr 1fr;gap:0 22px}
+  .takeaways ul{display:flex;flex-wrap:wrap;gap:6px 8px}
+  .takeaways li{background:#fffdf7;border:1px solid #d6e2cc;border-radius:30px;padding:4px 10px 4px 10px;padding-right:26px}
+  .takeaways li:before{right:10px;top:4px}
+}
+@media (min-width:1280px){.parts{grid-template-columns:1fr 1fr 1fr}}
+@media (min-width:981px){
+  .ws{grid-template-columns:minmax(0,1.5fr) minmax(360px,.72fr);gap:clamp(28px,3.4vw,64px)}
+  .takeaways{background:none;border:0;padding:0;display:flex;align-items:flex-start;gap:10px;margin-bottom:min(10px,1vh)}
+  .takeaways h3{font-size:12px;font-weight:800;color:var(--muted);white-space:nowrap;margin:5px 0 0;min-width:84px}
+  .fits .lbl{min-width:84px;margin-left:10px}
+  .takeaways li,.fits span:not(.lbl){font-size:12px;padding-top:4px;padding-bottom:4px}
+  .ws-head .lead{max-width:none}
+}
+@media (min-width:981px) and (max-height:800px){
+  .ws-legal{display:none}
+  .ws-head .lead{font-size:14.5px}
+  .action-head p,.more-roles,.hero-foot{display:none}
+  .form-card .intro{display:none}
+  .person p{font-size:13px;padding-top:8px}
+}
+@media (min-width:981px) and (max-height:780px){
+  .art{font-size:12.5px;line-height:1.65}.fp-step h3{font-size:19px;margin-top:2px}.fp-step>p{font-size:13px;margin-bottom:10px}
+  .st .dot{width:38px;height:38px}.stepper:before,.stepper .fill{top:39px}
+  .values{margin-top:16px;padding-top:14px}.value p{font-size:12.5px;line-height:1.55}
+}
+@media (min-width:981px) and (max-height:800px){
+  .action-head h2{font-size:clamp(24px,4.4vh,40px)}
+  .stage h3{font-size:18px}.stage .sub{font-size:12.5px;line-height:1.5}
+  .doc ol{line-height:1.6;font-size:13px}.doc-h{padding-bottom:6px;margin-bottom:6px}
+  .decide{padding:10px 14px}.decide .q{margin-bottom:4px}.opt{padding:4px 8px;font-size:13px}
+  .checks{gap:4px}.checks li{font-size:13px}.kv{gap:3px 14px}
+  .box,.doc{font-size:13px;line-height:1.55}
+  .rail li{padding:5px 8px;font-size:12.5px}.rail li .rn{width:22px;height:22px}
+  .run{padding:10px 16px}
+  .sim-task b{font-size:14.5px}
+  .chore{padding:8px 12px;font-size:13px}.chores{gap:6px}
+}
+@media (min-width:981px) and (max-height:740px){
+  #action{padding-top:18px;padding-bottom:18px}
+  #action .eyebrow{margin-bottom:6px}
+  .action-head{margin-bottom:12px}
+  .sim-task{padding:8px 22px}
+  .stage-top{margin-bottom:6px}
+}
+@media (min-width:981px) and (max-width:1279px){
+  .parts p{display:none}.parts li{padding:7px 0}
+  .not-course{font-size:12.5px}
+}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important}
@@ -669,14 +780,14 @@ main{flex:1;position:relative;min-height:0}
 <!-- ============ 05 WORKSHOP ============ -->
 <section class="screen" id="workshop" aria-labelledby="h-ws" data-i="4">
   <div class="wrap">
-    <div class="ws-head">
+    <div class="ws">
+      <div>
+        <div class="ws-head">
       <div class="eyebrow rv"><span class="num">05</span> הסדנה</div>
       <h2 id="h-ws" class="rv d1">המהפכה מתחילה <span class="hl">בצוות שלכם.</span></h2>
       <p class="lead rv d2" style="margin-bottom:0">סדנה מעשית לאנשי טכנולוגיה: לומדים להפוך מומחיות מקצועית לתהליכי עבודה חכמים באמצעות <span class="en" lang="en">Claude Code</span> וסקילים.</p>
     </div>
-    <div class="ws">
-      <div>
-        <p class="not-course rv"><b>זה לא קורס בסיסי ב־<span class="en" lang="en">Claude Code</span>.</b> הכלי חשוב, אבל הערך הוא המתודולוגיה: המשתתפים לומדים איך מגדירים ידע, איך בונים תהליך ואיך מתאימים אותו לצורכי הארגון — לא רק איך מפעילים סקיל קיים.</p>
+        <p class="not-course rv"><b>זה לא קורס בסיסי ב־<span class="en" lang="en">Claude Code</span>.</b> הערך הוא המתודולוגיה: איך מגדירים ידע, בונים תהליך ומתאימים אותו לארגון — לא רק איך מפעילים סקיל קיים.</p>
         <ol class="parts rv d1" aria-label="תוכן הסדנה">
           <li><span class="pn">01</span><div><b>לזהות את שיטת העבודה</b><p>איך ידע מקצועי, ניסיון וכללי החלטה הופכים לתהליך עבודה ברור.</p></div></li>
           <li><span class="pn">02</span><div><b>להפוך ידע ארגוני לבסיס עבודה</b><p>לארגן נהלים, תבניות, סטנדרטים ומידע מקצועי כך שהסקילים יוכלו להסתמך עליהם.</p></div></li>
