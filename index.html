@@ -346,18 +346,6 @@ h2{font-size:clamp(32px,3.6vw,60px);line-height:1.12;font-weight:900;letter-spac
 .site-footer{border-top:1px solid var(--line);padding:26px 0 30px}
 .site-footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
 .site-footer a{text-decoration:underline;text-underline-offset:4px}
-.pager{flex-shrink:0;height:68px;border-top:1px solid var(--line);background:rgba(247,245,239,.92)}
-.pager .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:14px}
-.pg-step{display:flex;align-items:center;gap:13px}
-.pager .cnt{font-family:Arial,sans-serif;font-size:13px;direction:ltr;font-weight:850;letter-spacing:1.2px;min-width:62px}
-.pager .cnt span{color:#9ea198}
-.pager .prog{height:3px;width:130px;background:#d6d8cf;overflow:hidden}
-.pager .prog i{display:block;height:100%;background:var(--accent);width:20%;transition:width .35s var(--ease)}
-.pg-cap{font-size:11.5px;color:#8a8d85}
-.pg-act{display:flex;align-items:center;gap:8px}
-.pg-next-label{font-size:12px;font-weight:720;margin-inline:6px}
-.pager button{width:38px;height:38px;border-radius:50%;border:1px solid #c9ccc2;background:transparent;display:grid;place-items:center;font-size:17px;transition:background .2s}
-.pager button:hover:not(:disabled){background:#eae8de}.pager button:disabled{opacity:.3;cursor:default}
 
 /* ===== One screen at a time (same model as www.thirdmaster.com) ===== */
 html,body{height:100%;overflow:hidden}
@@ -367,6 +355,9 @@ main{flex:1;position:relative;min-height:0}
 .screen{position:absolute;inset:0;min-height:0;display:none;flex-direction:column;align-items:stretch;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;padding:clamp(22px,4vh,56px) 0}
 .screen.active{display:flex;animation:appear .42s var(--ease) both}
 .screen>.wrap{margin-block:auto}
+.next-link{display:none}
+@media (max-width:980px){.next-link{display:block;align-self:center;margin:28px auto 0;font-size:14px;font-weight:800;border:1px solid var(--line);border-radius:40px;padding:11px 22px;background:var(--white)}}
+@media (min-width:981px){.screen{overflow-y:hidden}}
 @keyframes appear{from{opacity:.4;transform:translateY(12px)}to{opacity:1;transform:none}}
 .ws-legal{margin-top:26px;font-size:11.5px;color:var(--muted)}.ws-legal a{text-decoration:underline;text-underline-offset:4px}
 
@@ -389,9 +380,7 @@ main{flex:1;position:relative;min-height:0}
   .before{grid-template-columns:1fr}
   .form-card{position:static}
   .parts{grid-template-columns:1fr 1fr}
-  .pg-cap{display:none}
-  .pager{height:62px}
-}
+    }
 @media (max-width:720px){
   h1{letter-spacing:-.035em}
   .after{grid-template-columns:1fr}
@@ -422,8 +411,7 @@ main{flex:1;position:relative;min-height:0}
   .node{width:46%}.node small{display:none}.node .ic{width:46px;height:46px}
   .out-steps{flex-wrap:wrap}.out-steps i{display:none}
   .person{grid-template-columns:1fr}
-  .pg-next-label{display:none}.pager .prog{width:70px}
-  .big{justify-content:flex-start;direction:rtl}
+    .big{justify-content:flex-start;direction:rtl}
 }
 
 /* ===== Fit every screen in the window on desktop ===== */
@@ -618,6 +606,7 @@ main{flex:1;position:relative;min-height:0}
       </div>
     </figure>
   </div>
+  <a class="next-link" href="#method">הבא: השיטה ←</a>
 </section>
 
 <!-- ============ 02 THE METHOD ============ -->
@@ -697,6 +686,7 @@ main{flex:1;position:relative;min-height:0}
       <div class="value rv d2"><span class="vn">03</span><h3>העבודה הופכת לאחידה ומבוקרת</h3><p>התהליך כולל סטנדרטים, בקרות והנחיות ברורות.</p></div>
     </div>
   </div>
+  <a class="next-link" href="#action">הבא: בפעולה ←</a>
 </section>
 
 <!-- ============ 03 IN ACTION ============ -->
@@ -746,6 +736,7 @@ main{flex:1;position:relative;min-height:0}
     </div>
     <p class="more-roles rv"><b>ובסדנה:</b> אותה שיטה מותאמת גם לצוותי פיתוח, PMO וניהול מוצר.</p>
   </div>
+  <a class="next-link" href="#proof">הבא: הניסיון ←</a>
 </section>
 
 <!-- ============ 04 PROOF ============ -->
@@ -775,6 +766,7 @@ main{flex:1;position:relative;min-height:0}
       <span class="hp">60 אחוז חיסכון בזמן בתהליכי אפיון</span>
     </div>
   </div>
+  <a class="next-link" href="#workshop">הבא: הסדנה ←</a>
 </section>
 
 <!-- ============ 05 WORKSHOP ============ -->
@@ -841,11 +833,6 @@ main{flex:1;position:relative;min-height:0}
 </main>
 
 
-<footer class="pager" aria-label="ניווט בין מסכים"><div class="wrap">
-  <div class="pg-step"><div class="cnt" id="pg-cnt">01 <span>/ 05</span></div><div class="prog" aria-hidden="true"><i id="pg-bar"></i></div></div>
-  <div class="pg-cap" id="pg-cap"></div>
-  <div class="pg-act"><span class="pg-next-label" id="pg-next-label"></span><button type="button" id="pg-prev" aria-label="למסך הקודם">→</button><button type="button" id="pg-next" aria-label="למסך הבא">←</button></div>
-</div></footer>
 
 <script>
 (function(){
@@ -858,20 +845,16 @@ main{flex:1;position:relative;min-height:0}
   /* ---------- screens: one at a time ---------- */
   const screens=qsa('.screen'),ids=screens.map(s=>s.id),seen=new Set();let cur=-1;
   const titles=['המהפכה','השיטה','בפעולה','הניסיון','הסדנה'];
-  const caps=['שיטת עבודה חדשה — לא עוד הדרכת AI','מומחיות שהופכת לתהליך','נסו את ההדמיה — אתם מחליטים','מה כבר עובד בפועל','מתחילים בצוות שלכם'];
   function show(i,hash=true){i=Math.max(0,Math.min(4,i));if(i===cur)return;cur=i;
     screens.forEach((el,k)=>{const on=k===i;el.classList.toggle('active',on);el.setAttribute('aria-hidden',String(!on));if(on)el.scrollTop=0});
     qsa('[data-nav]').forEach(a=>{const on=a.dataset.nav===ids[i];a.classList.toggle('is-active',on);on?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')});
-    qs('#pg-cnt').innerHTML=String(i+1).padStart(2,'0')+' <span>/ 05</span>';qs('#pg-bar').style.width=((i+1)/5*100)+'%';qs('#pg-prev').disabled=i===0;qs('#pg-next').disabled=i===4;
-    qs('#pg-cap').textContent=caps[i];qs('#pg-next-label').textContent=i<4?titles[i+1]:'';
-    const el=screens[i];requestAnimationFrame(()=>el.classList.add('in'));onEnter(ids[i]);closeDrawer();
+    const el=screens[i];requestAnimationFrame(()=>el.classList.add('in'));refit();onEnter(ids[i]);closeDrawer();
     if(!seen.has(ids[i])){seen.add(ids[i]);track('screen_reached',{screen:ids[i]});ctrack('screen_'+ids[i])}
     if(hash)history.replaceState(null,'','#'+ids[i])}
   function toOrder(){show(4);const o=qs('#order');setTimeout(()=>{o.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});qs('#f-name').focus({preventScroll:true})},reduce?0:350)}
   document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute('href').slice(1);
     if(id==='order'){e.preventDefault();track('cta_click',{label:a.dataset.cta||'order'});toOrder();return}
     const k=ids.indexOf(id);if(k>-1){e.preventDefault();show(k)}});
-  qs('#pg-prev').onclick=()=>show(cur-1);qs('#pg-next').onclick=()=>show(cur+1);
   document.addEventListener('keydown',e=>{const t=e.target;if(/INPUT|SELECT|TEXTAREA/.test(t.tagName)||e.altKey||e.ctrlKey||e.metaKey)return;
     if(e.key==='Escape'){closeDrawer();return}
     if(t.closest&&t.closest('[role=tab],[role=tablist],.mode'))return;
@@ -885,6 +868,15 @@ main{flex:1;position:relative;min-height:0}
   window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(id==='order')toOrder();else if(ids.includes(id))show(ids.indexOf(id),false)});
   const drawer=qs('#drawer'),mb=qs('#menu-btn');function closeDrawer(){drawer.classList.remove('show');mb.setAttribute('aria-expanded','false')}
   mb.onclick=()=>{const o=!drawer.classList.contains('show');drawer.classList.toggle('show',o);mb.setAttribute('aria-expanded',String(o))};
+
+  /* ---------- fit the active screen into the window (desktop): scale down instead of scrolling ---------- */
+  function fit(){if(cur<0)return;const el=screens[cur],w=el.firstElementChild;w.style.zoom='';
+    if(innerWidth<981){return}
+    const cs=getComputedStyle(el),avail=el.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+    for(let k=0;k<3;k++){const need=w.getBoundingClientRect().height/(parseFloat(w.style.zoom)||1);if(need<=avail+1)break;w.style.zoom=Math.max(.5,avail/need-.004).toFixed(3)}}
+  let fitT;const refit=()=>{cancelAnimationFrame(fitT);fitT=requestAnimationFrame(fit)};
+  addEventListener('resize',refit);document.fonts&&document.fonts.ready.then(refit);
+  new MutationObserver(refit).observe(document.querySelector('main'),{subtree:true,childList:true,attributes:true,attributeFilter:['hidden','class']});
 
   const started={};
   function onEnter(id){if(started[id])return;started[id]=1;
