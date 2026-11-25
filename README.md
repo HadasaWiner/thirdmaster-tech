@@ -3,12 +3,13 @@
 דף הנחיתה של **המאסטר השלישי — AI לצוותים טכנולוגיים**.
 כתובת יעד: **https://tech.thirdmaster.com**
 
-אתר סטטי נפרד מהאתר הפיננסי (www.thirdmaster.com, ריפו `ThirdMaster`), שומר על סימן המותג המשותף (טבעת + קו + נקודה כתומה) עם זהות טכנולוגית משלו (navy + lime).
+אתר סטטי נפרד מהאתר הפיננסי (www.thirdmaster.com, ריפו `ThirdMaster`), זהות Editorial Technology: Paper / Ink / Cobalt, סימן III (האדם, הבינה, הסקיל), פונט IBM Plex Sans Hebrew.
 
 ## מבנה
 | קובץ | תפקיד |
 |---|---|
-| `index.html` | דף הנחיתה — אותו עיצוב ומבנה כמו www.thirdmaster.com, עם תוכן טכנולוגי. הטופס שולח דרך FormSubmit כמו באתר הראשי |
+| `index.html` | האתר: ארבעה פרקים (התפיסה, המאסטר השלישי, המהפכה בפעולה, הסדנה), Design Tokens, ניווט hash, טופס פנייה דרך FormSubmit (כמו באתר הראשי) |
+| `scenarios.js` | נתוני ההדמיה MasterWorkspaceDemo — ארבעת התחומים, נפרדים מקוד התצוגה |
 | `api/contact.js` | פונקציית Vercel לשליחת טופס הפנייה במייל (אותו מנגנון כמו באתר הראשי) |
 | `og-image.png` | תמונת שיתוף 1200×630 (נוצרת מ־`tools/og-image.html`) |
 | `robots.txt`, `sitemap.xml` | אינדוקס |
