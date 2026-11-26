@@ -157,7 +157,7 @@ svg text{font-family:var(--font)}
 .win-top{background:var(--ink);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:12px;flex-wrap:wrap}
 .win-top b{font-size:11.5px;letter-spacing:.16em;direction:ltr;font-weight:700}
 .win-top .illus{color:#9aa39b}
-.steps{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));border-bottom:1px solid var(--line)}
 .steps button{border:0;background:none;padding:14px 8px 12px;text-align:right;border-bottom:3px solid transparent;display:flex;flex-direction:column;gap:3px;color:var(--muted);transition:color .2s,border-color .2s}
 .steps button small{font-size:11px;font-weight:800;letter-spacing:.08em;direction:ltr;text-align:right}
 .steps button span{font-size:12.5px;font-weight:600;line-height:1.35}
@@ -196,6 +196,8 @@ svg text{font-family:var(--font)}
 .win-foot button{border:1px solid #c9ccc2;background:#fff;padding:9px 16px;font-size:13.5px;font-weight:700}
 .win-foot button.pri{background:var(--ink);color:#fff;border-color:var(--ink)}
 .win-foot button:disabled{opacity:.35;cursor:default}
+.older{font-size:12px;color:var(--muted);font-weight:600;text-align:center;padding:2px 0 4px}
+.msg.prev{opacity:.5}
 .approve{align-self:flex-start;background:var(--accent);color:var(--ink);border:0;padding:10px 16px;font-weight:800;font-size:14px;box-shadow:0 3px 0 var(--accent-ink);animation:pop .45s var(--ease) both}
 .demo-note{font-size:14px;color:var(--muted);margin-top:22px;max-width:760px}
 
@@ -295,6 +297,136 @@ svg text{font-family:var(--font)}
 .foot .brand-mark:after{border-color:var(--dark)}
 
 
+/* ================= UPGRADE ================= */
+.svc-line{font-size:clamp(15px,1.15vw,18px);font-weight:700;color:var(--ink);margin-top:16px;display:inline-block;border-bottom:2px solid var(--accent);padding-bottom:4px}
+
+/* ---------- 02 Proof: case-study composition around one number ---------- */
+.proof-head{max-width:900px}
+.case{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1fr);grid-template-rows:auto auto;column-gap:clamp(20px,3vw,56px);row-gap:clamp(40px,8vh,110px);align-items:center;margin-top:clamp(28px,5vh,64px)}
+.case-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.case-lines path{fill:none;stroke:#c9c6bb;stroke-width:1.2;stroke-dasharray:3 6;vector-effect:non-scaling-stroke}
+.core-stat{grid-column:2;grid-row:1 / span 2;text-align:center;position:relative;z-index:1;background:var(--paper);padding:20px 10px}
+.core-stat .big{justify-content:center;font-size:clamp(140px,17vw,280px)}
+.core-stat .big-cap{margin:18px auto 0;font-size:clamp(19px,1.6vw,26px);font-weight:700;letter-spacing:-.02em}
+.dim{position:relative;z-index:1;background:var(--paper);padding:14px 0;border-top:2px solid var(--ink);max-width:300px}
+.dim b{display:block;font-size:clamp(19px,1.5vw,24px);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px}
+.dim p{font-size:15.5px;color:#4a4f48;line-height:1.6}
+.dim .dn{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:.08em}
+.d1{grid-column:1;grid-row:1}.d2{grid-column:3;grid-row:1;justify-self:end}.d3{grid-column:1;grid-row:2}.d4{grid-column:3;grid-row:2;justify-self:end}
+.d4{border-top-color:var(--accent)}
+.case-note{font-size:14px;color:var(--muted);margin-top:clamp(20px,3.6vh,40px);text-align:center}
+
+/* ---------- 03 The Third Master: one composition, three parts ---------- */
+.master{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,5vw,88px);align-items:center}
+.master .lead{margin-top:24px}
+.partners{margin-top:30px;border-top:1px solid var(--line)}
+.partners li{display:grid;grid-template-columns:22px 140px minmax(0,1fr);gap:12px;align-items:baseline;padding:14px 8px;border-bottom:1px solid var(--line);cursor:default;transition:background .25s}
+.partners li b{font-size:18px;font-weight:800}
+.partners li span{color:#4a4f48;font-size:15.5px}
+.partners li.on{background:var(--white)}
+.sw{width:14px;height:14px;border-radius:50%;display:block;transform:translateY(2px)}
+.sw.s0{background:var(--ink)}.sw.s1{background:#8d918a}.sw.s2{background:var(--accent)}
+.ring svg{width:100%;height:auto;display:block;max-width:560px;margin-inline:auto 0}
+.seg{transition:transform 1.3s var(--ease),opacity .4s}
+.seg path.arc{fill:none;stroke-width:44;stroke-linecap:butt;transition:stroke-width .3s}
+.seg.on path.arc{stroke-width:54}
+.ring.dim-others .seg:not(.on){opacity:.35}
+.ring .lbl{font-size:17px;font-weight:800}
+.ring .lbl-en{font-size:11px;font-weight:700;letter-spacing:.16em;fill:var(--muted)}
+
+/* ---------- 04 Challenges: list + architectural visual ---------- */
+.ch-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:40px;align-items:end;margin-bottom:clamp(24px,4vh,56px)}
+.ch{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(0,1.2fr);border:1px solid var(--line-dark)}
+.ch-list{border-left:1px solid var(--line-dark)}
+.ch-list li+li{border-top:1px solid var(--line-dark)}
+.ch-btn{width:100%;background:none;border:0;color:#c3cac3;display:grid;grid-template-columns:44px 1fr 18px;gap:10px;align-items:center;text-align:right;padding:clamp(12px,1.9vh,20px) 22px;font-size:16.5px;font-weight:600;position:relative;transition:background .25s,color .25s}
+.ch-btn .n{font-size:12.5px;font-weight:800;color:#7b847c;letter-spacing:.06em;direction:ltr;text-align:right}
+.ch-btn .ar{color:#5a625c;transition:transform .25s}
+.ch-btn:hover{background:#242926;color:#fff}
+.ch-btn[aria-selected="true"]{background:#2b302d;color:#fff}
+.ch-btn[aria-selected="true"]:before{content:"";position:absolute;right:0;top:0;bottom:0;width:3px;background:var(--accent)}
+.ch-btn[aria-selected="true"] .n{color:var(--accent)}
+.ch-btn[aria-selected="true"] .ar{color:var(--accent);transform:translateX(-4px)}
+.ch-stage{padding:clamp(18px,2.6vh,32px) clamp(20px,2.4vw,36px);display:flex;flex-direction:column;gap:16px;min-width:0}
+.ch-viz{background:#202522;border:1px solid #333a35}
+.ch-viz svg{display:block;width:100%;height:auto}
+.ch-q{font-size:clamp(19px,1.6vw,25px);font-weight:700;letter-spacing:-.02em;line-height:1.4;color:#fff}
+.ch-a{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;border-top:1px solid var(--line-dark);padding-top:14px}
+.ch-a b{font-size:11.5px;font-weight:800;letter-spacing:.14em;color:var(--accent);direction:ltr;white-space:nowrap}
+.ch-a p{color:var(--on-dark);font-size:16.5px;line-height:1.65}
+.ch-acc{display:none}
+.cv text{font-family:var(--font)}
+.cv .n{fill:#2c312e;stroke:#5a625c;stroke-width:1.2}
+.cv .n.hot{fill:#3a2a22;stroke:var(--accent)}
+.cv .n.ok{fill:#24321f;stroke:#7fae67}
+.cv .l{fill:none;stroke:#4f5751;stroke-width:1.2}
+.cv .l.hot{stroke:var(--accent);stroke-width:1.8}
+.cv .l.dash{stroke-dasharray:3 5}
+.cv .t{font-size:12.5px;fill:#c3cac3;font-weight:600}
+.cv .tb{font-size:13.5px;fill:#fff;font-weight:700}
+.cv .te{font-size:10.5px;fill:#8e968f;font-weight:700;letter-spacing:.14em}
+.cv .pop{opacity:0;animation:cvin .55s var(--ease) forwards}
+@keyframes cvin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---------- 05 Architecture: flow between the layers ---------- */
+.layers{gap:0!important;position:relative}
+.layer:not(:last-child):after{display:none}
+.conn{display:flex;align-items:center;gap:12px;height:42px;padding-right:118px;color:#8e968f;font-size:13px;font-weight:600}
+.conn i{display:block;width:2px;height:100%;background:#4a514c;position:relative;flex-shrink:0}
+.conn i:after{content:"";position:absolute;left:-3px;width:8px;height:8px;border-radius:50%;background:var(--accent);animation:drop 2.2s linear infinite}
+.conn.both i:before{content:"";position:absolute;left:-4px;top:-1px;border:5px solid transparent;border-bottom-color:#4a514c}
+@keyframes drop{from{top:-4px;opacity:0}20%{opacity:1}to{top:calc(100% - 4px);opacity:0}}
+.arch{gap:44px!important}
+.ret{position:absolute;left:-30px;top:34px;bottom:34px;width:14px;border:1.5px dashed #ffb39a;border-right:0;border-radius:0}
+.ret:before{content:"";position:absolute;top:-6px;right:-6px;border:6px solid transparent;border-left-color:#ffb39a;transform:rotate(0)}
+.ret span{position:absolute;left:-22px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:12px;font-weight:700;color:#ffb39a;white-space:nowrap}
+.gov{position:relative}
+.gov-tag{font-size:11.5px;font-weight:700;color:#8e968f;border:1px solid #454c47;padding:3px 8px;align-self:flex-start}
+
+/* ---------- 06 Services: one continuous sequence ---------- */
+.svc-seq h3.en{direction:ltr;text-align:right;font-size:clamp(19px,1.6vw,24px)}
+.svc-seq li:last-child .num{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+
+/* ---------- 07 Independence ---------- */
+.ind{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,96px);align-items:center}
+.ind-title{font-size:clamp(52px,7vw,124px);font-weight:900;letter-spacing:-.055em;line-height:.98;margin:18px 0 26px}
+.ind-title em{font-style:normal;color:var(--accent);display:block}
+.principles{margin-top:30px}
+.principles li{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:16px 0;border-top:1px solid var(--line-dark);font-size:clamp(18px,1.5vw,23px);font-weight:700;letter-spacing:-.01em}
+.principles li span{font-size:12.5px;color:var(--accent);font-weight:800;letter-spacing:.08em;direction:ltr;text-align:right;padding-top:6px}
+.env-side{border:1px solid var(--line-dark);padding:clamp(20px,2.4vw,32px);background:#20241f}
+.env-title{font-size:clamp(19px,1.6vw,25px);font-weight:800;letter-spacing:-.02em;line-height:1.35;margin-bottom:14px}
+.env-title span{display:block;color:var(--on-dark);font-weight:500}
+.dark .orbit .tool{fill:var(--ink)}
+.dark .disc{color:#8e968f;border-color:var(--line-dark);margin-top:10px}
+
+@media (max-width:980px){
+  .case{grid-template-columns:1fr 1fr;row-gap:24px}
+  .case-lines{display:none}
+  .core-stat{grid-column:1 / -1;grid-row:1;padding:0}
+  .d1,.d2,.d3,.d4{grid-row:auto;grid-column:auto;justify-self:stretch;max-width:none}
+  .master,.ind,.ch-head{grid-template-columns:1fr}
+  .ring{max-width:460px;width:100%;margin:0 auto}
+  .ch{display:block;border:0}
+  .ch-list{border:1px solid var(--line-dark)}
+  .ch-stage{display:none}
+  .ch-acc{display:block;padding:4px 18px 22px}
+  .ch-acc[hidden]{display:none}
+  .ch-acc .ch-viz{margin-bottom:14px}
+  .ch-btn .ar{transform:rotate(-90deg)}
+  .ch-btn[aria-expanded="true"] .ar{transform:rotate(90deg)}
+  .ret{display:none}
+  .conn{padding-right:20px}
+}
+@media (max-width:640px){
+  .case{grid-template-columns:1fr}
+  .partners li{grid-template-columns:22px 1fr}
+  .partners li span{grid-column:2}
+  .ring .lbl{font-size:22px}.ring .lbl-en{font-size:14px}
+  .cv .t{font-size:15px}.cv .tb{font-size:16px}.cv .te{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){.cv .pop{opacity:1;animation:none}.seg{transition:none}}
+
 /* ---------- Desktop: one screen at a time (as on the tech site) ---------- */
 .next-link{display:block;align-self:flex-end;margin:0 var(--gutter);padding:14px 0 22px;font-size:14px;font-weight:700;color:var(--accent-ink);max-width:var(--max);white-space:nowrap}
 .next-link:hover{text-decoration:underline;text-underline-offset:5px}
@@ -356,7 +488,7 @@ svg text{font-family:var(--font)}
   .pair{border-bottom:1px solid var(--line)}
   .panes{grid-template-columns:1fr}
   .pane+.pane{border-right:0;border-top:1px solid var(--line)}
-  .steps{grid-template-columns:repeat(7,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(8,minmax(0,1fr))}
   .steps button span{display:none}
   .steps button{align-items:center;text-align:center}
   .flow{grid-template-columns:1fr;row-gap:0}
@@ -437,7 +569,7 @@ svg text{font-family:var(--font)}
       <span class="brand-txt"><b>המאסטר השלישי<i>.</i></b><small>THE THIRD MASTER / ENTERPRISE AI</small></span>
     </a>
     <nav class="nav" aria-label="ניווט ראשי">
-      <a href="#shift">התפיסה</a><a href="#architecture">הארכיטקטורה</a><a href="#demo">בפעולה</a><a href="#results">תוצאות</a><a href="#services">שירותים</a><a href="#experience">ניסיון</a>
+      <a href="#proof">מהשטח</a><a href="#master">המאסטר השלישי</a><a href="#challenges">האתגרים</a><a href="#architecture">הארכיטקטורה</a><a href="#services">הליווי</a><a href="#independence">עצמאות</a>
     </nav>
     <a class="btn btn-ink" href="#contact"><span class="l-long">לתיאום פגישת היכרות</span><span class="l-short">פגישת היכרות</span></a>
   </div>
@@ -450,16 +582,13 @@ svg text{font-family:var(--font)}
   <div class="wrap hero-grid">
     <div>
       <span class="label rv"><b>THE THIRD MASTER</b> / ENTERPRISE AI</span>
+      <p class="svc-line rv">ייעוץ, ארכיטקטורה וליווי הטמעת AI בארגונים</p>
       <h1 class="rv">מהפכה בשיטת העבודה<span class="dot">.</span></h1>
       <p class="tri rv"><span>היכולות של הבינה.</span><span>החשיבה של המומחה.</span><span>העוצמה של הארגון.</span></p>
       <p class="lead rv">הטמעת בינה מלאכותית בליבת תהליכי העבודה הארגוניים, באמצעות ארכיטקטורת סוכנים מקצועיים, <span class="en">Skills</span>, ידע ארגוני ומתודולוגיית עבודה מבוקרת.</p>
       <div class="hero-actions rv">
         <a class="btn btn-accent" href="#contact">בואו נדבר על הארגון שלכם <span aria-hidden="true">↖</span></a>
         <a class="btn btn-line" href="#demo">לראות את השיטה בפעולה</a>
-      </div>
-      <div class="stats rv">
-        <div class="stat"><b>60<small>%</small></b><span>חיסכון בזמן בתהליכי אפיון שנבחנו.</span></div>
-        <div class="stat"><b>10<small>+</small></b><span>שנות ניסיון במערכות מורכבות.</span></div>
       </div>
     </div>
 
@@ -545,12 +674,57 @@ svg text{font-family:var(--font)}
   </div>
 </section>
 
+
+<!-- ======================= 02 · PROOF ======================= -->
+<section class="sec" id="proof">
+  <div class="wrap">
+    <div class="proof-head">
+      <span class="label rv"><b>02</b> / PROVEN IN PRACTICE</span>
+      <h2 class="rv">משינוי תפיסתי לשינוי <em>שכבר עובד בשטח.</em></h2>
+    </div>
+    <div class="case rv" id="case">
+      <svg class="case-lines" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M500 260 L150 70"/><path d="M500 260 L850 70"/><path d="M500 260 L150 450"/><path d="M500 260 L850 450"/>
+      </svg>
+      <div class="dim d1"><span class="dn">01</span><b>מערכות מורכבות</b><p>התבססות על ידע, קוד ותשתיות קיימות.</p></div>
+      <div class="dim d2"><span class="dn">02</span><b>מתודולוגיה מלאה</b><p>רציפות מקצועית בין שלבי העבודה.</p></div>
+      <div class="core-stat">
+        <div class="big" aria-hidden="true"><span id="count">60</span><sup>%</sup></div>
+        <p class="big-cap">חיסכון בזמן בתהליכי אפיון שנבחנו.</p>
+        <span class="hp">60 אחוז חיסכון בזמן בתהליכי אפיון שנבחנו</span>
+      </div>
+      <div class="dim d3"><span class="dn">03</span><b>סוכנים מקצועיים</b><p>הפעלת מומחיות ושיקול דעת כחלק מהתהליך.</p></div>
+      <div class="dim d4"><span class="dn">04</span><b>בקרת איכות</b><p>מנגנוני סקירה, בקרה ואישור אנושי.</p></div>
+    </div>
+    <p class="case-note rv">תוצאה שנמדדה בתהליכים מסוימים. אינה התחייבות לתוצאה זהה בכל ארגון.</p>
+  </div>
+</section>
+
+<!-- ======================= 03 · THE THIRD MASTER ======================= -->
+<section class="sec" id="master" style="background:var(--paper-2)">
+  <div class="wrap master">
+    <div class="m-copy">
+      <span class="label rv"><b>03</b> / THE THIRD MASTER</span>
+      <h2 class="rv">שלושה שותפים. <em>יכולת מקצועית חדשה.</em></h2>
+      <p class="lead rv">איש המקצוע מביא את שיקול הדעת. הבינה המלאכותית מביאה את יכולות הביצוע. הסקיל מביא את המומחיות ואת שיטת העבודה. השילוב ביניהם יוצר יכולת מקצועית חדשה.</p>
+      <ul class="partners rv" id="partners">
+        <li data-p="0" tabindex="0"><i class="sw s0"></i><b>איש המקצוע</b><span>הבנת הצורך, שיקול דעת וקבלת החלטות.</span></li>
+        <li data-p="1" tabindex="0"><i class="sw s1"></i><b><span class="en">AI</span></b><span>יכולות ניתוח, עיבוד וביצוע.</span></li>
+        <li data-p="2" tabindex="0"><i class="sw s2"></i><b><span class="en">Skill</span></b><span>המומחיות, הידע ושיטת העבודה המקצועית.</span></li>
+      </ul>
+    </div>
+    <figure class="ring rv" id="ring" aria-label="שלושה רכיבים — איש המקצוע, AI וסקיל — מתחברים יחד למאסטר השלישי. בלי אחד מהם המעגל אינו שלם.">
+      <svg viewBox="0 0 520 520" id="ringSvg"></svg>
+    </figure>
+  </div>
+</section>
+
 <!-- ======================= 02 · SHIFT ======================= -->
 <section class="sec" id="shift" style="padding-top:clamp(48px,6vw,96px)">
   <div class="wrap">
     <div class="shift-grid">
       <div>
-        <span class="label rv"><b>02</b> / FROM INDIVIDUAL TO ORGANIZATIONAL</span>
+        <span class="label rv"><b>03</b> / FROM INDIVIDUAL TO ORGANIZATIONAL</span>
         <h2 class="rv">הכלים כבר קיימים. <em>שיטת העבודה</em> צריכה להשתנות.</h2>
       </div>
       <p class="lead rv">ארגונים רבים כבר משתמשים בבינה מלאכותית. אבל כאשר כל עובד מנסח בעצמו את ההנחיות, בוחר את דרך העבודה ומגדיר את איכות התוצר — המומחיות נשארת אישית ולא הופכת ליכולת ארגונית.</p>
@@ -579,38 +753,59 @@ svg text{font-family:var(--font)}
     <p class="closing rv">מיכולת אישית <span>ליכולת ארגונית.</span></p>
   </div>
 </section>
+<!-- ======================= 04 · ENTERPRISE AI CHALLENGES ======================= -->
+<section class="sec dark" id="challenges">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <span class="label rv"><b>04</b> / ENTERPRISE AI CHALLENGES</span>
+        <h2 class="rv">האתגרים האמיתיים מתחילים <em>אחרי שמכניסים AI לארגון.</em></h2>
+      </div>
+      <p class="lead rv">הטמעה ארגונית מחייבת הרבה יותר מבחירת מודל או כתיבת פרומפטים. היא מחייבת התמודדות עם ידע מורכב, תהליכים קיימים, איכות תוצרים ושיטות עבודה.</p>
+    </div>
+    <div class="ch rv" id="ch">
+      <ol class="ch-list" id="chList" role="tablist" aria-label="ששת האתגרים"></ol>
+      <div class="ch-stage" id="chStage" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
 
-<!-- ======================= 03 · ARCHITECTURE ======================= -->
+<!-- ======================= 05 · ARCHITECTURE ======================= -->
 <section class="sec dark" id="architecture">
   <div class="wrap">
     <div class="arch-head">
       <div>
-        <span class="label rv"><b>03</b> / THE ARCHITECTURE OF EXPERTISE</span>
+        <span class="label rv"><b>05</b> / THE ARCHITECTURE OF EXPERTISE</span>
         <h2 class="rv">לא אוסף פרומפטים. <em>ארכיטקטורה</em> של מומחיות.</h2>
       </div>
-      <p class="lead rv">חמש שכבות שעובדות יחד. העבירו את העכבר על שכבה — או התמקדו בה במקלדת — כדי לראות את תפקידה והקשרים שלה.</p>
+      <p class="lead rv">חמש שכבות, תהליך מקצועי אחד: הבקשה יורדת מאיש המקצוע אל הידע הארגוני, והתוצר חוזר אליו לבדיקה ואישור. העבירו את העכבר על שכבה כדי לראות את תפקידה והקשרים שלה.</p>
     </div>
 
     <div class="arch rv" id="arch">
       <div class="layers">
+        <div class="ret" aria-hidden="true"><span>תוצר → בקרה → אישור אנושי</span></div>
         <div class="layer" tabindex="0" data-l="1" data-rel="2,5">
           <div class="ly-name"><small>LAYER 01</small><b>אנשי המקצוע</b></div>
           <div class="chips"><span class="chip">מנתחי מערכות</span><span class="chip">מפתחים</span><span class="chip">ארכיטקטים</span><span class="chip">מנהלי פרויקטים</span><span class="chip">צוותי QA</span></div>
         </div>
+        <div class="conn" aria-hidden="true"><i></i><span>בקשה, הקשר והחלטות</span></div>
         <div class="layer" tabindex="0" data-l="2" data-rel="1,3,4,5">
           <div class="ly-name"><small>LAYER 02</small><b>המלווה המקצועי</b></div>
           <div class="companion"><i class="pulse" aria-hidden="true"></i><span>סוכן AI המלווה את העובד לאורך תהליך העבודה, מבין את ההקשר ומפעיל את היכולות המקצועיות הרלוונטיות.</span></div>
         </div>
+        <div class="conn" aria-hidden="true"><i></i><span>הפעלת היכולת המקצועית המתאימה</span></div>
         <div class="layer" tabindex="0" data-l="3" data-rel="2,4,5">
           <div class="ly-name"><small>LAYER 03</small><b class="en" style="text-align:right">Professional Skills</b></div>
           <div class="chips"><span class="chip">תחקור וגיבוש דרישות</span><span class="chip">ניתוח ואפיון</span><span class="chip">הבנת מערכות קיימות</span><span class="chip">סקירה ובקרת איכות</span><span class="chip">הכנת תוצרים להמשך הפיתוח</span><span class="chip">ניהול שינויים</span><span class="chip">פרסום ושימור תוצרים</span></div>
         </div>
+        <div class="conn both" aria-hidden="true"><i></i><span>שימוש בהקשר הרלוונטי מתוך הידע</span></div>
         <div class="layer kb" tabindex="0" data-l="4" data-rel="2,3,5">
           <div class="ly-name"><small>LAYER 04</small><b>הידע הארגוני</b></div>
           <div class="chips"><span class="chip">ידע עסקי</span><span class="chip">תיעוד מערכות</span><span class="chip">ארכיטקטורה ותשתיות</span><span class="chip">קוד ונתונים</span><span class="chip">סטנדרטים ארגוניים</span><span class="chip">החלטות מקצועיות</span></div>
         </div>
       </div>
       <aside class="gov" tabindex="0" data-l="5" data-rel="1,2,3,4">
+        <span class="gov-tag" aria-hidden="true">חוצה את כל השכבות</span>
         <div class="ly-name"><small>LAYER 05</small><b>ממשל ובקרה</b></div>
         <ul><li class="en" style="text-align:right">Quality Gates</li><li class="en" style="text-align:right">Human in the Loop</li><li>ניהול גרסאות</li><li>אינטגרציה עם סביבת העבודה</li><li>מדידה ושיפור מתמשך</li></ul>
       </aside>
@@ -624,14 +819,14 @@ svg text{font-family:var(--font)}
   <div class="wrap">
     <div class="demo-head">
       <div>
-        <span class="label rv"><b>04</b> / THE MASTER IN ACTION</span>
-        <h2 class="rv">כשהבינה מתחילה לעבוד כמו <em>איש מקצוע מנוסה.</em></h2>
+        <span class="label rv"><b>05</b> / THE MASTER IN ACTION</span>
+        <h2 class="rv">לא רק מייצר תוצרים. <em>מפעיל שיקול דעת מקצועי.</em></h2>
       </div>
-      <p class="lead rv" style="max-width:460px">הדגש אינו על מהירות יצירת המסמך — אלא על החשיבה המקצועית שמתרחשת לפני שהוא נכתב.</p>
+      <p class="lead rv" style="max-width:460px">המלווה לא תמיד יודע את התשובה. הערך הוא ביכולת לזהות חוסר ודאות, לשאול, לעצור ולהתריע.</p>
     </div>
 
     <div class="win rv" id="win">
-      <div class="win-top"><b>THE THIRD MASTER · WORKSPACE</b><span class="illus">המחשה · תרחיש פיקטיבי</span></div>
+      <div class="win-top"><b>THE THIRD MASTER · WORKSPACE</b><span class="illus">המחשה בלבד · תרחיש פיקטיבי</span></div>
       <div class="steps" id="steps" role="tablist" aria-label="שלבי ההדגמה"></div>
       <div class="panes">
         <div class="pane">
@@ -680,79 +875,53 @@ svg text{font-family:var(--font)}
   </div>
 </section>
 
-<!-- ======================= 06 · RESULTS ======================= -->
-<section class="sec" id="results">
-  <div class="wrap">
-    <span class="label rv"><b>06</b> / RESULTS FROM THE FIELD</span>
-    <h2 class="rv">לא תיאוריה. <em>ניסיון מהשטח.</em></h2>
-    <div class="res">
-      <div class="rv">
-        <div class="big" aria-hidden="true"><span id="count">60</span><sup>%</sup></div>
-        <p class="big-cap">חיסכון בזמן בתהליכי אפיון שנבחנו.</p>
-        <p class="big-note">תוצאה שנמדדה בתהליכים מסוימים. אינה התחייבות לתוצאה זהה בכל ארגון.</p>
-        <span class="hp">60 אחוז חיסכון בזמן בתהליכי אפיון שנבחנו</span>
-      </div>
-      <ol class="vals rv">
-        <li>שיפור איכות התוצרים</li>
-        <li>יצירת אחידות בשיטת העבודה</li>
-        <li>הנגשת הידע הארגוני</li>
-        <li>הפחתת התלות במומחים בודדים</li>
-        <li>קיצור תהליכי קליטה והכשרה</li>
-        <li>ייעול עבודתם של אנשי המקצוע המנוסים עצמם</li>
-      </ol>
-    </div>
-  </div>
-</section>
 
 <!-- ======================= 07 · SERVICES ======================= -->
 <section class="sec" id="services" style="background:var(--paper-2)">
   <div class="wrap">
-    <span class="label rv"><b>07</b> / CONSULTING &amp; ENABLEMENT</span>
-    <h2 class="rv">לא להכניס עוד כלי לארגון. <em>לבנות יכולת חדשה.</em></h2>
-    <div class="svc">
-      <div class="svc-row rv"><span class="i">01</span><h3>AI Strategy &amp; Architecture</h3><p>מיפוי תהליכי עבודה, זיהוי הזדמנויות וגיבוש ארכיטקטורת AI המותאמת לצרכים ולסביבה הטכנולוגית של הארגון.</p></div>
-      <div class="svc-row rv"><span class="i">02</span><h3>AI-Driven Methodology</h3><p>ליווי בגיבוש מתודולוגיות עבודה, ארכיטקטורת סוכנים, <span class="en">Skills</span>, בסיסי ידע ומנגנוני בקרת איכות.</p></div>
-      <div class="svc-row rv"><span class="i">03</span><h3>Enterprise AI Enablement</h3><p>ליווי פיילוטים והטמעת שיטות העבודה בתוך הצוותים, תוך התאמה לתהליכים ולכלים הארגוניים הקיימים.</p></div>
-      <div class="svc-row rv"><span class="i">04</span><h3>Organizational Capability</h3><p>בניית יכולת עצמאית בארגון להמשיך לפתח, לשפר ולהרחיב את השימוש במתודולוגיה.</p></div>
-    </div>
-    <p class="svc-note rv">השירותים ניתנים כייעוץ מקצועי וליווי ארגוני.</p>
-  </div>
-</section>
-
-<!-- ======================= 08 · ENGAGEMENT ======================= -->
-<section class="sec" id="engagement">
-  <div class="wrap">
-    <span class="label rv"><b>08</b> / HOW WE WORK TOGETHER</span>
-    <h2 class="rv">מהאסטרטגיה <em>ועד לשינוי בשטח.</em></h2>
-    <ol class="eng">
-      <li class="rv"><span class="num">01</span><h3>אבחון ומיפוי</h3><p>הבנת הארגון, תהליכי העבודה, האתגרים והיעדים.</p></li>
-      <li class="rv"><span class="num">02</span><h3>תכנון המתודולוגיה</h3><p>גיבוש ארכיטקטורה ושיטת עבודה המותאמות לארגון.</p></li>
-      <li class="rv"><span class="num">03</span><h3>פיילוט ממוקד</h3><p>ליווי יישום בתהליכי עבודה אמיתיים, מדידת תוצאות ושיפור.</p></li>
-      <li class="rv"><span class="num">04</span><h3>הרחבה ארגונית</h3><p>ליווי הצוותים בהרחבת המתודולוגיה ובבניית יכולת עצמאית לאורך זמן.</p></li>
+    <span class="label rv"><b>06</b> / CONSULTING &amp; ENABLEMENT</span>
+    <h2 class="rv">בונים את שיטת העבודה החדשה <em>של הארגון שלכם.</em></h2>
+    <ol class="eng svc-seq">
+      <li class="rv"><span class="num">01</span><h3 class="en">AI Strategy &amp; Architecture</h3><p>מיפוי תהליכי העבודה, זיהוי הזדמנויות וגיבוש ארכיטקטורת AI המותאמת לארגון.</p></li>
+      <li class="rv"><span class="num">02</span><h3 class="en">Methodology Design</h3><p>גיבוש מתודולוגיית עבודה, מבנה הידע, סוכנים מקצועיים, <span class="en">Skills</span> ומנגנוני בקרה.</p></li>
+      <li class="rv"><span class="num">03</span><h3 class="en">Pilot &amp; Enablement</h3><p>ליווי הצוותים ביישום המתודולוגיה בתהליכים אמיתיים, מדידת תוצאות ושיפור.</p></li>
+      <li class="rv"><span class="num">04</span><h3 class="en">Enterprise Scale</h3><p>הרחבת השיטה, הכשרת הצוותים ובניית יכולת ארגונית עצמאית.</p></li>
     </ol>
+    <p class="svc-note rv">ליווי, ייעוץ והובלה מקצועית של התהליך — לא התחייבות לפיתוח ולתחזוקה של כלל הסוכנים עבור הארגון.</p>
   </div>
 </section>
 
-<!-- ======================= 09 · ENVIRONMENT ======================= -->
-<section class="sec" id="environment" style="padding-top:0">
-  <div class="wrap env">
+<!-- ======================= 07 · INDEPENDENCE + ENVIRONMENT ======================= -->
+<section class="sec dark" id="independence">
+  <div class="wrap ind">
     <div>
-      <span class="label rv"><b>09</b> / YOUR ENVIRONMENT</span>
-      <h2 class="rv">המתודולוגיה נכנסת לארגון. <em>הארגון לא צריך להתאים את עצמו אליה.</em></h2>
-      <p class="disc rv">התאמה לסביבת העבודה הקיימת, בכפוף לתשתיות, למדיניות הארגון ולכלים המאושרים לשימוש בו. השמות מוצגים להמחשת סוגי סביבות בלבד ואינם מעידים על שותפות מסחרית.</p>
+      <span class="label rv"><b>07</b> / ORGANIZATIONAL INDEPENDENCE</span>
+      <p class="ind-title rv">המומחיות <em>נשארת אצלכם.</em></p>
+      <p class="lead rv">המטרה שלנו אינה ליצור תלות בחברת ייעוץ. המטרה היא לבנות בתוך הארגון יכולת עצמאית להטמיע, לפתח, לשפר ולהרחיב תהליכי AI מקצועיים.</p>
+      <ol class="principles rv">
+        <li><span>01</span>מתודולוגיה המותאמת לארגון.</li>
+        <li><span>02</span>ידע מקצועי הנשמר בארגון.</li>
+        <li><span>03</span>צוותים בעלי יכולת עצמאית להמשיך ולהתפתח.</li>
+      </ol>
     </div>
-    <figure class="orbit rv" aria-label="המתודולוגיה במרכז, ומסביבה סביבות עבודה קיימות: Claude Code, Kiro, Cursor, Git, Azure DevOps, Jira">
-      <svg viewBox="0 0 640 420" id="orbit"></svg>
-      <div class="orbit-m" aria-hidden="true"><div class="o-core">המתודולוגיה</div><div class="o-tools"><span>Claude Code</span><span>Kiro</span><span>Cursor</span><span>Git</span><span>Azure DevOps</span><span>Jira</span></div></div>
-    </figure>
+    <div class="env-side rv">
+      <p class="env-title">המתודולוגיה נכנסת לארגון. <span>הארגון לא צריך להתאים את עצמו אליה.</span></p>
+      <figure class="orbit" aria-label="המתודולוגיה במרכז, ומסביבה סביבות עבודה קיימות: Claude Code, Kiro, Cursor, Git, Azure DevOps, Jira">
+        <svg viewBox="0 0 640 420" id="orbit"></svg>
+        <div class="orbit-m" aria-hidden="true"><div class="o-core">המתודולוגיה</div><div class="o-tools"><span>Claude Code</span><span>Kiro</span><span>Cursor</span><span>Git</span><span>Azure DevOps</span><span>Jira</span></div></div>
+      </figure>
+      <p class="disc">בכפוף לתשתיות, למדיניות הארגון ולכלים המאושרים לשימוש בו. השמות מוצגים להמחשת סוגי סביבות בלבד ואינם מעידים על שותפות מסחרית.</p>
+    </div>
   </div>
 </section>
+
+
 
 <!-- ======================= 10 · EXPERIENCE ======================= -->
 <section class="sec" id="experience" style="background:var(--paper-2)">
   <div class="wrap exp">
     <div>
-      <span class="label rv"><b>10</b> / EXPERIENCE</span>
+      <span class="label rv"><b>07</b> / EXPERIENCE</span>
       <h2 class="rv">ניסיון שמחבר בין טכנולוגיה, תהליכים <em>ובינה מלאכותית.</em></h2>
       <ul class="exp-list rv" style="margin-top:36px">
         <li><i></i>למעלה מעשור של ניסיון במערכות מורכבות בעולמות הבנקאות והביטוח.</li>
@@ -783,7 +952,7 @@ svg text{font-family:var(--font)}
 <section class="sec dark" id="contact">
   <div class="wrap final">
     <div>
-      <span class="label rv"><b>11</b> / NEXT STEP</span>
+      <span class="label rv"><b>08</b> / NEXT STEP</span>
       <h2 class="rv">השלב הבא של ה־AI בארגון שלכם הוא לא עוד כלי. <em>הוא שיטת עבודה.</em></h2>
       <p class="lead rv">בואו נבחן כיצד ניתן להפוך את המומחיות הארגונית שלכם ליכולת מקצועית המוטמעת בתהליכי העבודה באמצעות AI.</p>
     </div>
@@ -830,7 +999,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 $$('.rv').forEach(n=>io.observe(n));
 /* active nav */
 const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('.nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
-['shift','architecture','demo','results','services','experience'].forEach(id=>navIO.observe(document.getElementById(id)));
+['proof','master','challenges','architecture','services','independence'].forEach(id=>navIO.observe(document.getElementById(id)));
 
 /* ---------- 01 hero system: skills orbit + knowledge stack ---------- */
 (function(){const g=$('#skills');for(let i=0;i<7;i++){const a=(-90+i*360/7)*Math.PI/180,x=300+104*Math.cos(a),y=238+104*Math.sin(a);
@@ -892,46 +1061,141 @@ const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('
 
 /* ---------- 04 demo: fictional scenario, step by step ---------- */
 (function(){
+  // Fictional scenario. The point is professional judgment: noticing gaps, uncertainty, stopping and asking.
   const S=[
-   {t:'צורך עסקי ראשוני',chat:[['u','לקוחות מבקשים לראות בפורטל את הסטטוס של הפניות שלהם. אפשר להתחיל לאפיין?'],['c','כן. לפני שנכתוב משהו — אבדוק מה כבר קיים בארגון סביב פניות ופורטל הלקוחות.']],
-    log:[['src','נפתחה דרישה חדשה','פורטל לקוחות · הצגת סטטוס פניות']]},
-   {t:'בחינת ההקשר הארגוני',chat:[['c','מצאתי את תהליך הטיפול בפניות, את תיעוד הפורטל והחלטה קודמת על הצגת מידע אישי בפורטל. אשתמש בהם כבסיס.']],
-    log:[['src','ידע עסקי','תהליך טיפול בפניות'],['src','תיעוד מערכת','פורטל לקוחות'],['src','החלטה מקצועית קודמת','הצגת מידע אישי בפורטל']]},
-   {t:'בדיקת יכולות ותשתיות',chat:[['c','קיים כבר שירות שמחזיק את סטטוס הפנייה, והפורטל מציג היסטוריית לקוח. אין צורך לבנות את הבסיס מחדש.']],
-    log:[['ok','שירות סטטוס פניות קיים','ניתן לשימוש חוזר'],['ok','הפורטל מציג היסטוריית לקוח','רכיב תצוגה קיים'],['flag','השפעה על שירות ההתראות','לבירור בשלב הבא']]},
-   {t:'פערים ושאלות ממוקדות',chat:[['warn','נקודת החלטה: ההחלטה הקודמת מחייבת אימות מוגבר לפני הצגת מידע אישי. האם להחיל אותה גם כאן?'],['u','כן, אותו אימות.'],['c','ועוד שתי שאלות: אילו פניות להציג — גם סגורות? ומי רשאי לראות פניות בחשבון משותף?'],['u','פניות מ־12 החודשים האחרונים, ורק בעל החשבון.']],
-    log:[['flag','זוהה מידע חסר','תקופת הצגה · הרשאות בחשבון משותף'],['flag','נעצר לנקודת החלטה','החלת אימות מוגבר'],['ok','ההחלטות תועדו','לשימוש בהמשך התהליך']]},
-   {t:'גיבוש תוצר מובנה',chat:[['c','גיבשתי טיוטת אפיון במבנה הארגוני, כולל ההחלטות שקיבלת וההשפעה על שירות ההתראות.']],
-    log:[['ok','נבנתה טיוטת אפיון','לפי המבנה הארגוני']],art:{h:'טיוטת אפיון',st:'טיוטה',rows:[['רקע ומטרה','מוכן'],['תרחישי שימוש','מוכן'],['כללים עסקיים והרשאות','מוכן'],['השפעות על מערכות','מוכן'],['קריטריוני קבלה','מוכן']]}},
-   {t:'בקרת איכות נפרדת',chat:[['c','בקרת האיכות מצאה תרחיש חסר: פנייה שהועברה בין מחלקות. הוספתי אותו לטיוטה.']],
-    log:[['src','הופעלה בקרת איכות נפרדת','בדיקה עצמאית של התוצר'],['ok','עקביות וכיסוי','תקין'],['flag','תרחיש חסר נמצא','פנייה שהועברה בין מחלקות — תוקן']],art:{h:'טיוטת אפיון',st:'עברה בקרה',rows:[['רקע ומטרה','מוכן'],['תרחישי שימוש','עודכן','w'],['כללים עסקיים והרשאות','מוכן'],['השפעות על מערכות','מוכן'],['קריטריוני קבלה','מוכן']]}},
-   {t:'אישור העובד',chat:[['c','התוצר מוכן לאישורך. אחרי האישור הוא יעבור להכנה לפיתוח.']],approve:true,
-    log:[['src','ממתין לאישור אנושי','שום תוצר לא ממשיך בלי אישור']],art:{h:'טיוטת אפיון',st:'ממתין לאישור',rows:[['רקע ומטרה','מוכן'],['תרחישי שימוש','מוכן'],['כללים עסקיים והרשאות','מוכן'],['השפעות על מערכות','מוכן'],['קריטריוני קבלה','מוכן']]}}
+   {t:'דרישה חלקית',chat:[['u','צריך שלקוחות יוכלו לעקוב בפורטל אחרי הפניות שלהם. אפשר להתחיל?'],['c','אפשר להתחיל לבחון — אבל עוד לא לכתוב. הדרישה כרגע חלקית.']],
+    log:[['src','נפתחה דרישה חדשה','פורטל לקוחות · מעקב אחרי פניות'],['flag','הדרישה סומנה כחלקית','חסרים פרטים לפני אפיון']]},
+   {t:'זיהוי מידע חסר',chat:[['c','חסרים לי שלושה דברים: אילו פניות להציג, לאילו לקוחות, ומה בדיוק נחשב "סטטוס" מבחינת הלקוח. לא אנחש — אסמן אותם כפתוחים ואבדוק מה קיים בארגון.']],
+    log:[['flag','שאלה פתוחה','אילו פניות להציג'],['flag','שאלה פתוחה','הרשאות: אילו לקוחות'],['flag','שאלה פתוחה','הגדרת "סטטוס" מבחינת הלקוח']]},
+   {t:'בחינת ההקשר והידע',chat:[['c','מצאתי את תהליך הטיפול בפניות ואת התיעוד של הפורטל. לגבי הגדרת הסטטוסים לא מצאתי תיעוד עדכני — אסמן את זה כאי ודאות ולא כעובדה.']],
+    log:[['src','ידע עסקי','תהליך טיפול בפניות'],['src','תיעוד מערכת','פורטל לקוחות'],['flag','אי ודאות','אין תיעוד עדכני להגדרת הסטטוסים']]},
+   {t:'יכולת קיימת',chat:[['c','קיים כבר שירות שמנהל את סטטוס הפנייה. אפשר להשתמש בו — אבל הוא בנוי לצוותים הפנימיים, וזה עשוי להשפיע על הפתרון.']],
+    log:[['ok','שירות סטטוס פניות קיים','שימוש חוזר אפשרי'],['flag','השפעה אפשרית על הפתרון','השירות מציג סטטוסים פנימיים']]},
+   {t:'שאלה שמשנה כיוון',chat:[['warn','השירות הקיים מציג 9 סטטוסים פנימיים, חלקם לא מתאימים ללקוח. להציג את כולם, או למפות אותם לסטטוסים שהלקוח מבין?'],['u','למפות. לא חשבתי על זה.'],['c','זה משנה את היקף העבודה: נדרש מיפוי סטטוסים ואישור של בעל התהליך העסקי. אוסיף את זה כתנאי להמשך.']],
+    log:[['flag','נעצר לנקודת החלטה','הצגת סטטוסים פנימיים ללקוח'],['ok','ההחלטה תועדה','מיפוי לסטטוסים ללקוח'],['flag','תנאי חדש','אישור בעל התהליך העסקי']]},
+   {t:'גיבוש תוצר',chat:[['c','גיבשתי טיוטת אפיון במבנה הארגוני. מיפוי הסטטוסים מופיע כנושא פתוח — לא השלמתי אותו בהנחות.']],
+    log:[['ok','נבנתה טיוטת אפיון','לפי המבנה הארגוני']],art:{h:'טיוטת אפיון',st:'טיוטה',rows:[['רקע ומטרה','מוכן'],['תרחישי שימוש','מוכן'],['הרשאות','מוכן'],['מיפוי סטטוסים ללקוח','פתוח','w'],['קריטריוני קבלה','מוכן']]}},
+   {t:'סקירה נפרדת',chat:[['c','סקירה נפרדת עברה על הטיוטה: חסר תרחיש לפנייה שהועברה בין מחלקות — הוספתי. היא גם מתריעה שקריטריוני הקבלה תלויים במיפוי שעדיין פתוח.']],
+    log:[['src','הופעלה סקירה נפרדת','בחינה עצמאית של התוצר'],['flag','תרחיש חסר','פנייה שהועברה בין מחלקות — נוסף'],['flag','התרעה','קריטריוני קבלה תלויים בנושא פתוח']],art:{h:'טיוטת אפיון',st:'עברה סקירה',rows:[['רקע ומטרה','מוכן'],['תרחישי שימוש','עודכן'],['הרשאות','מוכן'],['מיפוי סטטוסים ללקוח','פתוח','w'],['קריטריוני קבלה','מותנה','w']]}},
+   {t:'החלטה ואישור',chat:[['c','ההחלטה שלך: להמשיך עכשיו עם הנושא הפתוח כמעקב, או לעצור עד אישור בעל התהליך?']],approve:true,
+    log:[['src','ממתין להחלטה אנושית','שום תוצר לא ממשיך בלי אישור']],art:{h:'טיוטת אפיון',st:'ממתין להחלטה',rows:[['רקע ומטרה','מוכן'],['תרחישי שימוש','מוכן'],['הרשאות','מוכן'],['מיפוי סטטוסים ללקוח','למעקב','w'],['קריטריוני קבלה','מותנה','w']]}}
   ];
   let i=0,approved=false;
-  const steps=$('#steps');
+  const steps=$('#steps');const LAST=S.length-1;
   S.forEach((s,k)=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.innerHTML='<small>0'+(k+1)+'</small><span>'+s.t+'</span>';b.setAttribute('aria-label','שלב '+(k+1)+': '+s.t);b.onclick=()=>go(k);steps.appendChild(b)});
   const ICON={ok:'✓',src:'◇',flag:'!'},WHO={u:'העובד',c:'המלווה המקצועי',warn:'המלווה המקצועי · התרעה'};
   function render(){
-    [...steps.children].forEach((b,k)=>{b.classList.toggle('on',k===i);b.classList.toggle('done',k<i||(k===6&&approved));b.setAttribute('aria-selected',String(k===i))});
+    [...steps.children].forEach((b,k)=>{b.classList.toggle('on',k===i);b.classList.toggle('done',k<i||(k===LAST&&approved));b.setAttribute('aria-selected',String(k===i))});
     const chat=$('#chat');chat.innerHTML='';
-    S.slice(0,i+1).forEach((s,k)=>s.chat.forEach(([w,t],m)=>{const d=document.createElement('div');d.className='msg '+w;d.style.animationDelay=(k===i&&!reduce?m*.35:0)+'s';d.innerHTML='<small>'+WHO[w]+'</small>';d.append(t);chat.appendChild(d)}));
-    if(S[i].approve){if(!approved){const a=document.createElement('button');a.className='approve';a.type='button';a.textContent='✓ אישור התוצר להמשך התהליך';a.onclick=()=>{approved=true;render()};chat.appendChild(a)}
-      else{const d=document.createElement('div');d.className='msg u';d.innerHTML='<small>העובד</small>אושר. ממשיכים להכנה לפיתוח.';chat.appendChild(d)}}
+    const older=S.slice(0,Math.max(0,i-1)).reduce((n,x)=>n+x.chat.length,0);
+    if(older){const o=document.createElement('div');o.className='older';o.textContent='↑ '+older+' הודעות קודמות בשיחה';chat.appendChild(o)}
+    S.slice(Math.max(0,i-1),i+1).forEach((s,kk)=>{const k=Math.max(0,i-1)+kk;s.chat.forEach(([w,t],m)=>{const d=document.createElement('div');d.className='msg '+w+(k<i?' prev':'');d.style.animationDelay=(k===i&&!reduce?m*.3:0)+'s';d.innerHTML='<small>'+WHO[w]+'</small>';d.append(t);chat.appendChild(d)})});
+    if(S[i].approve){if(!approved){const a=document.createElement('button');a.className='approve';a.type='button';a.textContent='✓ אישור להמשך התהליך';a.onclick=()=>{approved=true;render()};chat.appendChild(a)}
+      else{const d=document.createElement('div');d.className='msg u';d.innerHTML='<small>העובד</small>מאשרת להמשיך, עם מיפוי הסטטוסים כנושא פתוח למעקב.';chat.appendChild(d)}}
     const log=$('#log');log.innerHTML='';
-    S[i].log.concat(i===6&&approved?[['ok','אושר על ידי העובד','עובר להכנה לפיתוח']]:[]).forEach(([k,h,s2],m)=>{const d=document.createElement('div');d.className='ev';d.style.animationDelay=(reduce?0:m*.18)+'s';d.innerHTML='<i class="'+k+'">'+ICON[k]+'</i><div></div>';d.lastChild.append(h);const sm=document.createElement('small');sm.textContent=s2;d.lastChild.appendChild(sm);log.appendChild(d)});
+    S[i].log.concat(i===LAST&&approved?[['ok','אושר על ידי העובד','עובר להכנה לפיתוח']]:[]).forEach(([k,h,s2],m)=>{const d=document.createElement('div');d.className='ev';d.style.animationDelay=(reduce?0:m*.18)+'s';d.innerHTML='<i class="'+k+'">'+ICON[k]+'</i><div></div>';d.lastChild.append(h);const sm=document.createElement('small');sm.textContent=s2;d.lastChild.appendChild(sm);log.appendChild(d)});
     const art=$('#art');art.innerHTML='';const a=S[i].art;
-    if(a){const box=document.createElement('div');box.className='artifact';const st=(i===6&&approved)?'אושר':a.st;
-      box.innerHTML='<h4></h4><ol></ol>';box.querySelector('h4').append(a.h);const sp=document.createElement('span');sp.textContent=st;if(st==='אושר'||st==='עברה בקרה')sp.className='ok';box.querySelector('h4').appendChild(sp);
+    if(a){const box=document.createElement('div');box.className='artifact';const st=(i===LAST&&approved)?'אושר להמשך':a.st;
+      box.innerHTML='<h4></h4><ol></ol>';box.querySelector('h4').append(a.h);const sp=document.createElement('span');sp.textContent=st;if(/אושר|עברה/.test(st))sp.className='ok';box.querySelector('h4').appendChild(sp);
       a.rows.forEach(([n,s3,w])=>{const li=document.createElement('li');li.append(n);const x=document.createElement('span');x.textContent=s3;if(w)x.className='w';li.appendChild(x);box.querySelector('ol').appendChild(li)});art.appendChild(box)}
-    $('#stepTag').textContent='שלב '+(i+1)+' מתוך 7';
-    $('#meter').style.width=((i+(i===6&&approved?1:.5))/7*100)+'%';
-    $('#prev').disabled=i===0;$('#next').disabled=i===6;
+    $('#stepTag').textContent='שלב '+(i+1)+' מתוך '+S.length;
+    $('#meter').style.width=((i+(i===LAST&&approved?1:.5))/S.length*100)+'%';
+    $('#prev').disabled=i===0;$('#next').disabled=i===LAST;
   }
-  function go(k){i=Math.max(0,Math.min(6,k));render()}
+  function go(k){i=Math.max(0,Math.min(LAST,k));render()}
   $('#prev').onclick=()=>go(i-1);$('#next').onclick=()=>go(i+1);$('#restart').onclick=()=>{approved=false;go(0)};
   steps.addEventListener('keydown',e=>{const d=e.key==='ArrowLeft'?1:e.key==='ArrowRight'?-1:0;if(d){e.preventDefault();go(i+d);steps.children[i].focus()}});
   render();
+})();
+
+/* ---------- 03 the third master: three arcs that close one ring ---------- */
+(function(){
+  const svg=$('#ringSvg');if(!svg)return;svg.setAttribute('viewBox','-70 -10 660 540');const C=260,R=170;
+  const P=[{n:'איש המקצוע',e:'THE PROFESSIONAL',c:'#171a18',a:-90},{n:'AI',e:'EXECUTION',c:'#8d918a',a:30},{n:'Skill',e:'EXPERTISE & METHOD',c:'#fc693f',a:150}];
+  const pt=(deg,r)=>[C+r*Math.cos(deg*Math.PI/180),C+r*Math.sin(deg*Math.PI/180)];
+  const segs=P.map((p,k)=>{const g=el('g',{class:'seg','data-p':k},svg);const a0=p.a-56,a1=p.a+56,[x0,y0]=pt(a0,R),[x1,y1]=pt(a1,R);
+    el('path',{class:'arc',d:`M${x0} ${y0} A${R} ${R} 0 0 1 ${x1} ${y1}`,stroke:p.c},g);
+    const [lx,ly]=pt(p.a,R+(p.a===-90?58:64));
+    const t=el('text',{x:lx,y:ly,'text-anchor':'middle',class:'lbl',fill:'#171a18'},g);t.textContent=p.n;
+    const te=el('text',{x:lx,y:ly+18,'text-anchor':'middle',class:'lbl-en',direction:'ltr'},g);te.textContent=p.e;
+    const [ox,oy]=pt(p.a,48);g.dataset.off=`translate(${ox-C}px,${oy-C}px)`;g.style.transform=reduce?'none':g.dataset.off;return g});
+  el('circle',{cx:C,cy:C,r:98,fill:'#171a18'},svg);
+  const m=el('g',{transform:`rotate(-9 ${C} ${C-18})`},svg);el('circle',{cx:C,cy:C-18,r:26,fill:'none',stroke:'#fffdf7','stroke-width':3.4},m);el('rect',{x:C-6,y:C-31,width:12,height:26,fill:'#fffdf7'},m);
+  el('circle',{cx:C-20,cy:C-41,r:6,fill:'#fc693f'},svg);
+  const t1=el('text',{x:C,y:C+38,'text-anchor':'middle',fill:'#fffdf7','font-size':12.5,'font-weight':800,'letter-spacing':'2',direction:'ltr'},svg);t1.textContent='THE THIRD MASTER';
+  const ring=$('#ring'),items=$$('#partners li');
+  const focus=k=>{ring.classList.toggle('dim-others',k!=null);segs.forEach((g,j)=>g.classList.toggle('on',j===k));items.forEach((li,j)=>li.classList.toggle('on',j===k))};
+  segs.forEach((g,k)=>{g.addEventListener('mouseenter',()=>focus(k));g.addEventListener('mouseleave',()=>focus(null))});
+  items.forEach((li,k)=>{li.addEventListener('mouseenter',()=>focus(k));li.addEventListener('mouseleave',()=>focus(null));li.addEventListener('focus',()=>focus(k));li.addEventListener('blur',()=>focus(null))});
+  // the three parts come together gradually: the ring is only complete when all three are in place
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();segs.forEach((g,k)=>setTimeout(()=>{g.style.transform='none'},reduce?0:250+k*420))}),{threshold:.35}).observe(ring);
+})();
+
+/* ---------- 04 enterprise AI challenges ---------- */
+(function(){
+  const list=$('#chList'),stage=$('#chStage');if(!list)return;
+  const mob=matchMedia('(max-width:980px)');
+  const d=(i)=>` style="animation-delay:${reduce?0:Math.min(i,14)*.035}s"`;
+  const node=(x,y,w,h,txt,cls,i,tcls)=>`<g class="pop"${d(i)}><rect class="n ${cls||''}" x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}"/><text class="${tcls||'t'}" x="${x}" y="${y+5}" text-anchor="middle">${txt}</text></g>`;
+  const line=(x1,y1,x2,y2,cls,i)=>`<path class="l pop ${cls||''}"${d(i)} d="M${x1} ${y1} L${x2} ${y2}"/>`;
+  const cap=t=>`<text class="te" x="280" y="286" text-anchor="middle" direction="ltr">${t}</text>`;
+  const V=[
+    // 01 existing systems: components, documentation and code — the work is grounded in what already exists
+    ()=>{let s='';const N=[[120,70,'פורטל'],[280,70,'שירות לקוחות'],[440,70,'הזמנות'],[120,170,'חיוב'],[280,170,'ניהול פניות'],[440,170,'הודעות']];
+      [[0,1],[1,2],[1,4],[3,4],[4,5],[2,5],[0,3]].forEach(([a,b],i)=>{s+=line(N[a][0],N[a][1],N[b][0],N[b][1],([0,1].includes(a)&&b===4)||(a===1&&b===4)||(a===3&&b===4)||(a===4&&b===5)?'hot':'',i)});
+      N.forEach((n,i)=>{s+=node(n[0],n[1],118,40,n[2],i===4?'hot':'',i+3)});
+      s+=node(80,240,96,30,'תיעוד','',10)+node(200,240,96,30,'קוד','',11)+node(320,240,110,30,'ארכיטקטורה','',12)+node(450,240,96,30,'ידע עסקי','',13);
+      s+=line(280,190,280,225,'dash',14);return s+cap('GROUNDED IN THE EXISTING LANDSCAPE')},
+    // 02 personal expertise → shared organizational method
+    ()=>{let s='';const ys=[45,95,145,195,245];
+      ys.forEach((y,i)=>{s+=`<g class="pop"${d(i)}><circle class="n" cx="480" cy="${y}" r="15"/></g>`+line(465,y,330,145,'',i+5)+line(230,145,95,y,'hot',i+11)+node(80,y,30,26,'✓','ok',i+12)});
+      s+=node(280,145,110,150,'','hot',10)+`<text class="tb pop"${d(11)} x="280" y="138" text-anchor="middle">שיטה</text><text class="tb pop"${d(11)} x="280" y="158" text-anchor="middle">משותפת</text>`;
+      s+=`<text class="t pop"${d(4)} x="480" y="280" text-anchor="middle">עובדים שונים</text><text class="t pop"${d(16)} x="80" y="280" text-anchor="middle">אותה רמה</text>`;return s},
+    // 03 independent quality control: creation and review are separate tracks
+    ()=>{let s='';s+=`<text class="te pop"${d(0)} x="530" y="40" text-anchor="end" direction="ltr">CREATION</text><text class="te pop"${d(0)} x="530" y="178" text-anchor="end" direction="ltr">INDEPENDENT REVIEW</text>`;
+      s+=node(440,85,140,40,'יצירת התוצר','',1)+line(370,85,290,85,'',2)+node(230,85,120,40,'טיוטה','',3);
+      s+=`<path class="l dash pop"${d(4)} d="M40 140 H540"/>`;
+      s+=line(230,105,230,180,'hot',5)+node(230,210,140,40,'בחינה עצמאית','hot',6)+line(160,210,120,210,'',7)+node(70,210,90,40,'ממצאים','',8)+line(70,190,70,125,'',9)+node(70,95,90,40,'אישור','ok',10);
+      return s+cap('SEPARATION OF CREATION AND REVIEW')},
+    // 04 change in a live system: focused change, mapped impact, the rest untouched
+    ()=>{let s='';let i=0;for(let r=0;r<3;r++)for(let c=0;c<5;c++){const x=80+c*100,y=60+r*75;const hot=r===1&&c===2,imp=(r===1&&(c===1||c===3))||(r===0&&c===2);
+        s+=`<g class="pop"${d(i++)}><rect class="n ${hot?'hot':''}" x="${x-38}" y="${y-22}" width="76" height="44" ${imp?'stroke="#ffb39a" stroke-dasharray="4 3"':''}/></g>`}
+      s+=`<text class="tb pop"${d(16)} x="280" y="140" text-anchor="middle">שינוי</text>`;
+      s+=`<g class="pop"${d(17)}><rect x="128" y="255" width="12" height="12" fill="none" stroke="#ffb39a" stroke-dasharray="3 2"/><text class="t" x="122" y="266" text-anchor="end">מושפע — נבדק</text><rect x="318" y="255" width="12" height="12" class="n"/><text class="t" x="312" y="266" text-anchor="end">ללא שינוי</text></g>`;return s},
+    // 05 large-scale knowledge: only the relevant context is selected for the task
+    ()=>{let s=`<text class="te pop"${d(0)} x="351" y="34" text-anchor="middle" direction="ltr">ORGANIZATIONAL KNOWLEDGE</text>`;let i=1;
+      for(let r=0;r<7;r++)for(let c=0;c<14;c++){const x=520-c*26,y=52+r*28,sel=r>=2&&r<=4&&c>=9&&c<=11;s+=`<rect class="n pop ${sel?'hot':''}"${d(i++%14)} x="${x-9}" y="${y-9}" width="18" height="18"/>`}
+      s+=`<rect class="pop"${d(12)} x="${520-11*26-15}" y="${52+2*28-15}" width="${2*26+30}" height="${2*28+30}" fill="none" stroke="#fc693f" stroke-width="1.8"/>`;
+      s+=line(220,108,150,140,'hot',13)+node(92,140,112,44,'המשימה','ok',14)+`<text class="t pop"${d(14)} x="92" y="186" text-anchor="middle">הקשר רלוונטי בלבד</text>`;
+      return s+cap('THE RIGHT CONTEXT FOR THE TASK')},
+    // 06 continuous improvement: versions, professional tests, feedback — without breaking what works
+    ()=>{let s='';const C=[280,145],R=95,N=[['גרסה חדשה',-90],['בדיקות מקצועיות',0],['משוב',90],['שיפור מבוקר',180]];
+      s+=`<circle class="l pop"${d(0)} cx="${C[0]}" cy="${C[1]}" r="${R}" stroke-dasharray="4 6"/>`;
+      N.forEach(([t,a],i)=>{const x=C[0]+R*1.55*Math.cos(a*Math.PI/180),y=C[1]+R*Math.sin(a*Math.PI/180)*1.05;s+=node(x,y,132,36,t,i===1?'hot':'',i+1)});
+      s+=node(280,145,150,46,'מה שעובד — ממשיך לעבוד','ok',6,'t');return s+cap('VERSIONING · TESTS · CONTROLLED IMPROVEMENT')}
+  ];
+  const DATA=[
+    ['הבנת מערכות קיימות','איך גורמים לבינה לעבוד באופן מקצועי על מערכת שנבנתה והתפתחה במשך שנים?','התבססות על ידע עסקי, ארכיטקטורה, תיעוד וקוד קיים.'],
+    ['הפיכת מומחיות אישית ליכולת ארגונית','איך מבטיחים שעובדים שונים יפעלו לפי אותה רמה מקצועית?','הטמעת המומחיות ושיטת העבודה בתוך יכולות מקצועיות משותפות.'],
+    ['בקרת איכות עצמאית','איך מבטיחים שתוצרים שנוצרו באמצעות AI יעברו בחינה מקצועית ולא רק אישור עצמי של הבינה?','הפרדה בין יצירת התוצר לבין הסקירה והבקרה שלו.'],
+    ['עבודה על מערכות חיות','איך מטפלים בדרישות שינוי מבלי להתחיל את כל תהליך העבודה מחדש?','התאמת תהליך העבודה להקשר הקיים ולסוג השינוי.'],
+    ['ידע ארגוני בהיקפים גדולים','איך מנגישים לבינה את הידע הנדרש בלי להציף אותה במידע שאינו רלוונטי?','ארכיטקטורת ידע המאפשרת שימוש בהקשר המקצועי המתאים למשימה.'],
+    ['שיפור מתמשך של סוכנים מקצועיים','איך מבטיחים ששיפור של יכולת אחת לא יפגע ביכולות שכבר עובדות?','ניהול גרסאות, בדיקות מקצועיות ושיפור מבוקר של המתודולוגיה.']
+  ];
+  const body=k=>`<div class="ch-viz"><svg class="cv" viewBox="0 0 560 300" role="img" aria-label="${DATA[k][0]}">${V[k]()}</svg></div><p class="ch-q">${DATA[k][1]}</p><div class="ch-a"><b>SOLUTION PRINCIPLE</b><p>${DATA[k][2]}</p></div>`;
+  let cur=0;
+  DATA.forEach((x,k)=>{const li=document.createElement('li');
+    li.innerHTML=`<button type="button" class="ch-btn" role="tab" id="chb${k}" aria-controls="chStage"><span class="n">0${k+1}</span><span>${x[0]}</span><span class="ar" aria-hidden="true">‹</span></button><div class="ch-acc" id="cha${k}" hidden></div>`;
+    list.appendChild(li)});
+  const btns=$$('.ch-btn');
+  function select(k,fromKey){cur=k;btns.forEach((b,j)=>{b.setAttribute('aria-selected',String(j===k));b.tabIndex=j===k?0:-1});
+    stage.setAttribute('aria-labelledby','chb'+k);stage.innerHTML=body(k);if(fromKey)btns[k].focus()}
+  function toggle(k){const p=$('#cha'+k),open=p.hidden;$$('.ch-acc').forEach(x=>{x.hidden=true;x.innerHTML=''});btns.forEach(b=>b.setAttribute('aria-expanded','false'));
+    if(open){p.innerHTML=body(k);p.hidden=false;btns[k].setAttribute('aria-expanded','true')}}
+  btns.forEach((b,k)=>{b.addEventListener('click',()=>mob.matches?toggle(k):select(k));
+    b.addEventListener('keydown',e=>{if(mob.matches)return;const n=e.key==='ArrowDown'?1:e.key==='ArrowUp'?-1:0;if(!n)return;e.preventDefault();select((cur+n+6)%6,true)})});
+  select(0);if(mob.matches)toggle(0);
+  mob.addEventListener('change',()=>{$$('.ch-acc').forEach(x=>{x.hidden=true;x.innerHTML=''});btns.forEach(b=>b.removeAttribute('aria-expanded'));if(mob.matches)toggle(cur);else select(cur)});
 })();
 
 /* ---------- 05 continuity thread ---------- */
@@ -991,15 +1255,16 @@ const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('
 (function(){
   const desk=matchMedia('(min-width:1001px)');
   const secs=[...document.querySelectorAll('main>section')],ids=secs.map(x=>x.id);
-  const NAMES={home:'פתיחה',shift:'התפיסה',architecture:'הארכיטקטורה',demo:'בפעולה',method:'המתודולוגיה',results:'תוצאות',services:'שירותים',engagement:'תהליך ההתקשרות',environment:'הסביבה הטכנולוגית',experience:'ניסיון',contact:'פגישת היכרות'};
-  const NAVOF={method:'demo',engagement:'services',environment:'services'};
+  const NAMES={home:'פתיחה',proof:'הוכחה מהשטח',master:'המאסטר השלישי',shift:'השינוי בשיטת העבודה',challenges:'האתגרים',architecture:'הארכיטקטורה',demo:'המלווה בפעולה',method:'המתודולוגיה',services:'הליווי',independence:'עצמאות הארגון',experience:'ניסיון',contact:'פגישת היכרות'};
+  const NAVOF={shift:'master',demo:'architecture',method:'architecture',experience:'independence'};
   // "next" link at the bottom of every screen
   secs.forEach((x,k)=>{if(k<secs.length-1){const a=document.createElement('a');a.className='next-link';a.href='#'+ids[k+1];a.textContent='הבא: '+NAMES[ids[k+1]]+' ←';x.appendChild(a)}});
   let cur=-1,lock=0;
   function fit(){if(cur<0||!desk.matches)return;const x=secs[cur],w=x.querySelector(':scope>.wrap');w.style.zoom='';
     const nl=x.querySelector(':scope>.next-link'),pad=parseFloat(getComputedStyle(x).paddingTop);
     const avail=x.clientHeight-pad-(nl?nl.offsetHeight:0)-12;
-    for(let k=0;k<3;k++){const z=parseFloat(w.style.zoom)||1,need=w.getBoundingClientRect().height/z;if(need<=avail+1)break;w.style.zoom=Math.max(.55,avail/need-.004).toFixed(3)}}
+    x.style.overflowY='';for(let k=0;k<3;k++){const z=parseFloat(w.style.zoom)||1,need=w.getBoundingClientRect().height/z;if(need<=avail+1)break;w.style.zoom=Math.max(.86,avail/need-.004).toFixed(3)}
+    if(x.scrollHeight>x.clientHeight+2)x.style.overflowY='auto'}
   let ft;const refit=()=>{cancelAnimationFrame(ft);ft=requestAnimationFrame(fit)};
   function markNav(id){const n=NAVOF[id]||id;document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+n))}
   function show(i,push){i=Math.max(0,Math.min(secs.length-1,i));if(i===cur)return;cur=i;
@@ -1010,7 +1275,7 @@ const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('
     else{document.documentElement.classList.remove('paged');secs.forEach(x=>{x.classList.remove('active');x.removeAttribute('aria-hidden');const w=x.querySelector(':scope>.wrap');if(w)w.style.zoom=''});cur=-1}}
   document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a||!desk.matches)return;const k=ids.indexOf(a.getAttribute('href').slice(1));if(k<0)return;e.preventDefault();show(k,true);
     if(ids[k]==='contact')setTimeout(()=>{const f=document.getElementById('f-n');f&&f.focus({preventScroll:true})},450)});
-  addEventListener('wheel',e=>{if(!desk.matches||Math.abs(e.deltaY)<25)return;if(e.target.closest('textarea'))return;const n=Date.now();if(n-lock<850)return;lock=n;show(cur+(e.deltaY>0?1:-1),true)},{passive:true});
+  addEventListener('wheel',e=>{if(!desk.matches||Math.abs(e.deltaY)<25)return;if(e.target.closest('textarea'))return;const sc=secs[cur];if(sc&&sc.style.overflowY==='auto'){const atEnd=sc.scrollTop+sc.clientHeight>=sc.scrollHeight-2,atTop=sc.scrollTop<=0;if((e.deltaY>0&&!atEnd)||(e.deltaY<0&&!atTop))return}const n=Date.now();if(n-lock<850)return;lock=n;show(cur+(e.deltaY>0?1:-1),true)},{passive:true});
   addEventListener('keydown',e=>{if(!desk.matches)return;const t=e.target;if(/INPUT|TEXTAREA|SELECT/.test(t.tagName)||t.closest('[role=tablist]')||e.altKey||e.ctrlKey||e.metaKey)return;
     if(['ArrowLeft','PageDown',' '].includes(e.key)&&e.key!==' '){e.preventDefault();show(cur+1,true)}
     if(['ArrowRight','PageUp'].includes(e.key)){e.preventDefault();show(cur-1,true)}});
