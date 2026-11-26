@@ -294,6 +294,54 @@ svg text{font-family:var(--font)}
 .foot .brand-mark{border-color:#c3cac3;color:#c3cac3;width:30px;height:30px;font-size:18px}
 .foot .brand-mark:after{border-color:var(--dark)}
 
+
+/* ---------- Desktop: one screen at a time (as on the tech site) ---------- */
+.next-link{display:block;align-self:flex-end;margin:0 var(--gutter);padding:14px 0 22px;font-size:14px;font-weight:700;color:var(--accent-ink);max-width:var(--max);white-space:nowrap}
+.next-link:hover{text-decoration:underline;text-underline-offset:5px}
+.dark .next-link{color:#ffb39a}
+@media (min-width:1001px){
+  html.paged,html.paged body{height:100%;overflow:hidden}
+  html.paged body{display:flex;flex-direction:column}
+  html.paged .hdr{position:relative;flex-shrink:0}
+  html.paged main{flex:1;position:relative;min-height:0}
+  html.paged main>section{position:absolute;inset:0;display:none;flex-direction:column;overflow:hidden;padding:clamp(20px,3.6vh,48px) 0 0!important}
+  html.paged main>section.active{display:flex;animation:pg .45s var(--ease) both}
+  html.paged main>section>.wrap{margin-block:auto;width:100%}
+  html.paged .foot{display:none}
+  html.paged .rv{opacity:1;transform:none}
+  html.paged .closing{margin-top:clamp(16px,2.4vh,40px);font-size:clamp(24px,min(3vw,5vh),48px)}
+  html.paged h2{font-size:clamp(28px,min(4vw,6.2vh),68px);margin-top:12px}
+  html.paged .hero h1{font-size:clamp(44px,min(6.4vw,10.5vh),112px);margin:18px 0 14px}
+  html.paged .lead{font-size:clamp(16px,min(1.35vw,2.3vh),22px)}
+  html.paged .shift-grid{margin-bottom:clamp(14px,2.4vh,40px)}
+  html.paged .field-svg{max-height:24vh}
+  html.paged .pair{min-height:0;padding:12px 16px 14px}
+  html.paged .arch-head{margin-bottom:clamp(14px,2.6vh,48px)}
+  html.paged .layer{padding:clamp(8px,1.3vh,18px) 18px}
+  html.paged .layers,html.paged .arch{gap:clamp(8px,1.2vh,14px)}
+  html.paged .gov{padding:14px}
+  html.paged .gov li{padding:6px 10px}
+  html.paged .ly-info{margin-top:clamp(8px,1.4vh,22px);padding-top:clamp(8px,1.4vh,20px);min-height:0}
+  html.paged .demo-head{margin-bottom:clamp(14px,2.4vh,44px)}
+  html.paged .panes{min-height:clamp(260px,36vh,440px)}
+  html.paged #demo h2,html.paged #method h2,html.paged #services h2{max-width:none}
+  html.paged .demo-note{display:none}
+  html.paged .pane{padding:clamp(12px,1.8vh,22px) 22px}
+  html.paged .msg{padding:8px 12px;font-size:14px}
+  html.paged .ev{padding:6px 0}
+  html.paged .steps button{padding:10px 8px 8px}
+  html.paged .demo-note{margin-top:10px}
+  html.paged .flow-wrap{margin-top:clamp(20px,3.4vh,56px);padding-top:clamp(16px,2.4vh,36px)}
+  html.paged .res{margin-top:clamp(12px,2.4vh,48px)}
+  html.paged .big{font-size:clamp(120px,min(22vw,34vh),330px)}
+  html.paged .vals li{padding:clamp(8px,1.4vh,17px) 0}
+  html.paged .svc{margin-top:clamp(16px,2.8vh,56px)}
+  html.paged .svc-row{padding:clamp(10px,1.8vh,30px) 0}
+  html.paged .eng{margin-top:clamp(24px,4vh,64px)}
+  html.paged .stats{margin-top:clamp(20px,3.4vh,46px)}
+}
+@keyframes pg{from{opacity:.4;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (max-width:1000px){.next-link{align-self:auto;margin:0;padding:24px 0 0}}
 /* ---------- Responsive ---------- */
 @media (max-width:1180px){
   .nav{display:none}
@@ -338,7 +386,8 @@ svg text{font-family:var(--font)}
   .g2{grid-template-columns:1fr}
   .hero-actions .btn{width:100%;justify-content:center}
   .chip{white-space:normal}
-  .hdr .btn{padding:10px 14px;font-size:12.5px}
+  .hdr .btn{padding:9px 12px;font-size:12.5px}
+  .hdr .wrap{gap:10px}.brand{gap:9px}.brand-txt small{font-size:7.5px;letter-spacing:1.1px}
   .brand-txt b{font-size:15.5px}
   .msg{max-width:96%}
   .win{box-shadow:7px 8px 0 #e4e1d7}
@@ -383,7 +432,7 @@ svg text{font-family:var(--font)}
 
 <header class="hdr">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="המאסטר השלישי — Enterprise AI">
+    <a class="brand" href="#home" aria-label="המאסטר השלישי — Enterprise AI">
       <span class="brand-mark" aria-hidden="true">III</span>
       <span class="brand-txt"><b>המאסטר השלישי<i>.</i></b><small>THE THIRD MASTER / ENTERPRISE AI</small></span>
     </a>
@@ -397,7 +446,7 @@ svg text{font-family:var(--font)}
 <main id="top">
 
 <!-- ======================= 01 · HERO ======================= -->
-<section class="hero">
+<section class="hero" id="home">
   <div class="wrap hero-grid">
     <div>
       <span class="label rv"><b>THE THIRD MASTER</b> / ENTERPRISE AI</span>
@@ -889,9 +938,9 @@ const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('
 (function(){const flow=$('#flow'),th=$('#thread'),sts=$$('#flow .st');
   new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();
     // the thread runs from the first stage dot to the last one
-    const fr=flow.getBoundingClientRect(),d0=sts[0].querySelector('.dotn').getBoundingClientRect(),d1=sts[sts.length-1].querySelector('.dotn').getBoundingClientRect();
-    th.style.top=(d0.top-fr.top+d0.height/2-1)+'px';th.style.right=(fr.right-(d0.left+d0.width/2))+'px';
-    const w=(d0.left+d0.width/2)-(d1.left+d1.width/2);requestAnimationFrame(()=>{th.style.width=w+'px'});
+    const cx=st=>{const d=st.querySelector('.dotn');return st.offsetLeft+d.offsetLeft+d.offsetWidth/2},d=sts[0].querySelector('.dotn');
+    th.style.top=(sts[0].offsetTop+d.offsetTop+d.offsetHeight/2-1)+'px';th.style.right=(flow.clientWidth-cx(sts[0]))+'px';
+    const w=cx(sts[0])-cx(sts[sts.length-1]);requestAnimationFrame(()=>{th.style.width=w+'px'});
     sts.forEach((s,k)=>setTimeout(()=>s.classList.add('lit'),reduce?0:k*460))}),{threshold:.4}).observe(flow)})();
 
 /* ---------- 06 count-up ---------- */
@@ -936,6 +985,39 @@ const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('
     Object.entries(Object.assign({},d,{_captcha:'false'})).forEach(([k,val])=>{const i=document.createElement('input');i.type='hidden';i.name=k;i.value=val;fm.appendChild(i)});
     document.body.appendChild(fm);let x=false;const end=()=>{if(x)return;x=true;fm.remove();res('frame')};fr.onload=end;setTimeout(end,6000);fm.submit()})}
   function fin(how){f.hidden=true;const d=$('#done');d.hidden=false;if(how==='frame')$('#doneTxt').innerHTML='הפנייה נשלחה. אם לא חזרנו אליכם תוך יומיים, כתבו ל־<a href="mailto:'+TO+'" dir="ltr" style="text-decoration:underline">'+TO+'</a>';d.focus()}
+})();
+
+/* ---------- Desktop: separate screens, fit to window, wheel / keys / links ---------- */
+(function(){
+  const desk=matchMedia('(min-width:1001px)');
+  const secs=[...document.querySelectorAll('main>section')],ids=secs.map(x=>x.id);
+  const NAMES={home:'פתיחה',shift:'התפיסה',architecture:'הארכיטקטורה',demo:'בפעולה',method:'המתודולוגיה',results:'תוצאות',services:'שירותים',engagement:'תהליך ההתקשרות',environment:'הסביבה הטכנולוגית',experience:'ניסיון',contact:'פגישת היכרות'};
+  const NAVOF={method:'demo',engagement:'services',environment:'services'};
+  // "next" link at the bottom of every screen
+  secs.forEach((x,k)=>{if(k<secs.length-1){const a=document.createElement('a');a.className='next-link';a.href='#'+ids[k+1];a.textContent='הבא: '+NAMES[ids[k+1]]+' ←';x.appendChild(a)}});
+  let cur=-1,lock=0;
+  function fit(){if(cur<0||!desk.matches)return;const x=secs[cur],w=x.querySelector(':scope>.wrap');w.style.zoom='';
+    const nl=x.querySelector(':scope>.next-link'),pad=parseFloat(getComputedStyle(x).paddingTop);
+    const avail=x.clientHeight-pad-(nl?nl.offsetHeight:0)-12;
+    for(let k=0;k<3;k++){const z=parseFloat(w.style.zoom)||1,need=w.getBoundingClientRect().height/z;if(need<=avail+1)break;w.style.zoom=Math.max(.55,avail/need-.004).toFixed(3)}}
+  let ft;const refit=()=>{cancelAnimationFrame(ft);ft=requestAnimationFrame(fit)};
+  function markNav(id){const n=NAVOF[id]||id;document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+n))}
+  function show(i,push){i=Math.max(0,Math.min(secs.length-1,i));if(i===cur)return;cur=i;
+    secs.forEach((x,k)=>{x.classList.toggle('active',k===i);x.setAttribute('aria-hidden',String(k!==i))});
+    secs[i].querySelectorAll('.rv').forEach(n=>n.classList.add('in'));markNav(ids[i]);refit();
+    if(push)history.replaceState(null,'','#'+ids[i])}
+  function enable(){if(desk.matches){document.documentElement.classList.add('paged');cur=-1;const h=location.hash.slice(1);show(Math.max(0,ids.indexOf(h)),false)}
+    else{document.documentElement.classList.remove('paged');secs.forEach(x=>{x.classList.remove('active');x.removeAttribute('aria-hidden');const w=x.querySelector(':scope>.wrap');if(w)w.style.zoom=''});cur=-1}}
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a||!desk.matches)return;const k=ids.indexOf(a.getAttribute('href').slice(1));if(k<0)return;e.preventDefault();show(k,true);
+    if(ids[k]==='contact')setTimeout(()=>{const f=document.getElementById('f-n');f&&f.focus({preventScroll:true})},450)});
+  addEventListener('wheel',e=>{if(!desk.matches||Math.abs(e.deltaY)<25)return;if(e.target.closest('textarea'))return;const n=Date.now();if(n-lock<850)return;lock=n;show(cur+(e.deltaY>0?1:-1),true)},{passive:true});
+  addEventListener('keydown',e=>{if(!desk.matches)return;const t=e.target;if(/INPUT|TEXTAREA|SELECT/.test(t.tagName)||t.closest('[role=tablist]')||e.altKey||e.ctrlKey||e.metaKey)return;
+    if(['ArrowLeft','PageDown',' '].includes(e.key)&&e.key!==' '){e.preventDefault();show(cur+1,true)}
+    if(['ArrowRight','PageUp'].includes(e.key)){e.preventDefault();show(cur-1,true)}});
+  addEventListener('hashchange',()=>{const k=ids.indexOf(location.hash.slice(1));if(k>-1&&desk.matches)show(k,false)});
+  addEventListener('resize',refit);document.fonts&&document.fonts.ready.then(refit);
+  new MutationObserver(refit).observe(document.querySelector('main'),{subtree:true,childList:true});
+  desk.addEventListener('change',enable);enable();
 })();
 })();
 </script>
