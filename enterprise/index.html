@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><!-- review mockup: not for indexing until approved -->
+<meta name="theme-color" content="#f7f5ef">
+<title>המאסטר השלישי | Enterprise AI — מהפכה בשיטת העבודה</title>
+<meta name="description" content="ייעוץ, ארכיטקטורה וליווי הטמעת AI בליבת תהליכי העבודה הארגוניים: ארכיטקטורת סוכנים מקצועיים, Skills, ידע ארגוני ומתודולוגיית עבודה מבוקרת.">
+<link rel="icon" href="../brand/logo-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CONCEPT — "Blueprint editorial"
+   The brand of www.thirdmaster.com (paper, ink, orange accent, Heebo,
+   ring mark) re-staged for an Enterprise audience: editorial typography,
+   architecture-drawing diagrams, alternating paper / ink chapters,
+   orange used only where the eye must go.
+   ============================================================ */
+:root{
+  --paper:#f7f5ef; --paper-2:#efece3; --ink:#171a18; --dark:#1c201e; --dark-2:#262b28; --muted:#6d706a; --line:#d9d7ce; --line-dark:#3a403c;
+  --accent:#fc693f; --accent-ink:#b9472c; --green:#d9eec3; --green-ink:#2f5a26; --white:#fffdf7; --on-dark:#c3cac3;
+  --font:"Heebo","Noto Sans Hebrew",Arial,sans-serif; --mono:ui-monospace,Menlo,Consolas,monospace;
+  --fs-hero:clamp(48px,6.6vw,112px); --fs-h2:clamp(34px,4.2vw,68px); --fs-lead:clamp(18px,1.4vw,22px); --fs-body:17px;
+  --gutter:clamp(20px,5vw,96px); --max:1440px; --hh:76px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--hh)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:var(--fs-body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}ul,ol{list-style:none;padding:0}
+a{color:inherit;text-decoration:none}button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+::selection{background:#ffc3ad}
+.en{direction:ltr;unicode-bidi:isolate}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+section{position:relative}
+.sec{padding:clamp(80px,11vw,160px) 0}
+.dark{background:var(--dark);color:var(--white)}
+.label{display:block;font-size:12px;font-weight:700;letter-spacing:.18em;direction:ltr;text-align:right;color:var(--muted)}
+.dark .label{color:#9aa39b}
+.label b{color:var(--accent);font-weight:800}
+h2{font-size:var(--fs-h2);line-height:1.06;letter-spacing:-.04em;font-weight:800;margin:20px 0 0;max-width:15ch}
+h2 em{font-style:normal;color:var(--accent)}
+.lead{font-size:var(--fs-lead);line-height:1.7;color:#4a4f48;max-width:640px}
+.dark .lead{color:var(--on-dark)}
+.btn{display:inline-flex;align-items:center;gap:14px;border:0;border-radius:50px;padding:17px 28px;font-weight:800;font-size:15.5px;transition:transform .2s var(--ease),box-shadow .2s,background .2s}
+.btn-ink{background:var(--ink);color:#fff;box-shadow:0 4px 0 #999e95}.btn-ink:hover{transform:translateY(3px);box-shadow:0 1px 0 #999e95}
+.btn-accent{background:var(--accent);color:var(--ink);box-shadow:0 4px 0 var(--accent-ink)}.btn-accent:hover{transform:translateY(3px);box-shadow:0 1px 0 var(--accent-ink)}
+.btn-line{background:transparent;border:1px solid #b9bcb3;padding:16px 24px}.btn-line:hover{background:var(--paper-2)}
+.illus{font-size:11.5px;color:var(--muted);display:inline-flex;align-items:center;gap:7px;font-weight:600}
+.illus:before{content:"";width:7px;height:7px;border-radius:50%;border:1.5px solid currentColor}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- Header (brand mark from www.thirdmaster.com) ---------- */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(247,245,239,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdr .wrap{height:var(--hh);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:13px;white-space:nowrap}
+.brand-mark{width:38px;height:38px;border:2.5px solid var(--ink);border-radius:50%;position:relative;display:grid;place-items:center;font-weight:900;font-family:Arial,sans-serif;font-size:23px;letter-spacing:-4px;padding-left:4px;direction:ltr;transform:rotate(-9deg);flex-shrink:0}
+.brand-mark:after{content:"";position:absolute;width:8px;height:8px;background:var(--accent);border:2px solid var(--paper);border-radius:50%;top:-3px;left:0}
+.brand-txt{display:flex;flex-direction:column;line-height:1.1;gap:4px}
+.brand-txt b{font-size:18px;font-weight:900;letter-spacing:-.6px}.brand-txt b i{font-style:normal;color:var(--accent)}
+.brand-txt small{font-family:Arial,sans-serif;font-size:8.5px;letter-spacing:1.7px;direction:ltr;text-align:right;font-weight:700;color:var(--muted)}
+.nav{display:flex;gap:clamp(14px,2.2vw,34px)}
+.nav a{font-size:13.5px;font-weight:600;color:#797a74;padding:10px 0;position:relative;transition:color .2s}
+.nav a:hover,.nav a.on{color:var(--ink)}
+.nav a.on:after{content:"";position:absolute;bottom:3px;right:0;left:0;height:2px;background:var(--accent)}
+.hdr .btn{padding:12px 20px;font-size:13.5px;box-shadow:none;white-space:nowrap}.hdr .btn:hover{transform:none;background:#3b433e}
+
+/* ---------- 01 Hero ---------- */
+.hero{padding:clamp(56px,8vw,112px) 0 clamp(56px,7vw,96px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(32px,5vw,88px);align-items:center}
+.hero h1{font-size:var(--fs-hero);line-height:.98;letter-spacing:-.05em;font-weight:900;margin:26px 0 22px}
+.hero h1 .dot{color:var(--accent)}
+.tri{font-size:clamp(19px,1.7vw,27px);font-weight:700;letter-spacing:-.02em;line-height:1.45;margin-bottom:22px;display:flex;flex-wrap:wrap;gap:0 14px}
+.tri span:nth-child(2){color:var(--muted)}.tri span:nth-child(3){color:var(--accent-ink)}
+.hero .lead{margin-bottom:34px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.stats{display:flex;gap:0;margin-top:46px;border-top:1px solid var(--line)}
+.stat{padding:20px 0 0;flex:1}
+.stat+.stat{border-right:1px solid var(--line);padding-right:28px}
+.stat b{display:block;font-size:clamp(40px,4vw,60px);font-weight:900;letter-spacing:-.05em;line-height:1;direction:ltr;text-align:right}
+.stat b small{font-size:.5em;color:var(--accent)}
+.stat span{display:block;font-size:14px;color:var(--muted);margin-top:8px;max-width:230px;line-height:1.5}
+.sys{position:relative}
+.sys svg{width:100%;height:auto;display:block}
+.sys .cap{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}
+svg text{font-family:var(--font)}
+.sv-node{fill:var(--white);stroke:var(--ink);stroke-width:1.4}
+.sv-soft{fill:none;stroke:#b9bcb3;stroke-width:1.1}
+.sv-path{fill:none;stroke:#9a9e96;stroke-width:1.2;stroke-dasharray:3 5}
+.sv-hot{fill:none;stroke:var(--accent);stroke-width:1.6}
+.sv-t{font-size:13px;font-weight:700;fill:var(--ink)}
+.sv-s{font-size:11px;font-weight:500;fill:var(--muted)}
+.sv-en{font-size:10px;font-weight:700;fill:var(--muted);letter-spacing:.14em}
+
+/* ---------- 02 Shift ---------- */
+.shift-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,5vw,88px);align-items:end;margin-bottom:48px}
+.stage{background:var(--white);border:1px solid var(--line);position:relative}
+.stage-top{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line);gap:12px;flex-wrap:wrap}
+.seg{display:inline-flex;background:var(--paper-2);border-radius:40px;padding:4px}
+.seg button{border:0;background:none;border-radius:40px;padding:8px 18px;font-size:13.5px;font-weight:700;color:var(--muted);transition:all .25s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.field-svg{display:block;width:100%;height:auto}
+.unit{transition:transform 1.4s var(--ease)}
+.unit .u-link{transition:opacity .8s}
+.rail{transition:opacity 1s .6s}
+.pairs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line)}
+.pair{padding:18px 18px 20px;border-left:1px solid var(--line);min-height:122px;position:relative;display:grid;grid-template-rows:auto 1fr;align-content:start}
+.pair:last-child{border-left:0}
+.pair .b,.pair .a{display:block;font-size:15px;line-height:1.45;font-weight:600;transition:opacity .6s,transform .6s var(--ease)}
+.pair .b{color:var(--muted)}
+.pair .b,.pair .a{grid-area:2/1}
+.pair .a{opacity:0;transform:translateY(8px);color:var(--ink)}
+.pair .n{grid-area:1/1;display:block;font-size:11px;font-weight:800;color:#a3a69d;letter-spacing:.1em;margin-bottom:8px;direction:ltr;text-align:right}
+.after .pair .b{opacity:0;transform:translateY(-8px)}
+.after .pair .a{opacity:1;transform:none}
+.after .pair .n{color:var(--accent)}
+.closing{margin-top:52px;font-size:clamp(28px,3.4vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1.15}
+.closing span{color:var(--muted);font-weight:500}
+
+/* ---------- 03 Architecture ---------- */
+.arch-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.7fr);gap:40px;align-items:end;margin-bottom:56px}
+.arch{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:14px}
+.layers{display:grid;gap:14px}
+.layer{border:1px solid var(--line-dark);background:var(--dark-2);padding:18px 20px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:center;position:relative;transition:opacity .3s,border-color .3s,background .3s;outline-offset:2px}
+.layer:not(:last-child):after{content:"";position:absolute;bottom:-15px;right:120px;width:1px;height:14px;background:var(--line-dark)}
+.layer:before{content:"";position:absolute;inset:-1px auto -1px -1px;width:3px;background:transparent;transition:background .3s}
+.ly-name small{display:block;font-size:11px;font-weight:800;letter-spacing:.16em;color:#8e968f;direction:ltr;text-align:right}
+.ly-name b{display:block;font-size:19px;font-weight:800;letter-spacing:-.02em;margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13.5px;font-weight:500;padding:7px 12px;border:1px solid #454c47;color:#dfe4de;background:#2c312e;white-space:nowrap}
+.companion{display:flex;align-items:center;gap:16px;border:1px solid #4a514c;padding:12px 16px;background:#2f3531}
+.companion .pulse{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 #fc693f66;animation:beat 2.4s infinite}
+@keyframes beat{70%{box-shadow:0 0 0 12px #fc693f00}100%{box-shadow:0 0 0 0 #fc693f00}}
+.companion span{color:#dfe4de;font-size:14.5px}
+.kb .chip{border-style:solid;border-width:1px 1px 3px;border-color:#454c47 #454c47 #5d655f}
+.gov{border:1px solid var(--line-dark);background:var(--dark-2);padding:20px 18px;display:flex;flex-direction:column;gap:12px;transition:opacity .3s,border-color .3s}
+.gov ul{display:grid;gap:8px;margin-top:6px}
+.gov li{font-size:13.5px;padding:8px 10px;border:1px dashed #4f5751;color:#dfe4de}
+.arch.focus .layer,.arch.focus .gov{opacity:.32}
+.arch.focus .is-on,.arch.focus .is-rel{opacity:1}
+.arch .is-on{border-color:var(--accent);background:#2d2a26}
+.arch .is-on:before{background:var(--accent)}
+.arch .is-rel{border-color:#7b847c}
+.ly-info{margin-top:22px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;min-height:84px;border-top:1px solid var(--line-dark);padding-top:20px}
+.ly-info b{font-size:14px;color:var(--accent)}
+.ly-info p{color:var(--on-dark);font-size:17px;line-height:1.65;max-width:760px}
+.ly-hint{font-size:13px;color:#8e968f}
+
+/* ---------- 04 Demo ---------- */
+.demo-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:44px}
+.win{border:1px solid #d1cfc5;background:var(--white);box-shadow:14px 15px 0 #e4e1d7}
+.win-top{background:var(--ink);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:12px;flex-wrap:wrap}
+.win-top b{font-size:11.5px;letter-spacing:.16em;direction:ltr;font-weight:700}
+.win-top .illus{color:#9aa39b}
+.steps{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.steps button{border:0;background:none;padding:14px 8px 12px;text-align:right;border-bottom:3px solid transparent;display:flex;flex-direction:column;gap:3px;color:var(--muted);transition:color .2s,border-color .2s}
+.steps button small{font-size:11px;font-weight:800;letter-spacing:.08em;direction:ltr;text-align:right}
+.steps button span{font-size:12.5px;font-weight:600;line-height:1.35}
+.steps button.done{color:var(--ink)}.steps button.done small{color:var(--green-ink)}
+.steps button.on{color:var(--ink);border-color:var(--accent)}.steps button.on small{color:var(--accent)}
+.panes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:440px}
+.pane{padding:22px 24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.pane+.pane{border-right:1px solid var(--line);background:#faf9f4}
+.pane-h{font-size:11.5px;font-weight:800;letter-spacing:.12em;color:var(--muted);display:flex;justify-content:space-between}
+.chat{display:flex;flex-direction:column;gap:10px}
+.msg{max-width:88%;padding:11px 14px;font-size:14.5px;line-height:1.6;animation:pop .45s var(--ease) both}
+.msg small{display:block;font-size:11px;font-weight:800;color:var(--muted);margin-bottom:3px}
+.msg.u{align-self:flex-start;background:var(--paper-2)}
+.msg.c{align-self:flex-end;background:var(--ink);color:#fff}
+.msg.c small{color:#9aa39b}
+.msg.warn{background:#fff3ec;color:var(--ink);border-right:3px solid var(--accent)}
+.msg.warn small{color:var(--accent-ink)}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.log{display:flex;flex-direction:column;gap:8px}
+.ev{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;font-size:14px;line-height:1.5;padding:9px 0;border-bottom:1px dashed #e0ddd2;animation:pop .45s var(--ease) both}
+.ev i{font-style:normal;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:900;margin-top:1px}
+.ev .ok{background:var(--green);color:var(--green-ink)}.ev .src{background:#e8e6dd;color:var(--ink)}.ev .flag{background:#ffe0d3;color:var(--accent-ink)}
+.ev small{display:block;color:var(--muted);font-size:12.5px}
+.artifact{border:1px solid var(--line);background:#fff;padding:14px 16px;animation:pop .45s var(--ease) both}
+.artifact h4{font-size:14.5px;display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}
+.artifact h4 span{font-size:11px;font-weight:700;padding:2px 9px;border:1px solid var(--line);color:var(--muted)}
+.artifact h4 span.ok{background:var(--green);border-color:#bcd5a3;color:var(--green-ink)}
+.artifact ol{display:grid;gap:4px;font-size:13.5px;counter-reset:a}
+.artifact li{display:flex;justify-content:space-between;gap:10px;counter-increment:a}
+.artifact li:before{content:counter(a) ".";color:var(--muted);margin-left:6px}
+.artifact li span{margin-right:auto;font-size:11.5px;font-weight:700;color:var(--green-ink)}
+.artifact li span.w{color:var(--accent-ink)}
+.meter{height:3px;background:#e8e6dd;margin-top:auto}.meter i{display:block;height:100%;background:var(--accent);width:0;transition:width .6s var(--ease)}
+.win-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-top:1px solid var(--line);flex-wrap:wrap}
+.win-foot .ctrl{display:flex;gap:8px}
+.win-foot button{border:1px solid #c9ccc2;background:#fff;padding:9px 16px;font-size:13.5px;font-weight:700}
+.win-foot button.pri{background:var(--ink);color:#fff;border-color:var(--ink)}
+.win-foot button:disabled{opacity:.35;cursor:default}
+.approve{align-self:flex-start;background:var(--accent);color:var(--ink);border:0;padding:10px 16px;font-weight:800;font-size:14px;box-shadow:0 3px 0 var(--accent-ink);animation:pop .45s var(--ease) both}
+.demo-note{font-size:14px;color:var(--muted);margin-top:22px;max-width:760px}
+
+/* ---------- 05 Process map ---------- */
+.flow-wrap{margin-top:56px;border-top:1px solid var(--line-dark);padding-top:36px}
+.flow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));grid-template-rows:auto auto auto;column-gap:0;row-gap:18px;position:relative}
+.sdd{grid-row:1;grid-column:3 / 7;border:1px solid var(--accent);border-bottom:0;height:44px;position:relative;margin:0 21px 0 calc(25% - 21px)}
+.sdd span{position:absolute;top:-12px;right:16px;background:var(--dark);padding:0 10px;font-size:12.5px;font-weight:700;color:#ffb39a;white-space:nowrap}
+.st{grid-row:2;position:relative;padding:0 14px}
+.st .dotn{width:14px;height:14px;border-radius:50%;background:var(--dark);border:2px solid #7b847c;position:relative;z-index:1;transition:all .4s}
+.st b{display:block;font-size:16.5px;font-weight:700;margin-top:14px;letter-spacing:-.01em}
+.st small{display:block;font-size:12px;color:#8e968f;font-weight:700;letter-spacing:.06em;margin-top:2px}
+.st:before{content:"";position:absolute;top:6px;right:0;left:0;height:2px;background:#3a403c}
+.st:first-child:before{right:14px}.st:nth-child(8):before{left:auto;width:calc(100% - 14px)}
+.st.lit .dotn{background:var(--accent);border-color:var(--accent)}
+.thread{position:absolute;top:0;height:2px;right:0;background:var(--accent);width:0;transition:width 3.2s linear}
+.lane{grid-row:3;grid-column:1 / 3;margin:4px 14px 0;border:1px dashed #5a625c;padding:12px 14px;position:relative;font-size:14px;color:var(--on-dark)}
+.lane b{display:block;color:#fff;font-size:15px}
+.lane:after{content:"";position:absolute;left:-30px;top:50%;width:30px;border-top:1px dashed #5a625c}
+.lane-arrow{grid-row:3;grid-column:3;align-self:center;margin:0 14px;height:44px;border-right:1px dashed #5a625c;border-top:1px dashed #5a625c;transform:translateY(-22px)}
+.flow-note{display:flex;justify-content:space-between;gap:24px;margin-top:40px;color:var(--on-dark);font-size:16px;flex-wrap:wrap}
+.flow-note p{max-width:620px}
+
+/* ---------- 06 Results ---------- */
+.res{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,88px);align-items:center;margin-top:48px}
+.big{font-size:clamp(150px,22vw,330px);font-weight:900;letter-spacing:-.07em;line-height:.8;direction:ltr;text-align:right;display:flex;justify-content:flex-end;align-items:flex-start}
+.big sup{font-size:.36em;color:var(--accent);margin-left:.04em;line-height:1;margin-top:.05em}
+.big-cap{font-size:clamp(20px,1.8vw,27px);font-weight:700;letter-spacing:-.02em;margin-top:28px;max-width:520px}
+.big-note{font-size:14px;color:var(--muted);margin-top:10px;max-width:520px;border-right:3px solid var(--line);padding-right:12px}
+.vals{counter-reset:v}
+.vals li{counter-increment:v;display:grid;grid-template-columns:44px 1fr;padding:17px 0;border-top:1px solid var(--line);font-size:clamp(17px,1.35vw,21px);font-weight:600;letter-spacing:-.01em}
+.vals li:last-child{border-bottom:1px solid var(--line)}
+.vals li:before{content:"0" counter(v);font-size:12px;font-weight:800;color:var(--accent);letter-spacing:.06em;padding-top:6px;direction:ltr;text-align:right}
+
+/* ---------- 07 Services ---------- */
+.svc{margin-top:56px;border-top:2px solid var(--ink)}
+.svc-row{display:grid;grid-template-columns:80px minmax(0,.9fr) minmax(0,1.1fr);gap:24px;padding:30px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:background .3s,padding .3s}
+.svc-row:hover{background:var(--paper-2)}
+.svc-row .i{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.08em;direction:ltr;text-align:right}
+.svc-row h3{font-size:clamp(24px,2.4vw,38px);font-weight:800;letter-spacing:-.035em;direction:ltr;text-align:right;line-height:1.1}
+.svc-row p{font-size:17px;color:#4a4f48;line-height:1.7;max-width:560px}
+.svc-note{margin-top:24px;font-size:14.5px;color:var(--muted)}
+
+/* ---------- 08 Engagement ---------- */
+.eng{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:64px;position:relative}
+.eng:before{content:"";position:absolute;top:27px;right:0;left:0;height:1px;background:var(--line)}
+.eng li{padding-left:28px;position:relative}
+.eng .num{width:56px;height:56px;border-radius:50%;background:var(--paper);border:1.5px solid var(--ink);display:grid;place-items:center;font-weight:800;font-size:15px;direction:ltr;position:relative;z-index:1}
+.eng li:first-child .num{background:var(--ink);color:#fff}
+.eng h3{font-size:22px;font-weight:800;letter-spacing:-.02em;margin:22px 0 8px}
+.eng p{font-size:15.5px;color:#4a4f48;line-height:1.65;max-width:290px}
+
+/* ---------- 09 Environment ---------- */
+.env{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,5vw,88px);align-items:center}
+.orbit svg{width:100%;height:auto;display:block}
+.orbit .tool{font-size:15px;font-weight:700;fill:var(--ink)}
+.orbit .tool-box{fill:var(--white);stroke:#c9ccc2}
+.disc{font-size:13.5px;color:var(--muted);margin-top:22px;border-right:3px solid var(--line);padding-right:12px;max-width:520px}
+
+/* ---------- 10 Experience ---------- */
+.exp{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,88px);align-items:center}
+.venn svg{width:100%;height:auto;display:block}
+.venn .c{fill-opacity:.07;stroke-width:1.4}
+.venn .t{font-size:15px;font-weight:700}
+.venn .s{font-size:12px;fill:var(--muted)}
+.exp-list li{padding:18px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:18px 1fr;gap:14px;font-size:18px;font-weight:600;line-height:1.5}
+.exp-list li:last-child{border-bottom:1px solid var(--line)}
+.exp-list li i{width:12px;height:12px;border-radius:50%;margin-top:8px;border:2px solid var(--ink)}
+.exp-list li:nth-child(2) i{border-color:var(--muted)}.exp-list li:nth-child(3) i{border-color:var(--accent)}
+
+/* ---------- 11 Final ---------- */
+.final{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,88px);align-items:start}
+.final h2{max-width:18ch;font-size:clamp(34px,4vw,64px)}
+.final .lead{margin-top:26px}
+.form{background:var(--dark-2);border:1px solid var(--line-dark);padding:clamp(24px,2.4vw,36px)}
+.form h3{font-size:22px;font-weight:800;margin-bottom:6px}
+.fld{margin-top:14px}
+.fld label{display:block;font-size:13px;font-weight:600;color:#dfe4de;margin-bottom:6px}
+.fld label em{font-style:normal;color:var(--accent)}
+.fld input,.fld textarea{width:100%;background:#1f2421;border:1px solid #4a514c;color:#fff;padding:12px;font-size:15px;outline:none;border-radius:0;transition:border-color .2s}
+.fld input:focus,.fld textarea:focus{border-color:var(--accent)}
+.fld textarea{min-height:84px;resize:vertical}
+.fld .err{display:none;font-size:12.5px;color:#ffb39a;margin-top:5px}
+.fld.bad input{border-color:#e0846b}.fld.bad .err{display:block}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.form .btn{width:100%;justify-content:center;margin-top:22px}
+.form .btn:disabled{opacity:.6;cursor:default;transform:none}
+.fstat{font-size:14px;color:#ffc9b8;margin-top:12px}.fstat:empty{display:none}.fstat a{text-decoration:underline}
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%)}
+.done{padding:16px 0}.done[hidden]{display:none}.done b{display:block;font-size:24px;margin:12px 0 6px}.done p{color:var(--on-dark)}
+.done .tk{width:46px;height:46px;border-radius:50%;background:var(--green);color:var(--green-ink);display:grid;place-items:center;font-weight:900;font-size:20px}
+
+.foot{border-top:1px solid var(--line-dark);background:var(--dark);color:#8e968f;font-size:13px}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:26px;padding-bottom:30px;flex-wrap:wrap}
+.foot a{text-decoration:underline;text-underline-offset:4px;color:#c3cac3}
+.foot .brand-mark{border-color:#c3cac3;color:#c3cac3;width:30px;height:30px;font-size:18px}
+.foot .brand-mark:after{border-color:var(--dark)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1180px){
+  .nav{display:none}
+  .layer{grid-template-columns:160px minmax(0,1fr)}
+  .ly-info{grid-template-columns:160px minmax(0,1fr)}
+  .steps button span{font-size:11.5px}
+}
+@media (max-width:980px){
+  .hero-grid,.shift-grid,.arch-head,.res,.env,.exp,.final{grid-template-columns:1fr}
+  .arch{grid-template-columns:1fr}
+  .pairs{grid-template-columns:1fr 1fr}
+  .pair{border-bottom:1px solid var(--line)}
+  .panes{grid-template-columns:1fr}
+  .pane+.pane{border-right:0;border-top:1px solid var(--line)}
+  .steps{grid-template-columns:repeat(7,minmax(0,1fr))}
+  .steps button span{display:none}
+  .steps button{align-items:center;text-align:center}
+  .flow{grid-template-columns:1fr;row-gap:0}
+  .sdd,.lane-arrow,.thread{display:none}
+  .st{grid-row:auto;padding:0 28px 22px 0;border-right:2px solid #3a403c;margin-right:6px}
+  .st:before{display:none}
+  .st .dotn{position:absolute;right:-8px;top:2px}
+  .st b{margin-top:0}
+  .st.sdd-in{border-right-color:var(--accent)}
+  .lane{grid-row:auto;grid-column:auto;margin:10px 0 0}
+  .lane:after{display:none}
+  .sdd-m{display:block!important}
+  .svc-row{grid-template-columns:48px 1fr;row-gap:8px}
+  .svc-row p{grid-column:2}
+  .eng{grid-template-columns:1fr 1fr;row-gap:36px}
+  .eng:before{display:none}
+}
+@media (max-width:640px){
+  .stats{flex-direction:column}
+  .stat+.stat{border-right:0;padding-right:0;border-top:1px solid var(--line);margin-top:18px}
+  .pairs{grid-template-columns:1fr}
+  .pair{min-height:96px}
+  .layer{grid-template-columns:1fr;gap:12px}
+  .layer:not(:last-child):after{right:24px}
+  .ly-info{grid-template-columns:1fr;gap:6px}
+  .eng{grid-template-columns:1fr}
+  .g2{grid-template-columns:1fr}
+  .hero-actions .btn{width:100%;justify-content:center}
+  .chip{white-space:normal}
+  .hdr .btn{padding:10px 14px;font-size:12.5px}
+  .brand-txt b{font-size:15.5px}
+  .msg{max-width:96%}
+  .win{box-shadow:7px 8px 0 #e4e1d7}
+}
+
+/* ---------- mobile alternatives for diagrams (keep text readable) ---------- */
+.l-short,.sys-m,.orbit-m{display:none}
+@media (max-width:640px){
+  .l-long{display:none}.l-short{display:inline}
+  #sys{display:none}
+  .sys-m{display:flex;flex-direction:column;align-items:stretch;border:1px dashed #c9c6bb;padding:16px;background:var(--white)}
+  .m-gov{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--muted);direction:ltr;text-align:center;margin-bottom:12px}
+  .sys-m b{display:block;font-size:16px}
+  .sys-m small{display:block;font-size:13px;color:var(--muted)}
+  .m-node,.m-kb{border:1.4px solid var(--ink);background:#fff;padding:12px 14px}
+  .m-core{background:var(--ink);color:#fff;padding:14px}
+  .m-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .m-row span{font-size:13px;padding:4px 9px;border:1px solid #c9ccc2;background:var(--paper)}
+  .m-core .m-row span{background:#2c312e;border-color:#454c47;color:#dfe4de;direction:ltr}
+  .m-gate{border:1.4px solid var(--ink);background:#fff;padding:10px 14px;font-size:14px;font-weight:700;color:var(--green-ink);direction:ltr;text-align:center}
+  .m-out{background:var(--green);border:1px solid #a9c98d;padding:10px 14px;font-size:14px;font-weight:700;text-align:center}
+  .m-link{display:block;height:22px;width:2px;background:repeating-linear-gradient(#9a9e96 0 3px,transparent 3px 7px);margin:0 auto;position:relative}
+  .m-link:after{content:"";position:absolute;left:-3px;width:8px;height:8px;border-radius:50%;background:var(--accent);animation:drop 1.8s linear infinite}
+  @keyframes drop{from{top:-4px;opacity:0}20%{opacity:1}to{top:18px;opacity:0}}
+  #orbit{display:none}
+  .orbit-m{display:block;text-align:center}
+  .o-core{display:inline-block;background:var(--ink);color:#fff;font-weight:800;padding:14px 26px;border-radius:40px;position:relative}
+  .o-tools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px;border-top:1px dashed #c9c6bb;padding-top:22px}
+  .o-tools span{border:1px solid #c9ccc2;background:var(--white);padding:10px;font-weight:700;font-size:15px;direction:ltr}
+  .venn .t{font-size:21px}.venn .s{font-size:16px}
+  #rails text{display:none}
+}
+.sdd-m{display:none;font-size:13px;color:#ffb39a;font-weight:700;margin:6px 0 14px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  *,*:before,*:after{animation:none!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="המאסטר השלישי — Enterprise AI">
+      <span class="brand-mark" aria-hidden="true">III</span>
+      <span class="brand-txt"><b>המאסטר השלישי<i>.</i></b><small>THE THIRD MASTER / ENTERPRISE AI</small></span>
+    </a>
+    <nav class="nav" aria-label="ניווט ראשי">
+      <a href="#shift">התפיסה</a><a href="#architecture">הארכיטקטורה</a><a href="#demo">בפעולה</a><a href="#results">תוצאות</a><a href="#services">שירותים</a><a href="#experience">ניסיון</a>
+    </nav>
+    <a class="btn btn-ink" href="#contact"><span class="l-long">לתיאום פגישת היכרות</span><span class="l-short">פגישת היכרות</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======================= 01 · HERO ======================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="label rv"><b>THE THIRD MASTER</b> / ENTERPRISE AI</span>
+      <h1 class="rv">מהפכה בשיטת העבודה<span class="dot">.</span></h1>
+      <p class="tri rv"><span>היכולות של הבינה.</span><span>החשיבה של המומחה.</span><span>העוצמה של הארגון.</span></p>
+      <p class="lead rv">הטמעת בינה מלאכותית בליבת תהליכי העבודה הארגוניים, באמצעות ארכיטקטורת סוכנים מקצועיים, <span class="en">Skills</span>, ידע ארגוני ומתודולוגיית עבודה מבוקרת.</p>
+      <div class="hero-actions rv">
+        <a class="btn btn-accent" href="#contact">בואו נדבר על הארגון שלכם <span aria-hidden="true">↖</span></a>
+        <a class="btn btn-line" href="#demo">לראות את השיטה בפעולה</a>
+      </div>
+      <div class="stats rv">
+        <div class="stat"><b>60<small>%</small></b><span>חיסכון בזמן בתהליכי אפיון שנבחנו.</span></div>
+        <div class="stat"><b>10<small>+</small></b><span>שנות ניסיון במערכות מורכבות.</span></div>
+      </div>
+    </div>
+
+    <!-- System visual: professional ↔ companion ↔ skills ↔ organizational knowledge, under governance -->
+    <figure class="sys rv" aria-label="המחשה: איש המקצוע עובד עם מלווה מקצועי, שמפעיל יכולות מקצועיות ונשען על הידע הארגוני, תחת שכבת ממשל ובקרה">
+      <svg viewBox="0 0 600 540" id="sys">
+        <defs>
+          <pattern id="g" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#e6e3da" stroke-width=".7"/></pattern>
+        </defs>
+        <rect x="0.5" y="0.5" width="599" height="539" fill="url(#g)" stroke="#d9d7ce"/>
+        <!-- governance frame -->
+        <rect x="24" y="24" width="552" height="440" fill="none" stroke="#c9c6bb" stroke-dasharray="2 4"/>
+        <text x="300" y="44" text-anchor="middle" class="sv-en">GOVERNANCE &amp; CONTROL</text>
+        <!-- paths -->
+        <path id="p1" class="sv-path" d="M492 238 C440 238 410 238 362 238"/>
+        <path id="p2" class="sv-path" d="M238 238 C190 238 170 170 122 170"/>
+        <path id="p3" class="sv-path" d="M238 238 C190 238 170 306 122 306"/>
+        <path id="p4" class="sv-path" d="M300 300 L300 390"/>
+        <path id="p5" class="sv-path" d="M340 410 C430 410 492 380 510 290"/>
+        <!-- professional -->
+        <g>
+          <circle cx="520" cy="238" r="30" class="sv-node"/>
+          <circle cx="520" cy="230" r="7" fill="none" stroke="#171a18" stroke-width="1.6"/>
+          <path d="M508 250c2-7 7-10 12-10s10 3 12 10" fill="none" stroke="#171a18" stroke-width="1.6"/>
+          <text x="520" y="292" text-anchor="middle" class="sv-t">איש המקצוע</text>
+          <text x="520" y="308" text-anchor="middle" class="sv-s">מוביל ומחליט</text>
+        </g>
+        <!-- companion + skills orbit -->
+        <g>
+          <circle cx="300" cy="238" r="104" fill="none" stroke="#d3d0c5"/>
+          <circle cx="300" cy="238" r="62" fill="#171a18"/>
+          <g transform="rotate(-9 300 236)">
+            <circle cx="300" cy="236" r="24" fill="none" stroke="#fffdf7" stroke-width="3"/>
+            <rect x="294" y="224" width="10" height="24" fill="#fffdf7"/>
+          </g>
+          <circle cx="282" cy="217" r="5" fill="#fc693f" stroke="#171a18" stroke-width="2"/>
+          <text x="300" y="282" text-anchor="middle" font-size="10" fill="#c3cac3" font-weight="600">המלווה המקצועי</text>
+          <g id="skills"></g>
+          <text x="300" y="120" text-anchor="middle" class="sv-en">PROFESSIONAL SKILLS</text>
+        </g>
+        <!-- organizational knowledge stack -->
+        <g>
+          <text x="96" y="122" text-anchor="middle" class="sv-en">KNOWLEDGE</text>
+          <g id="kb"></g>
+          <text x="96" y="372" text-anchor="middle" class="sv-t">הידע הארגוני</text>
+        </g>
+        <!-- quality gate -->
+        <g>
+          <rect x="242" y="392" width="116" height="36" fill="#fffdf7" stroke="#171a18"/>
+          <path d="M256 410l6 6 10-12" fill="none" stroke="#2f5a26" stroke-width="2"/>
+          <text x="314" y="415" text-anchor="middle" class="sv-t" font-size="12">Quality Gate</text>
+        </g>
+        <!-- output -->
+        <g>
+          <rect x="386" y="478" width="190" height="40" fill="#d9eec3" stroke="#a9c98d"/>
+          <text x="481" y="503" text-anchor="middle" class="sv-t" font-size="12.5">תוצר מקצועי · באישור אנושי</text>
+          <path d="M481 464 V478" stroke="#a9c98d"/>
+          <path d="M510 290 C540 360 520 440 481 464" class="sv-soft"/>
+        </g>
+        <!-- moving packets (removed when reduced motion is on) -->
+        <g id="packets">
+          <circle r="4" fill="#fc693f"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle>
+          <circle r="3.5" fill="#171a18"><animateMotion dur="3.6s" begin="1s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion></circle>
+          <circle r="3.5" fill="#171a18"><animateMotion dur="3.6s" begin="2.2s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion></circle>
+          <circle r="4" fill="#fc693f"><animateMotion dur="2.4s" begin=".6s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion></circle>
+          <circle r="4" fill="#2f5a26"><animateMotion dur="3s" begin="1.6s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion></circle>
+        </g>
+      </svg>
+      <div class="sys-m" aria-hidden="true">
+        <div class="m-gov">GOVERNANCE &amp; CONTROL</div>
+        <div class="m-node"><b>איש המקצוע</b><small>מוביל ומחליט</small></div>
+        <i class="m-link"></i>
+        <div class="m-core"><b>המלווה המקצועי</b><span class="m-row"><span>Professional Skills</span></span></div>
+        <i class="m-link"></i>
+        <div class="m-kb"><b>הידע הארגוני</b><span class="m-row"><span>ידע עסקי</span><span>תיעוד מערכות</span><span>קוד ונתונים</span><span>סטנדרטים</span><span>החלטות</span></span></div>
+        <i class="m-link"></i>
+        <div class="m-gate">✓ Quality Gate · Human in the Loop</div>
+        <i class="m-link"></i>
+        <div class="m-out">תוצר מקצועי · באישור אנושי</div>
+      </div>
+      <figcaption class="cap"><span class="illus">המחשה של מערכת עבודה — לא צ'אט</span><span class="label">SYSTEM VIEW</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ======================= 02 · SHIFT ======================= -->
+<section class="sec" id="shift" style="padding-top:clamp(48px,6vw,96px)">
+  <div class="wrap">
+    <div class="shift-grid">
+      <div>
+        <span class="label rv"><b>02</b> / FROM INDIVIDUAL TO ORGANIZATIONAL</span>
+        <h2 class="rv">הכלים כבר קיימים. <em>שיטת העבודה</em> צריכה להשתנות.</h2>
+      </div>
+      <p class="lead rv">ארגונים רבים כבר משתמשים בבינה מלאכותית. אבל כאשר כל עובד מנסח בעצמו את ההנחיות, בוחר את דרך העבודה ומגדיר את איכות התוצר — המומחיות נשארת אישית ולא הופכת ליכולת ארגונית.</p>
+    </div>
+    <div class="stage rv" id="shiftStage">
+      <div class="stage-top">
+        <div class="seg" role="group" aria-label="מצב תצוגה">
+          <button type="button" data-s="before" aria-pressed="true">לפני</button>
+          <button type="button" data-s="after" aria-pressed="false">אחרי</button>
+        </div>
+        <span class="illus" id="shiftCap">כל עובד עובד אחרת</span>
+      </div>
+      <svg class="field-svg" viewBox="0 0 1000 300" id="field" aria-hidden="true">
+        <g class="rail" id="rails" style="opacity:0">
+          <text x="975" y="36" text-anchor="end" direction="ltr" class="sv-en" style="letter-spacing:.14em">ORGANIZATIONAL METHODOLOGY</text>
+        </g>
+      </svg>
+      <div class="pairs">
+        <div class="pair"><span class="n">01</span><span class="b">כל עובד עובד אחרת.</span><span class="a">מתודולוגיית עבודה ארגונית.</span></div>
+        <div class="pair"><span class="n">02</span><span class="b">תלות באיכות הפרומפט.</span><span class="a">סוכנים מקצועיים המלווים את העובדים.</span></div>
+        <div class="pair"><span class="n">03</span><span class="b">ידע מפוזר בין אנשים ומסמכים.</span><span class="a">שימוש בידע הארגוני הקיים.</span></div>
+        <div class="pair"><span class="n">04</span><span class="b">חוסר אחידות בתוצרים.</span><span class="a"><span class="en">Skills</span> המגלמים מומחיות ושיקול דעת.</span></div>
+        <div class="pair"><span class="n">05</span><span class="b">בקרת איכות ידנית.</span><span class="a">מנגנוני בקרה כחלק מהתהליך.</span></div>
+      </div>
+    </div>
+    <p class="closing rv">מיכולת אישית <span>ליכולת ארגונית.</span></p>
+  </div>
+</section>
+
+<!-- ======================= 03 · ARCHITECTURE ======================= -->
+<section class="sec dark" id="architecture">
+  <div class="wrap">
+    <div class="arch-head">
+      <div>
+        <span class="label rv"><b>03</b> / THE ARCHITECTURE OF EXPERTISE</span>
+        <h2 class="rv">לא אוסף פרומפטים. <em>ארכיטקטורה</em> של מומחיות.</h2>
+      </div>
+      <p class="lead rv">חמש שכבות שעובדות יחד. העבירו את העכבר על שכבה — או התמקדו בה במקלדת — כדי לראות את תפקידה והקשרים שלה.</p>
+    </div>
+
+    <div class="arch rv" id="arch">
+      <div class="layers">
+        <div class="layer" tabindex="0" data-l="1" data-rel="2,5">
+          <div class="ly-name"><small>LAYER 01</small><b>אנשי המקצוע</b></div>
+          <div class="chips"><span class="chip">מנתחי מערכות</span><span class="chip">מפתחים</span><span class="chip">ארכיטקטים</span><span class="chip">מנהלי פרויקטים</span><span class="chip">צוותי QA</span></div>
+        </div>
+        <div class="layer" tabindex="0" data-l="2" data-rel="1,3,4,5">
+          <div class="ly-name"><small>LAYER 02</small><b>המלווה המקצועי</b></div>
+          <div class="companion"><i class="pulse" aria-hidden="true"></i><span>סוכן AI המלווה את העובד לאורך תהליך העבודה, מבין את ההקשר ומפעיל את היכולות המקצועיות הרלוונטיות.</span></div>
+        </div>
+        <div class="layer" tabindex="0" data-l="3" data-rel="2,4,5">
+          <div class="ly-name"><small>LAYER 03</small><b class="en" style="text-align:right">Professional Skills</b></div>
+          <div class="chips"><span class="chip">תחקור וגיבוש דרישות</span><span class="chip">ניתוח ואפיון</span><span class="chip">הבנת מערכות קיימות</span><span class="chip">סקירה ובקרת איכות</span><span class="chip">הכנת תוצרים להמשך הפיתוח</span><span class="chip">ניהול שינויים</span><span class="chip">פרסום ושימור תוצרים</span></div>
+        </div>
+        <div class="layer kb" tabindex="0" data-l="4" data-rel="2,3,5">
+          <div class="ly-name"><small>LAYER 04</small><b>הידע הארגוני</b></div>
+          <div class="chips"><span class="chip">ידע עסקי</span><span class="chip">תיעוד מערכות</span><span class="chip">ארכיטקטורה ותשתיות</span><span class="chip">קוד ונתונים</span><span class="chip">סטנדרטים ארגוניים</span><span class="chip">החלטות מקצועיות</span></div>
+        </div>
+      </div>
+      <aside class="gov" tabindex="0" data-l="5" data-rel="1,2,3,4">
+        <div class="ly-name"><small>LAYER 05</small><b>ממשל ובקרה</b></div>
+        <ul><li class="en" style="text-align:right">Quality Gates</li><li class="en" style="text-align:right">Human in the Loop</li><li>ניהול גרסאות</li><li>אינטגרציה עם סביבת העבודה</li><li>מדידה ושיפור מתמשך</li></ul>
+      </aside>
+    </div>
+    <div class="ly-info" aria-live="polite"><b id="lyName">חמש שכבות</b><p id="lyText"><span class="ly-hint">כל שכבה אחראית על חלק אחר בעבודה — והערך נוצר מהחיבור ביניהן.</span></p></div>
+  </div>
+</section>
+
+<!-- ======================= 04 · DEMO ======================= -->
+<section class="sec" id="demo">
+  <div class="wrap">
+    <div class="demo-head">
+      <div>
+        <span class="label rv"><b>04</b> / THE MASTER IN ACTION</span>
+        <h2 class="rv">כשהבינה מתחילה לעבוד כמו <em>איש מקצוע מנוסה.</em></h2>
+      </div>
+      <p class="lead rv" style="max-width:460px">הדגש אינו על מהירות יצירת המסמך — אלא על החשיבה המקצועית שמתרחשת לפני שהוא נכתב.</p>
+    </div>
+
+    <div class="win rv" id="win">
+      <div class="win-top"><b>THE THIRD MASTER · WORKSPACE</b><span class="illus">המחשה · תרחיש פיקטיבי</span></div>
+      <div class="steps" id="steps" role="tablist" aria-label="שלבי ההדגמה"></div>
+      <div class="panes">
+        <div class="pane">
+          <div class="pane-h"><span>העובד והמלווה המקצועי</span><span id="scen" style="font-weight:600;letter-spacing:0">פורטל לקוחות · דרישה חדשה</span></div>
+          <div class="chat" id="chat" aria-live="polite"></div>
+        </div>
+        <div class="pane">
+          <div class="pane-h"><span>פעולות המערכת ותוצרים</span><span id="stepTag"></span></div>
+          <div class="log" id="log"></div>
+          <div id="art"></div>
+          <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+        </div>
+      </div>
+      <div class="win-foot">
+        <div class="ctrl"><button type="button" id="prev">→ הקודם</button><button type="button" class="pri" id="next">הבא ←</button></div>
+        <button type="button" id="restart">↻ התחלה מחדש</button>
+      </div>
+    </div>
+    <p class="demo-note">התרחיש, הנתונים והתוצרים בהדגמה פיקטיביים ונועדו להמחשה בלבד.</p>
+  </div>
+</section>
+
+<!-- ======================= 05 · PROCESS MAP ======================= -->
+<section class="sec dark" id="method">
+  <div class="wrap">
+    <span class="label rv"><b>05</b> / END-TO-END METHODOLOGY</span>
+    <h2 class="rv">המומחיות אינה נעצרת <em>במשימה אחת.</em></h2>
+    <p class="lead rv" style="margin-top:22px">הערך אינו רק באוטומציה של משימה בודדת — אלא בחיבור בין שלבי העבודה ובשמירה על רציפות מקצועית מהצורך העסקי ועד הבדיקות.</p>
+    <div class="flow-wrap rv">
+      <p class="sdd-m"><span class="en">SDD · Spec-Driven Development</span> — דוגמה ליישום בעולם הפיתוח (שלבים מסומנים)</p>
+      <div class="flow" id="flow">
+        <div class="sdd"><span class="en">SDD · Spec-Driven Development</span></div>
+        <div class="st"><i class="dotn"></i><b>צורך עסקי</b><small>NEED</small></div>
+        <div class="st"><i class="dotn"></i><b>תחקור</b><small>DISCOVERY</small></div>
+        <div class="st sdd-in"><i class="dotn"></i><b>אפיון</b><small>SPECIFICATION</small></div>
+        <div class="st sdd-in"><i class="dotn"></i><b>בקרת איכות</b><small>QUALITY GATE</small></div>
+        <div class="st sdd-in"><i class="dotn"></i><b>הכנה לפיתוח</b><small>DEV-READY</small></div>
+        <div class="st sdd-in"><i class="dotn"></i><b>פיתוח</b><small>DEVELOPMENT</small></div>
+        <div class="st"><i class="dotn"></i><b>בדיקות</b><small>TESTING</small></div>
+        <div class="lane"><b>דרישות שינוי במערכות קיימות</b>מסלול מקביל שמצטרף לאותה שיטת עבודה</div>
+        <div class="lane-arrow" aria-hidden="true"></div>
+        <span class="thread" id="thread" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="flow-note rv"><p><span class="en">SDD</span> הוא דוגמה משמעותית ליישום המתודולוגיה בעולם הפיתוח — לא הגבול שלה. את השיטה ניתן להתאים לתהליכים ולתפקידים נוספים בארגון.</p></div>
+  </div>
+</section>
+
+<!-- ======================= 06 · RESULTS ======================= -->
+<section class="sec" id="results">
+  <div class="wrap">
+    <span class="label rv"><b>06</b> / RESULTS FROM THE FIELD</span>
+    <h2 class="rv">לא תיאוריה. <em>ניסיון מהשטח.</em></h2>
+    <div class="res">
+      <div class="rv">
+        <div class="big" aria-hidden="true"><span id="count">60</span><sup>%</sup></div>
+        <p class="big-cap">חיסכון בזמן בתהליכי אפיון שנבחנו.</p>
+        <p class="big-note">תוצאה שנמדדה בתהליכים מסוימים. אינה התחייבות לתוצאה זהה בכל ארגון.</p>
+        <span class="hp">60 אחוז חיסכון בזמן בתהליכי אפיון שנבחנו</span>
+      </div>
+      <ol class="vals rv">
+        <li>שיפור איכות התוצרים</li>
+        <li>יצירת אחידות בשיטת העבודה</li>
+        <li>הנגשת הידע הארגוני</li>
+        <li>הפחתת התלות במומחים בודדים</li>
+        <li>קיצור תהליכי קליטה והכשרה</li>
+        <li>ייעול עבודתם של אנשי המקצוע המנוסים עצמם</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 07 · SERVICES ======================= -->
+<section class="sec" id="services" style="background:var(--paper-2)">
+  <div class="wrap">
+    <span class="label rv"><b>07</b> / CONSULTING &amp; ENABLEMENT</span>
+    <h2 class="rv">לא להכניס עוד כלי לארגון. <em>לבנות יכולת חדשה.</em></h2>
+    <div class="svc">
+      <div class="svc-row rv"><span class="i">01</span><h3>AI Strategy &amp; Architecture</h3><p>מיפוי תהליכי עבודה, זיהוי הזדמנויות וגיבוש ארכיטקטורת AI המותאמת לצרכים ולסביבה הטכנולוגית של הארגון.</p></div>
+      <div class="svc-row rv"><span class="i">02</span><h3>AI-Driven Methodology</h3><p>ליווי בגיבוש מתודולוגיות עבודה, ארכיטקטורת סוכנים, <span class="en">Skills</span>, בסיסי ידע ומנגנוני בקרת איכות.</p></div>
+      <div class="svc-row rv"><span class="i">03</span><h3>Enterprise AI Enablement</h3><p>ליווי פיילוטים והטמעת שיטות העבודה בתוך הצוותים, תוך התאמה לתהליכים ולכלים הארגוניים הקיימים.</p></div>
+      <div class="svc-row rv"><span class="i">04</span><h3>Organizational Capability</h3><p>בניית יכולת עצמאית בארגון להמשיך לפתח, לשפר ולהרחיב את השימוש במתודולוגיה.</p></div>
+    </div>
+    <p class="svc-note rv">השירותים ניתנים כייעוץ מקצועי וליווי ארגוני.</p>
+  </div>
+</section>
+
+<!-- ======================= 08 · ENGAGEMENT ======================= -->
+<section class="sec" id="engagement">
+  <div class="wrap">
+    <span class="label rv"><b>08</b> / HOW WE WORK TOGETHER</span>
+    <h2 class="rv">מהאסטרטגיה <em>ועד לשינוי בשטח.</em></h2>
+    <ol class="eng">
+      <li class="rv"><span class="num">01</span><h3>אבחון ומיפוי</h3><p>הבנת הארגון, תהליכי העבודה, האתגרים והיעדים.</p></li>
+      <li class="rv"><span class="num">02</span><h3>תכנון המתודולוגיה</h3><p>גיבוש ארכיטקטורה ושיטת עבודה המותאמות לארגון.</p></li>
+      <li class="rv"><span class="num">03</span><h3>פיילוט ממוקד</h3><p>ליווי יישום בתהליכי עבודה אמיתיים, מדידת תוצאות ושיפור.</p></li>
+      <li class="rv"><span class="num">04</span><h3>הרחבה ארגונית</h3><p>ליווי הצוותים בהרחבת המתודולוגיה ובבניית יכולת עצמאית לאורך זמן.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======================= 09 · ENVIRONMENT ======================= -->
+<section class="sec" id="environment" style="padding-top:0">
+  <div class="wrap env">
+    <div>
+      <span class="label rv"><b>09</b> / YOUR ENVIRONMENT</span>
+      <h2 class="rv">המתודולוגיה נכנסת לארגון. <em>הארגון לא צריך להתאים את עצמו אליה.</em></h2>
+      <p class="disc rv">התאמה לסביבת העבודה הקיימת, בכפוף לתשתיות, למדיניות הארגון ולכלים המאושרים לשימוש בו. השמות מוצגים להמחשת סוגי סביבות בלבד ואינם מעידים על שותפות מסחרית.</p>
+    </div>
+    <figure class="orbit rv" aria-label="המתודולוגיה במרכז, ומסביבה סביבות עבודה קיימות: Claude Code, Kiro, Cursor, Git, Azure DevOps, Jira">
+      <svg viewBox="0 0 640 420" id="orbit"></svg>
+      <div class="orbit-m" aria-hidden="true"><div class="o-core">המתודולוגיה</div><div class="o-tools"><span>Claude Code</span><span>Kiro</span><span>Cursor</span><span>Git</span><span>Azure DevOps</span><span>Jira</span></div></div>
+    </figure>
+  </div>
+</section>
+
+<!-- ======================= 10 · EXPERIENCE ======================= -->
+<section class="sec" id="experience" style="background:var(--paper-2)">
+  <div class="wrap exp">
+    <div>
+      <span class="label rv"><b>10</b> / EXPERIENCE</span>
+      <h2 class="rv">ניסיון שמחבר בין טכנולוגיה, תהליכים <em>ובינה מלאכותית.</em></h2>
+      <ul class="exp-list rv" style="margin-top:36px">
+        <li><i></i>למעלה מעשור של ניסיון במערכות מורכבות בעולמות הבנקאות והביטוח.</li>
+        <li><i></i>פיתוח, ניתוח מערכות וארכיטקטורת פתרונות.</li>
+        <li><i></i>הובלת תהליכי הטמעת AI ומתודולוגיות עבודה בסביבה ארגונית מורכבת.</li>
+      </ul>
+    </div>
+    <figure class="venn rv" aria-hidden="true">
+      <svg viewBox="0 0 520 470">
+        <circle class="c" cx="260" cy="170" r="140" fill="#171a18" stroke="#171a18"/>
+        <circle class="c" cx="182" cy="300" r="140" fill="#6d706a" stroke="#6d706a"/>
+        <circle class="c" cx="338" cy="300" r="140" fill="#fc693f" stroke="#fc693f"/>
+        <text x="260" y="98" text-anchor="middle" class="t">מערכות מורכבות</text>
+        <text x="260" y="118" text-anchor="middle" class="s">בנקאות וביטוח</text>
+        <text x="128" y="352" text-anchor="middle" class="t">פיתוח וארכיטקטורה</text>
+        <text x="128" y="372" text-anchor="middle" class="s">ניתוח מערכות ופתרונות</text>
+        <text x="392" y="352" text-anchor="middle" class="t">הטמעת AI</text>
+        <text x="392" y="372" text-anchor="middle" class="s">מתודולוגיות עבודה</text>
+        <circle cx="260" cy="256" r="30" fill="#171a18"/>
+        <g transform="rotate(-9 260 255)"><circle cx="260" cy="255" r="13" fill="none" stroke="#fffdf7" stroke-width="2.2"/><rect x="257" y="248" width="6" height="14" fill="#fffdf7"/></g>
+        <circle cx="250" cy="243" r="3.5" fill="#fc693f"/>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<!-- ======================= 11 · FINAL ======================= -->
+<section class="sec dark" id="contact">
+  <div class="wrap final">
+    <div>
+      <span class="label rv"><b>11</b> / NEXT STEP</span>
+      <h2 class="rv">השלב הבא של ה־AI בארגון שלכם הוא לא עוד כלי. <em>הוא שיטת עבודה.</em></h2>
+      <p class="lead rv">בואו נבחן כיצד ניתן להפוך את המומחיות הארגונית שלכם ליכולת מקצועית המוטמעת בתהליכי העבודה באמצעות AI.</p>
+    </div>
+    <div class="form rv">
+      <form id="lead" novalidate>
+        <h3>לתיאום פגישת היכרות</h3>
+        <div class="g2">
+          <div class="fld"><label for="f-n">שם <em>*</em></label><input id="f-n" autocomplete="name" required maxlength="80"><span class="err">נא למלא שם</span></div>
+          <div class="fld"><label for="f-o">ארגון <em>*</em></label><input id="f-o" autocomplete="organization" required maxlength="100"><span class="err">נא למלא ארגון</span></div>
+        </div>
+        <div class="g2">
+          <div class="fld"><label for="f-r">תפקיד</label><input id="f-r" autocomplete="organization-title" maxlength="80"></div>
+          <div class="fld"><label for="f-c">טלפון או מייל <em>*</em></label><input id="f-c" dir="ltr" required maxlength="120"><span class="err">נא להזין טלפון או מייל תקינים</span></div>
+        </div>
+        <div class="fld"><label for="f-m">מה תרצו לקדם בארגון? <span style="color:#8e968f">(לא חובה)</span></label><textarea id="f-m" maxlength="1500"></textarea></div>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-accent" type="submit" id="send">לתיאום פגישת היכרות <span aria-hidden="true">↖</span></button>
+        <div class="fstat" id="fstat" role="status" aria-live="polite"></div>
+      </form>
+      <div class="done" id="done" hidden tabindex="-1"><span class="tk">✓</span><b>הפנייה התקבלה.</b><p id="doneTxt">נחזור אליכם לתיאום פגישת היכרות.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span class="brand" style="gap:10px"><span class="brand-mark" aria-hidden="true">III</span><span>המאסטר השלישי · <span class="en">THE THIRD MASTER / ENTERPRISE AI</span></span></span>
+    <span>ענף של <a href="https://www.thirdmaster.com/">The Third Master</a> · © <span id="yr">2026</span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NS='http://www.w3.org/2000/svg';
+const el=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent&&parent.appendChild(e);return e};
+$('#yr').textContent=new Date().getFullYear();
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(n=>io.observe(n));
+/* active nav */
+const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('.nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+['shift','architecture','demo','results','services','experience'].forEach(id=>navIO.observe(document.getElementById(id)));
+
+/* ---------- 01 hero system: skills orbit + knowledge stack ---------- */
+(function(){const g=$('#skills');for(let i=0;i<7;i++){const a=(-90+i*360/7)*Math.PI/180,x=300+104*Math.cos(a),y=238+104*Math.sin(a);
+    el('rect',{x:x-7,y:y-7,width:14,height:14,fill:i===2?'#fc693f':'#fffdf7',stroke:'#171a18','stroke-width':1.3},g)}
+  const kb=$('#kb');['ידע עסקי','תיעוד מערכות','קוד ונתונים','סטנדרטים','החלטות'].forEach((t,i)=>{const y=140+i*42;
+    el('rect',{x:40,y:y,width:112,height:32,fill:'#fffdf7',stroke:'#171a18','stroke-width':1.1},kb);
+    el('rect',{x:40,y:y+29,width:112,height:3,fill:'#d9d7ce'},kb);
+    const t1=el('text',{x:96,y:y+21,'text-anchor':'middle',class:'sv-s','font-size':12,fill:'#171a18'},kb);t1.textContent=t});
+  if(reduce)$('#packets').remove();
+})();
+
+/* ---------- 02 shift: scattered → organized ---------- */
+(function(){
+  const svg=$('#field'),rails=$('#rails'),stage=$('#shiftStage'),cap=$('#shiftCap');
+  const lanes=[90,170,250],cols=6,units=[];
+  // organized rails (lanes + shared gates)
+  lanes.forEach((y,li)=>{el('line',{x1:60,x2:940,y1:y,y2:y,stroke:'#d9d7ce','stroke-width':1.2},rails)});
+  [330,630].forEach(x=>{el('rect',{x:x-8,y:62,width:16,height:216,fill:'#fffdf7',stroke:'#171a18','stroke-width':1.2},rails);
+    el('path',{d:`M${x-4} 282 l3 3 6-7`,fill:'none',stroke:'#2f5a26','stroke-width':1.6},rails)});
+  const t=el('text',{x:330,y:296,'text-anchor':'middle',class:'sv-s'},rails);t.textContent='בקרת איכות';
+  const t2=el('text',{x:630,y:296,'text-anchor':'middle',class:'sv-s'},rails);t2.textContent='אישור אנושי';
+  // seeded random so the "before" scatter is stable
+  let seed=7;const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
+  for(let i=0;i<18;i++){
+    const g=el('g',{class:'unit'},svg);
+    const lane=i%3,col=Math.floor(i/3);
+    const ax=900-col*150,ay=lanes[lane];
+    const bx=80+rnd()*840,by=40+rnd()*220;
+    el('line',{class:'u-link',x1:0,y1:0,x2:(rnd()-.5)*90,y2:(rnd()-.5)*70,stroke:'#b9bcb3','stroke-dasharray':'2 4'},g);
+    el('circle',{r:9,fill:'#fffdf7',stroke:'#171a18','stroke-width':1.4},g);
+    el('rect',{x:14,y:-6,width:10,height:12,fill:i%4===0?'#fc693f':'#efece3',stroke:'#171a18','stroke-width':1},g);
+    units.push({g,a:[ax,ay],b:[bx,by]});
+  }
+  function set(state){const after=state==='after';stage.classList.toggle('after',after);
+    $$('#shiftStage .seg button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.s===state)));
+    units.forEach(u=>{const [x,y]=after?u.a:u.b;u.g.style.transform=`translate(${x}px,${y}px)`;u.g.querySelector('.u-link').style.opacity=after?0:1});
+    rails.style.opacity=after?1:0;cap.textContent=after?'מערכת עבודה ארגונית אחת, מסודרת ומתואמת':'כל עובד עובד אחרת'}
+  set('before');
+  $$('#shiftStage .seg button').forEach(b=>b.addEventListener('click',()=>{auto=false;set(b.dataset.s)}));
+  let auto=true;
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){o.disconnect();setTimeout(()=>{if(auto)set('after')},reduce?0:1400)}}),{threshold:.45}).observe(stage);
+})();
+
+/* ---------- 03 architecture: focus a layer, highlight its relations ---------- */
+(function(){
+  const arch=$('#arch'),nodes=$$('#arch [data-l]');
+  const INFO={1:['אנשי המקצוע','אנשי המקצוע מובילים את העבודה: מציגים את הצורך, מקבלים את ההחלטות ומאשרים את התוצרים. המערכת עובדת בשבילם.'],
+    2:['המלווה המקצועי','מלווה את העובד לאורך התהליך, מבין את ההקשר ומפעיל בזמן הנכון את היכולות המקצועיות ואת הידע הרלוונטי.'],
+    3:['Professional Skills','יכולות מתמחות המגלמות מומחיות ושיקול דעת — כל אחת אחראית על חלק מוגדר בעבודה המקצועית.'],
+    4:['הידע הארגוני','הידע שכבר קיים בארגון הופך לבסיס שעליו נשענת העבודה, במקום להתחיל כל משימה מאפס.'],
+    5:['ממשל ובקרה','שכבה שחוצה את כל המערכת: נקודות בקרה, אישור אנושי, ניהול גרסאות, התאמה לסביבת העבודה ושיפור מתמשך.']};
+  const on=n=>{const rel=n.dataset.rel.split(',');arch.classList.add('focus');
+    nodes.forEach(x=>{x.classList.toggle('is-on',x===n);x.classList.toggle('is-rel',rel.includes(x.dataset.l))});
+    const [h,p]=INFO[n.dataset.l];$('#lyName').textContent=h;$('#lyText').textContent=p};
+  const off=()=>{arch.classList.remove('focus');nodes.forEach(x=>x.classList.remove('is-on','is-rel'))};
+  nodes.forEach(n=>{n.addEventListener('mouseenter',()=>on(n));n.addEventListener('focus',()=>on(n));n.addEventListener('click',()=>on(n))});
+  arch.addEventListener('mouseleave',off);arch.addEventListener('focusout',e=>{if(!arch.contains(e.relatedTarget))off()});
+})();
+
+/* ---------- 04 demo: fictional scenario, step by step ---------- */
+(function(){
+  const S=[
+   {t:'צורך עסקי ראשוני',chat:[['u','לקוחות מבקשים לראות בפורטל את הסטטוס של הפניות שלהם. אפשר להתחיל לאפיין?'],['c','כן. לפני שנכתוב משהו — אבדוק מה כבר קיים בארגון סביב פניות ופורטל הלקוחות.']],
+    log:[['src','נפתחה דרישה חדשה','פורטל לקוחות · הצגת סטטוס פניות']]},
+   {t:'בחינת ההקשר הארגוני',chat:[['c','מצאתי את תהליך הטיפול בפניות, את תיעוד הפורטל והחלטה קודמת על הצגת מידע אישי בפורטל. אשתמש בהם כבסיס.']],
+    log:[['src','ידע עסקי','תהליך טיפול בפניות'],['src','תיעוד מערכת','פורטל לקוחות'],['src','החלטה מקצועית קודמת','הצגת מידע אישי בפורטל']]},
+   {t:'בדיקת יכולות ותשתיות',chat:[['c','קיים כבר שירות שמחזיק את סטטוס הפנייה, והפורטל מציג היסטוריית לקוח. אין צורך לבנות את הבסיס מחדש.']],
+    log:[['ok','שירות סטטוס פניות קיים','ניתן לשימוש חוזר'],['ok','הפורטל מציג היסטוריית לקוח','רכיב תצוגה קיים'],['flag','השפעה על שירות ההתראות','לבירור בשלב הבא']]},
+   {t:'פערים ושאלות ממוקדות',chat:[['warn','נקודת החלטה: ההחלטה הקודמת מחייבת אימות מוגבר לפני הצגת מידע אישי. האם להחיל אותה גם כאן?'],['u','כן, אותו אימות.'],['c','ועוד שתי שאלות: אילו פניות להציג — גם סגורות? ומי רשאי לראות פניות בחשבון משותף?'],['u','פניות מ־12 החודשים האחרונים, ורק בעל החשבון.']],
+    log:[['flag','זוהה מידע חסר','תקופת הצגה · הרשאות בחשבון משותף'],['flag','נעצר לנקודת החלטה','החלת אימות מוגבר'],['ok','ההחלטות תועדו','לשימוש בהמשך התהליך']]},
+   {t:'גיבוש תוצר מובנה',chat:[['c','גיבשתי טיוטת אפיון במבנה הארגוני, כולל ההחלטות שקיבלת וההשפעה על שירות ההתראות.']],
+    log:[['ok','נבנתה טיוטת אפיון','לפי המבנה הארגוני']],art:{h:'טיוטת אפיון',st:'טיוטה',rows:[['רקע ומטרה','מוכן'],['תרחישי שימוש','מוכן'],['כללים עסקיים והרשאות','מוכן'],['השפעות על מערכות','מוכן'],['קריטריוני קבלה','מוכן']]}},
+   {t:'בקרת איכות נפרדת',chat:[['c','בקרת האיכות מצאה תרחיש חסר: פנייה שהועברה בין מחלקות. הוספתי אותו לטיוטה.']],
+    log:[['src','הופעלה בקרת איכות נפרדת','בדיקה עצמאית של התוצר'],['ok','עקביות וכיסוי','תקין'],['flag','תרחיש חסר נמצא','פנייה שהועברה בין מחלקות — תוקן']],art:{h:'טיוטת אפיון',st:'עברה בקרה',rows:[['רקע ומטרה','מוכן'],['תרחישי שימוש','עודכן','w'],['כללים עסקיים והרשאות','מוכן'],['השפעות על מערכות','מוכן'],['קריטריוני קבלה','מוכן']]}},
+   {t:'אישור העובד',chat:[['c','התוצר מוכן לאישורך. אחרי האישור הוא יעבור להכנה לפיתוח.']],approve:true,
+    log:[['src','ממתין לאישור אנושי','שום תוצר לא ממשיך בלי אישור']],art:{h:'טיוטת אפיון',st:'ממתין לאישור',rows:[['רקע ומטרה','מוכן'],['תרחישי שימוש','מוכן'],['כללים עסקיים והרשאות','מוכן'],['השפעות על מערכות','מוכן'],['קריטריוני קבלה','מוכן']]}}
+  ];
+  let i=0,approved=false;
+  const steps=$('#steps');
+  S.forEach((s,k)=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.innerHTML='<small>0'+(k+1)+'</small><span>'+s.t+'</span>';b.setAttribute('aria-label','שלב '+(k+1)+': '+s.t);b.onclick=()=>go(k);steps.appendChild(b)});
+  const ICON={ok:'✓',src:'◇',flag:'!'},WHO={u:'העובד',c:'המלווה המקצועי',warn:'המלווה המקצועי · התרעה'};
+  function render(){
+    [...steps.children].forEach((b,k)=>{b.classList.toggle('on',k===i);b.classList.toggle('done',k<i||(k===6&&approved));b.setAttribute('aria-selected',String(k===i))});
+    const chat=$('#chat');chat.innerHTML='';
+    S.slice(0,i+1).forEach((s,k)=>s.chat.forEach(([w,t],m)=>{const d=document.createElement('div');d.className='msg '+w;d.style.animationDelay=(k===i&&!reduce?m*.35:0)+'s';d.innerHTML='<small>'+WHO[w]+'</small>';d.append(t);chat.appendChild(d)}));
+    if(S[i].approve){if(!approved){const a=document.createElement('button');a.className='approve';a.type='button';a.textContent='✓ אישור התוצר להמשך התהליך';a.onclick=()=>{approved=true;render()};chat.appendChild(a)}
+      else{const d=document.createElement('div');d.className='msg u';d.innerHTML='<small>העובד</small>אושר. ממשיכים להכנה לפיתוח.';chat.appendChild(d)}}
+    const log=$('#log');log.innerHTML='';
+    S[i].log.concat(i===6&&approved?[['ok','אושר על ידי העובד','עובר להכנה לפיתוח']]:[]).forEach(([k,h,s2],m)=>{const d=document.createElement('div');d.className='ev';d.style.animationDelay=(reduce?0:m*.18)+'s';d.innerHTML='<i class="'+k+'">'+ICON[k]+'</i><div></div>';d.lastChild.append(h);const sm=document.createElement('small');sm.textContent=s2;d.lastChild.appendChild(sm);log.appendChild(d)});
+    const art=$('#art');art.innerHTML='';const a=S[i].art;
+    if(a){const box=document.createElement('div');box.className='artifact';const st=(i===6&&approved)?'אושר':a.st;
+      box.innerHTML='<h4></h4><ol></ol>';box.querySelector('h4').append(a.h);const sp=document.createElement('span');sp.textContent=st;if(st==='אושר'||st==='עברה בקרה')sp.className='ok';box.querySelector('h4').appendChild(sp);
+      a.rows.forEach(([n,s3,w])=>{const li=document.createElement('li');li.append(n);const x=document.createElement('span');x.textContent=s3;if(w)x.className='w';li.appendChild(x);box.querySelector('ol').appendChild(li)});art.appendChild(box)}
+    $('#stepTag').textContent='שלב '+(i+1)+' מתוך 7';
+    $('#meter').style.width=((i+(i===6&&approved?1:.5))/7*100)+'%';
+    $('#prev').disabled=i===0;$('#next').disabled=i===6;
+  }
+  function go(k){i=Math.max(0,Math.min(6,k));render()}
+  $('#prev').onclick=()=>go(i-1);$('#next').onclick=()=>go(i+1);$('#restart').onclick=()=>{approved=false;go(0)};
+  steps.addEventListener('keydown',e=>{const d=e.key==='ArrowLeft'?1:e.key==='ArrowRight'?-1:0;if(d){e.preventDefault();go(i+d);steps.children[i].focus()}});
+  render();
+})();
+
+/* ---------- 05 continuity thread ---------- */
+(function(){const flow=$('#flow'),th=$('#thread'),sts=$$('#flow .st');
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();
+    // the thread runs from the first stage dot to the last one
+    const fr=flow.getBoundingClientRect(),d0=sts[0].querySelector('.dotn').getBoundingClientRect(),d1=sts[sts.length-1].querySelector('.dotn').getBoundingClientRect();
+    th.style.top=(d0.top-fr.top+d0.height/2-1)+'px';th.style.right=(fr.right-(d0.left+d0.width/2))+'px';
+    const w=(d0.left+d0.width/2)-(d1.left+d1.width/2);requestAnimationFrame(()=>{th.style.width=w+'px'});
+    sts.forEach((s,k)=>setTimeout(()=>s.classList.add('lit'),reduce?0:k*460))}),{threshold:.4}).observe(flow)})();
+
+/* ---------- 06 count-up ---------- */
+(function(){const c=$('#count');new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();if(reduce)return;
+  let t0=null;c.textContent='0';const f=ts=>{t0??=ts;const p=Math.min(1,(ts-t0)/1500);c.textContent=Math.round(60*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}),{threshold:.5}).observe(c)})();
+
+/* ---------- 09 environment orbit ---------- */
+(function(){const s=$('#orbit');const cx=320,cy=210;
+  el('ellipse',{cx,cy,rx:250,ry:160,fill:'none',stroke:'#d9d7ce','stroke-dasharray':'2 5'},s);
+  const tools=['Claude Code','Kiro','Cursor','Git','Azure DevOps','Jira'];
+  tools.forEach((t,k)=>{const a=(-90+k*60)*Math.PI/180,x=cx+250*Math.cos(a),y=cy+160*Math.sin(a);
+    el('line',{x1:cx,y1:cy,x2:x,y2:y,stroke:'#d9d7ce'},s);
+    const w=t.length*9+28;el('rect',{x:x-w/2,y:y-18,width:w,height:36,class:'tool-box'},s);
+    const tx=el('text',{x,y:y+5,'text-anchor':'middle',class:'tool',direction:'ltr'},s);tx.textContent=t});
+  el('circle',{cx,cy,r:74,fill:'#171a18'},s);
+  const g=el('g',{transform:`rotate(-9 ${cx} ${cy-12})`},s);el('circle',{cx,cy:cy-12,r:20,fill:'none',stroke:'#fffdf7','stroke-width':2.6},g);el('rect',{x:cx-4.5,y:cy-22,width:9,height:20,fill:'#fffdf7'},g);
+  el('circle',{cx:cx-15,cy:cy-30,r:4.5,fill:'#fc693f'},s);
+  const l=el('text',{x:cx,y:cy+34,'text-anchor':'middle','font-size':13,'font-weight':700,fill:'#fffdf7'},s);l.textContent='המתודולוגיה';
+})();
+
+/* ---------- 11 contact (FormSubmit — same mechanism as the main site) ---------- */
+(function(){
+  const TO='hadas@thirdmaster.com',f=$('#lead'),btn=$('#send'),st=$('#fstat');let busy=false;
+  const isMail=v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v),isPhone=v=>/^[+0-9() \-]{9,20}$/.test(v)&&v.replace(/\D/g,'').length>=9;
+  const R=[['f-n',v=>v.trim().length>1],['f-o',v=>v.trim().length>1],['f-c',v=>isMail(v.trim())||isPhone(v.trim())]];
+  const chk=(id,fn)=>{const x=$('#'+id),ok=fn(x.value);x.parentElement.classList.toggle('bad',!ok);x.setAttribute('aria-invalid',String(!ok));return ok};
+  f.addEventListener('submit',e=>{e.preventDefault();if(busy)return;st.textContent='';
+    const bad=R.filter(([id,fn])=>!chk(id,fn));if(bad.length){$('#'+bad[0][0]).focus();st.textContent='נא להשלים את השדות המסומנים.';return}
+    if(f.elements._honey.value){fin();return}
+    const v=id=>$('#'+id).value.trim();
+    const data={'שם':v('f-n'),'ארגון':v('f-o'),'תפקיד':v('f-r')||'לא צוין','טלפון / מייל':v('f-c'),'מה תרצו לקדם':v('f-m')||'—','מקור':'Enterprise AI',_subject:'פגישת היכרות — The Third Master | Enterprise AI — '+v('f-o'),_template:'table'};
+    busy=true;btn.disabled=true;const lbl=btn.innerHTML;btn.textContent='שולחים…';
+    const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),15000);
+    fetch('https://formsubmit.co/ajax/'+TO,{method:'POST',signal:ac.signal,headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+      .then(r=>r.json().catch(()=>({})).then(d=>{if(!r.ok||!(d.success===true||d.success==='true'))throw new Error(d.message||'HTTP '+r.status);return 'ok'}))
+      .catch(err=>{if(err instanceof TypeError||err.name==='AbortError')return frame(data);throw err})
+      .then(fin)
+      .catch(()=>{st.innerHTML='השליחה לא הצליחה. אפשר לנסות שוב או לכתוב ל־<a href="mailto:'+TO+'" dir="ltr">'+TO+'</a>'})
+      .finally(()=>{clearTimeout(tm);busy=false;btn.disabled=false;btn.innerHTML=lbl})});
+  function frame(d){return new Promise(res=>{let fr=$('#fsf');if(!fr){fr=document.createElement('iframe');fr.name='fsf';fr.id='fsf';fr.hidden=true;document.body.appendChild(fr)}
+    const fm=document.createElement('form');fm.method='POST';fm.action='https://formsubmit.co/'+TO;fm.target='fsf';fm.hidden=true;
+    Object.entries(Object.assign({},d,{_captcha:'false'})).forEach(([k,val])=>{const i=document.createElement('input');i.type='hidden';i.name=k;i.value=val;fm.appendChild(i)});
+    document.body.appendChild(fm);let x=false;const end=()=>{if(x)return;x=true;fm.remove();res('frame')};fr.onload=end;setTimeout(end,6000);fm.submit()})}
+  function fin(how){f.hidden=true;const d=$('#done');d.hidden=false;if(how==='frame')$('#doneTxt').innerHTML='הפנייה נשלחה. אם לא חזרנו אליכם תוך יומיים, כתבו ל־<a href="mailto:'+TO+'" dir="ltr" style="text-decoration:underline">'+TO+'</a>';d.focus()}
+})();
+})();
+</script>
+</body>
+</html>
