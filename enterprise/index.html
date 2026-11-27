@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow"><!-- review mockup: not for indexing until approved -->
 <meta name="theme-color" content="#f7f5ef">
 <title>המאסטר השלישי | Enterprise AI — מהפכה בשיטת העבודה</title>
-<meta name="description" content="ייעוץ, ארכיטקטורה וליווי הטמעת AI בליבת תהליכי העבודה הארגוניים: ארכיטקטורת סוכנים מקצועיים, Skills, ידע ארגוני ומתודולוגיית עבודה מבוקרת.">
+<meta name="description" content="ייעוץ וארכיטקטורה לתכנון ולהובלת טרנספורמציה של תהליכי עבודה מקצועיים בעידן ה־AI: מחזון מקצועי למתודולוגיית עבודה מוטמעת, מבוקרת ומדידה.">
 <link rel="icon" href="../brand/logo-mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -427,6 +427,133 @@ svg text{font-family:var(--font)}
 }
 @media (prefers-reduced-motion:reduce){.cv .pop{opacity:1;animation:none}.seg{transition:none}}
 
+/* ================= STRATEGIC SHIFT: methodology first ================= */
+.claim{font-size:clamp(17px,1.35vw,21px);font-weight:800;letter-spacing:-.01em;border-right:3px solid var(--accent);padding-right:14px;margin:-12px 0 30px;max-width:620px}
+
+/* ---------- 03 Methodology: transformation map ---------- */
+.mt-head{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:end;margin-bottom:clamp(22px,3.6vh,48px)}
+.mt-head h2{max-width:20ch}
+.tmap{position:relative;border:1px solid var(--line);background:var(--white);padding:clamp(16px,2.2vh,26px) clamp(16px,1.6vw,26px) clamp(18px,2.4vh,28px)}
+.phases{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:0 10px;margin-bottom:12px}
+.ph{font-size:13px;color:var(--muted);font-weight:600;border-top:3px solid;padding-top:8px;line-height:1.35}
+.ph b{display:block;font-size:12px;font-weight:800;letter-spacing:.16em;direction:ltr;text-align:right;color:var(--ink)}
+.ph-d{grid-column:1 / 4;border-color:var(--ink)}
+.ph-b{grid-column:4 / 7;border-color:var(--accent)}
+.ph-t{grid-column:7 / 9;border-color:#7fae67}
+.track{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;position:relative}
+.track:before{content:"";position:absolute;top:21px;right:20px;left:20px;height:2px;background:var(--line)}
+.tk{position:relative;background:none;border:0;padding:0;text-align:right;display:flex;flex-direction:column;gap:6px;color:var(--ink)}
+.tk .dot{width:42px;height:42px;border-radius:50%;background:var(--white);border:1.6px solid #b9bcb3;display:grid;place-items:center;font-weight:800;font-size:13px;direction:ltr;transition:all .3s;position:relative;z-index:1}
+.tk small{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--muted);direction:ltr;text-align:right;line-height:1.3}
+.tk b{font-size:14px;font-weight:700;line-height:1.35}
+.tk.done .dot{border-color:var(--ink);background:var(--paper-2)}
+.tk[aria-selected="true"] .dot{background:var(--ink);border-color:var(--ink);color:#fff;transform:scale(1.08)}
+.tk[data-ph="b"][aria-selected="true"] .dot{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.tk[data-ph="t"][aria-selected="true"] .dot{background:#2f5a26;border-color:#2f5a26}
+.tk .ai{position:absolute;top:-6px;left:0;font-size:10px;font-weight:800;color:var(--accent-ink);background:#fff3ec;border:1px solid #ffc9b8;padding:1px 6px}
+.loop{display:block;width:calc(100% - 0px);height:44px;margin-top:4px}
+.loop path{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-dasharray:5 5;vector-effect:non-scaling-stroke}
+.loop path.tip{stroke-dasharray:none}
+.loop-lbl{display:block;text-align:center;font-size:12.5px;font-weight:700;color:var(--accent-ink);margin:-26px auto 10px;background:var(--white);width:max-content;padding:0 10px;position:relative}
+.mt-panel{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(240px,.65fr);gap:clamp(20px,2.4vw,40px);border-top:1px solid var(--line);padding-top:clamp(14px,2.2vh,24px);animation:pop .4s var(--ease) both}
+.mt-panel h3{font-size:clamp(21px,1.7vw,27px);font-weight:800;letter-spacing:-.025em;margin-bottom:12px}
+.mt-panel h3 small{display:block;font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--accent);direction:ltr;text-align:right;margin-bottom:4px}
+.mt-row{display:grid;grid-template-columns:86px minmax(0,1fr);gap:12px;padding:9px 0;border-top:1px dashed #e2dfd5;font-size:15.5px;line-height:1.6}
+.mt-row:first-of-type{border-top:0}
+.mt-row span{font-size:12px;font-weight:800;color:var(--muted);padding-top:3px}
+.mt-row.q p{font-size:clamp(17px,1.35vw,20px);font-weight:700;letter-spacing:-.01em}
+.mt-row.o p{font-weight:800}
+.mt-row.o p:before{content:"→ ";color:var(--accent)}
+.mt-em{margin-top:8px;background:#fff3ec;border-right:3px solid var(--accent);padding:8px 12px;font-size:14.5px;font-weight:600}
+.found{background:var(--paper);border:1px solid var(--line);padding:14px;display:flex;flex-direction:column;justify-content:flex-end;gap:5px;min-height:100%}
+.found .fh{font-size:11.5px;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:auto;padding-bottom:10px}
+.found i{font-style:normal;display:block;font-size:12.5px;font-weight:600;padding:6px 10px;background:#fff;border:1px solid #d9d7ce;animation:pop .35s var(--ease) both}
+.found i.now{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:800}
+.found i.now:after{content:" · נבנה עכשיו";font-weight:500;color:#c3cac3}
+.found .base{font-size:11px;color:var(--muted);text-align:center;padding-top:4px;border-top:2px solid var(--ink)}
+.mt-close{margin-top:clamp(18px,3vh,44px);font-size:clamp(26px,3.2vw,50px);font-weight:800;letter-spacing:-.04em;line-height:1.15}
+.mt-close span{color:var(--accent)}
+
+/* ---------- 04 Case study ---------- */
+.cs-title{max-width:22ch}
+.cs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,3.4vw,64px);margin-top:clamp(20px,3.4vh,48px);align-items:stretch}
+.cs-tag{display:block;font-size:11.5px;font-weight:800;letter-spacing:.14em;color:#ffb39a;margin-bottom:8px}
+.cs-block{border-top:1px solid var(--line-dark);padding:clamp(10px,1.6vh,18px) 0}
+.cs-block p{color:var(--on-dark);font-size:16px;line-height:1.65}
+.cs-result{border-top:2px solid var(--accent)}
+.cs-res{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
+.cs-big{font-size:clamp(72px,7vw,120px);font-weight:900;letter-spacing:-.06em;line-height:.85;direction:ltr;color:#fff}
+.cs-big sup{font-size:.4em;color:var(--accent)}
+.cs-cap{font-size:17px;font-weight:700;color:#fff;max-width:220px;padding-bottom:6px}
+.cs-gains{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.cs-gains li{font-size:13px;color:#dfe4de;border:1px solid #4a514c;padding:5px 10px}
+.cs-path{border:1px solid var(--line-dark);background:#20241f;padding:clamp(14px,2vh,24px) 22px}
+.cs-steps{counter-reset:c;position:relative;margin-top:6px}
+.cs-steps:before{content:"";position:absolute;right:15px;top:16px;bottom:16px;width:2px;background:#3a403c}
+.cs-steps li{counter-increment:c;display:grid;grid-template-columns:32px minmax(0,1fr);gap:14px;align-items:center;padding:clamp(5px,.9vh,9px) 0;position:relative;opacity:.25;transition:opacity .5s}
+.cs-steps li:before{content:counter(c);width:32px;height:32px;border-radius:50%;background:#20241f;border:1.6px solid #7b847c;display:grid;place-items:center;font-size:12.5px;font-weight:800;color:#c3cac3;position:relative;z-index:1}
+.cs-steps li b{font-size:15.5px;font-weight:600;color:#fff}
+.cs-steps li.ai:before{border-color:var(--accent);color:var(--accent)}
+.cs-steps li.on{opacity:1}
+.cs-note{margin-top:12px;font-size:13.5px;color:#ffb39a;font-weight:600}
+
+/* ---------- 06 Applications ---------- */
+.ap-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:40px;align-items:end;margin-bottom:clamp(20px,3.4vh,48px)}
+.apps{border-top:2px solid var(--ink)}
+.apps-axis,.app{display:grid;grid-template-columns:minmax(220px,.75fr) minmax(0,1.25fr) 260px;gap:24px;align-items:center}
+.apps-axis{padding:10px 0;border-bottom:1px solid var(--line)}
+.apps-axis span{grid-column:1 / 3}
+.apps-axis b{font-size:11px;letter-spacing:.14em;font-weight:800;color:var(--muted);direction:ltr}
+.apps-axis{grid-template-columns:minmax(220px,.75fr) minmax(0,1.25fr) 86px 86px 88px}
+.app{padding:clamp(14px,2.2vh,24px) 0;border-bottom:1px solid var(--line)}
+.app h3{font-size:clamp(19px,1.6vw,25px);font-weight:800;letter-spacing:-.02em;direction:ltr;text-align:right}
+.app p{font-size:16px;color:#4a4f48;line-height:1.65}
+.app-link{display:inline-block;font-weight:700;color:var(--accent-ink);margin-right:6px}
+.app-link:hover{text-decoration:underline}
+.app .rail{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.app .rail em{height:6px;background:var(--ink)}
+.app .rail em:nth-child(2){background:var(--accent)}
+.app .rail em:nth-child(3){background:#7fae67}
+.ap-note{margin-top:16px;font-size:14px;color:var(--muted)}
+
+/* ---------- 06 Dynamics 365 illustration ---------- */
+.d-title{max-width:22ch}
+.dx{display:grid;grid-template-columns:minmax(0,1.15fr) 90px minmax(0,.85fr);gap:clamp(16px,2vw,32px);margin-top:clamp(20px,3.4vh,44px);align-items:stretch}
+.dx-q ol{counter-reset:q}
+.dx-q li{counter-increment:q;display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px;padding:clamp(7px,1.2vh,12px) 0;border-top:1px solid var(--line-dark);font-size:16px;color:#e3e8e2;line-height:1.55}
+.dx-q li:before{content:"0" counter(q);font-size:12px;font-weight:800;color:#ffb39a;padding-top:4px;direction:ltr;text-align:right}
+.dx-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-size:12px;font-weight:800;color:#8e968f}
+.dx-arrow i{flex:1;max-height:220px;width:2px;background:linear-gradient(#5a625c,var(--accent));position:relative}
+.dx-arrow i:after{content:"";position:absolute;bottom:-2px;left:-5px;border:6px solid transparent;border-top-color:var(--accent);transform:translateY(100%)}
+.dx-c{border:1px solid var(--line-dark);background:#20241f;padding:clamp(14px,2vh,22px) 20px}
+.dx-c li{padding:clamp(7px,1.2vh,11px) 0;border-top:1px solid #333a35;font-size:16px;font-weight:600;color:#fff}
+.dx-c li:first-child{border-top:0}
+.dx-close{margin-top:clamp(16px,3vh,36px);font-size:clamp(22px,2.4vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1.2}
+.dx-close span{color:#ffb39a}
+.dx-note{margin-top:8px;font-size:13.5px;color:#8e968f}
+
+@media (max-width:980px){
+  .mt-head,.ap-head,.cs,.dx{grid-template-columns:1fr}
+  .phases,.loop,.loop-lbl{display:none}
+  .track{grid-template-columns:1fr 1fr;gap:8px}
+  .track:before{display:none}
+  .tk{flex-direction:row;align-items:center;gap:10px;border:1px solid var(--line);padding:8px;background:var(--paper);width:100%}
+  .tk .dot{width:34px;height:34px;flex-shrink:0}
+  .tk small{display:none}
+  .tk .ai{top:-8px}
+  .mt-panel{grid-template-columns:1fr;margin-top:16px}
+  .dx-arrow{flex-direction:row}
+  .dx-arrow i{height:2px;width:auto;max-height:none;flex:1;background:linear-gradient(90deg,var(--accent),#5a625c)}
+  .dx-arrow i:after{display:none}
+  .apps-axis{display:none}
+  .app{grid-template-columns:1fr;gap:8px}
+  .app .rail{max-width:240px}
+}
+@media (max-width:640px){
+  .track{grid-template-columns:1fr}
+  .mt-row{grid-template-columns:1fr;gap:2px}
+}
+
 /* ---------- Desktop: one screen at a time (as on the tech site) ---------- */
 .next-link{display:block;align-self:flex-end;margin:0 var(--gutter);padding:14px 0 22px;font-size:14px;font-weight:700;color:var(--accent-ink);max-width:var(--max);white-space:nowrap}
 .next-link:hover{text-decoration:underline;text-underline-offset:5px}
@@ -458,6 +585,16 @@ svg text{font-family:var(--font)}
   html.paged .panes{min-height:clamp(260px,36vh,440px)}
   html.paged #demo h2,html.paged #method h2,html.paged #services h2{max-width:none}
   html.paged .demo-note{display:none}
+  html.paged #methodology h2{max-width:24ch;font-size:clamp(28px,min(3.4vw,5.4vh),56px)}
+  html.paged .mt-head{margin-bottom:clamp(12px,2vh,28px)}
+  html.paged .tmap{padding-top:14px;padding-bottom:14px}
+  html.paged .phases{margin-bottom:8px}
+  html.paged .tk b{font-size:13.5px}
+  html.paged .loop{height:34px}
+  html.paged .mt-panel{padding-top:12px}
+  html.paged .mt-row{padding:6px 0;font-size:15px}
+  html.paged .mt-close{margin-top:clamp(12px,2vh,28px);font-size:clamp(24px,min(2.8vw,4.4vh),44px)}
+  html.paged #casestudy h2,html.paged #d365 h2,html.paged #applications h2{max-width:26ch}
   html.paged .pane{padding:clamp(12px,1.8vh,22px) 22px}
   html.paged .msg{padding:8px 12px;font-size:14px}
   html.paged .ev{padding:6px 0}
@@ -569,7 +706,7 @@ svg text{font-family:var(--font)}
       <span class="brand-txt"><b>המאסטר השלישי<i>.</i></b><small>THE THIRD MASTER / ENTERPRISE AI</small></span>
     </a>
     <nav class="nav" aria-label="ניווט ראשי">
-      <a href="#proof">מהשטח</a><a href="#master">המאסטר השלישי</a><a href="#challenges">האתגרים</a><a href="#architecture">הארכיטקטורה</a><a href="#services">הליווי</a><a href="#independence">עצמאות</a>
+      <a href="#proof">מהשטח</a><a href="#methodology">המתודולוגיה</a><a href="#casestudy">מקרה בוחן</a><a href="#architecture">המערכת</a><a href="#applications">יישומים</a><a href="#services">הליווי</a>
     </nav>
     <a class="btn btn-ink" href="#contact"><span class="l-long">לתיאום פגישת היכרות</span><span class="l-short">פגישת היכרות</span></a>
   </div>
@@ -582,14 +719,16 @@ svg text{font-family:var(--font)}
   <div class="wrap hero-grid">
     <div>
       <span class="label rv"><b>THE THIRD MASTER</b> / ENTERPRISE AI</span>
-      <p class="svc-line rv">ייעוץ, ארכיטקטורה וליווי הטמעת AI בארגונים</p>
+      <p class="svc-line rv">ייעוץ וארכיטקטורה לטרנספורמציה של שיטות עבודה בעידן ה־AI</p>
       <h1 class="rv">מהפכה בשיטת העבודה<span class="dot">.</span></h1>
       <p class="tri rv"><span>היכולות של הבינה.</span><span>החשיבה של המומחה.</span><span>העוצמה של הארגון.</span></p>
-      <p class="lead rv">הטמעת בינה מלאכותית בליבת תהליכי העבודה הארגוניים, באמצעות ארכיטקטורת סוכנים מקצועיים, <span class="en">Skills</span>, ידע ארגוני ומתודולוגיית עבודה מבוקרת.</p>
+      <p class="lead rv">אנחנו מתכננים את הדרך שבה ארגונים יעבדו בעידן הבינה המלאכותית — ומובילים את המעבר מחזון מקצועי למתודולוגיית עבודה מוטמעת, מבוקרת ומדידה.</p>
+      <p class="claim rv">לא מתחילים מהטכנולוגיה. מתחילים מהתוצאה שהארגון רוצה להשיג.</p>
       <div class="hero-actions rv">
         <a class="btn btn-accent" href="#contact">בואו נדבר על הארגון שלכם <span aria-hidden="true">↖</span></a>
-        <a class="btn btn-line" href="#demo">לראות את השיטה בפעולה</a>
+        <a class="btn btn-line" href="#methodology">להכיר את המתודולוגיה</a>
       </div>
+      <div class="stats rv"><div class="stat"><b>60<small>%</small></b><span>חיסכון בזמן בתהליכי אפיון שנבחנו.</span></div><div class="stat"><b>10<small>+</small></b><span>שנות ניסיון במערכות מורכבות.</span></div></div>
     </div>
 
     <!-- System visual: professional ↔ companion ↔ skills ↔ organizational knowledge, under governance -->
@@ -675,6 +814,9 @@ svg text{font-family:var(--font)}
 </section>
 
 
+
+
+
 <!-- ======================= 02 · PROOF ======================= -->
 <section class="sec" id="proof">
   <div class="wrap">
@@ -699,21 +841,33 @@ svg text{font-family:var(--font)}
   </div>
 </section>
 
-<!-- ======================= 03 · THE THIRD MASTER ======================= -->
-<section class="sec" id="master" style="background:var(--paper-2)">
-  <div class="wrap master">
-    <div class="m-copy">
-      <span class="label rv"><b>03</b> / THE THIRD MASTER</span>
-      <h2 class="rv">שלושה שותפים. <em>יכולת מקצועית חדשה.</em></h2>
-      <p class="lead rv">איש המקצוע מביא את שיקול הדעת. הבינה המלאכותית מביאה את יכולות הביצוע. הסקיל מביא את המומחיות ואת שיטת העבודה. השילוב ביניהם יוצר יכולת מקצועית חדשה.</p>
-      <ul class="partners rv" id="partners">
-        <li data-p="0" tabindex="0"><i class="sw s0"></i><b>איש המקצוע</b><span>הבנת הצורך, שיקול דעת וקבלת החלטות.</span></li>
-        <li data-p="1" tabindex="0"><i class="sw s1"></i><b><span class="en">AI</span></b><span>יכולות ניתוח, עיבוד וביצוע.</span></li>
-        <li data-p="2" tabindex="0"><i class="sw s2"></i><b><span class="en">Skill</span></b><span>המומחיות, הידע ושיטת העבודה המקצועית.</span></li>
+<!-- ======================= 10 · EXPERIENCE ======================= -->
+<section class="sec" id="experience" style="background:var(--paper-2)">
+  <div class="wrap exp">
+    <div>
+      <span class="label rv"><b>02</b> / EXPERIENCE</span>
+      <h2 class="rv">ניסיון שמחבר בין טכנולוגיה, תהליכים <em>ובינה מלאכותית.</em></h2>
+      <ul class="exp-list rv" style="margin-top:36px">
+        <li><i></i>למעלה מעשור של ניסיון במערכות מורכבות בעולמות הבנקאות והביטוח.</li>
+        <li><i></i>פיתוח, ניתוח מערכות וארכיטקטורת פתרונות.</li>
+        <li><i></i>הובלת תהליכי הטמעת AI ומתודולוגיות עבודה בסביבה ארגונית מורכבת.</li>
       </ul>
     </div>
-    <figure class="ring rv" id="ring" aria-label="שלושה רכיבים — איש המקצוע, AI וסקיל — מתחברים יחד למאסטר השלישי. בלי אחד מהם המעגל אינו שלם.">
-      <svg viewBox="0 0 520 520" id="ringSvg"></svg>
+    <figure class="venn rv" aria-hidden="true">
+      <svg viewBox="0 0 520 470">
+        <circle class="c" cx="260" cy="170" r="140" fill="#171a18" stroke="#171a18"/>
+        <circle class="c" cx="182" cy="300" r="140" fill="#6d706a" stroke="#6d706a"/>
+        <circle class="c" cx="338" cy="300" r="140" fill="#fc693f" stroke="#fc693f"/>
+        <text x="260" y="98" text-anchor="middle" class="t">מערכות מורכבות</text>
+        <text x="260" y="118" text-anchor="middle" class="s">בנקאות וביטוח</text>
+        <text x="128" y="352" text-anchor="middle" class="t">פיתוח וארכיטקטורה</text>
+        <text x="128" y="372" text-anchor="middle" class="s">ניתוח מערכות ופתרונות</text>
+        <text x="392" y="352" text-anchor="middle" class="t">הטמעת AI</text>
+        <text x="392" y="372" text-anchor="middle" class="s">מתודולוגיות עבודה</text>
+        <circle cx="260" cy="256" r="30" fill="#171a18"/>
+        <g transform="rotate(-9 260 255)"><circle cx="260" cy="255" r="13" fill="none" stroke="#fffdf7" stroke-width="2.2"/><rect x="257" y="248" width="6" height="14" fill="#fffdf7"/></g>
+        <circle cx="250" cy="243" r="3.5" fill="#fc693f"/>
+      </svg>
     </figure>
   </div>
 </section>
@@ -723,7 +877,7 @@ svg text{font-family:var(--font)}
   <div class="wrap">
     <div class="shift-grid">
       <div>
-        <span class="label rv"><b>03</b> / FROM INDIVIDUAL TO ORGANIZATIONAL</span>
+        <span class="label rv"><b>03</b> / WHY METHODOLOGY FIRST</span>
         <h2 class="rv">הכלים כבר קיימים. <em>שיטת העבודה</em> צריכה להשתנות.</h2>
       </div>
       <p class="lead rv">ארגונים רבים כבר משתמשים בבינה מלאכותית. אבל כאשר כל עובד מנסח בעצמו את ההנחיות, בוחר את דרך העבודה ומגדיר את איכות התוצר — המומחיות נשארת אישית ולא הופכת ליכולת ארגונית.</p>
@@ -752,20 +906,85 @@ svg text{font-family:var(--font)}
     <p class="closing rv">מיכולת אישית <span>ליכולת ארגונית.</span></p>
   </div>
 </section>
-<!-- ======================= 04 · ENTERPRISE AI CHALLENGES ======================= -->
-<section class="sec dark" id="challenges">
+<!-- ======================= 03 · THE METHODOLOGY ======================= -->
+<section class="sec" id="methodology">
   <div class="wrap">
-    <div class="ch-head">
+    <div class="mt-head">
       <div>
-        <span class="label rv"><b>04</b> / ENTERPRISE AI CHALLENGES</span>
-        <h2 class="rv">האתגרים האמיתיים מתחילים <em>אחרי שמכניסים AI לארגון.</em></h2>
+        <span class="label rv"><b>03</b> / THE METHODOLOGY</span>
+        <h2 class="rv">איך מתכננים מחדש את שיטת העבודה של ארגון <em>בעידן ה־AI?</em></h2>
       </div>
-      <p class="lead rv">הטמעה ארגונית מחייבת הרבה יותר מבחירת מודל או כתיבת פרומפטים. היא מחייבת התמודדות עם ידע מורכב, תהליכים קיימים, איכות תוצרים ושיטות עבודה.</p>
+      <p class="lead rv">הטמעת AI אינה מתחילה בבחירת כלי או בבניית סוכן. היא מתחילה בהגדרת הדרך שבה הארגון רוצה לעבוד, וממנה נגזרת הארכיטקטורה המקצועית והטכנולוגית שתאפשר זאת.</p>
     </div>
-    <div class="ch rv" id="ch">
-      <ol class="ch-list" id="chList" role="tablist" aria-label="ששת האתגרים"></ol>
-      <div class="ch-stage" id="chStage" role="tabpanel" aria-live="polite"></div>
+
+    <!-- Transformation map: DESIGN → BUILD → TRANSFORM, outputs become the foundation of the next stages, feedback from the pilot -->
+    <div class="tmap rv" id="tmap">
+      <div class="phases" aria-hidden="true">
+        <span class="ph ph-d"><b>DESIGN</b> תכנון שיטת העבודה העתידית</span>
+        <span class="ph ph-b"><b>BUILD</b> בניית היכולות שיאפשרו אותה</span>
+        <span class="ph ph-t"><b>TRANSFORM</b> הטמעה, מדידה ושיפור</span>
+      </div>
+      <ol class="track" id="track" role="tablist" aria-label="שמונת שלבי המתודולוגיה"></ol>
+      <svg class="loop" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M188 6 C188 52 240 54 500 54 C760 54 812 52 812 6" />
+        <path class="tip" d="M806 14 L812 4 L818 14" />
+      </svg>
+      <span class="loop-lbl" aria-hidden="true">משוב מהפיילוט חוזר לשלבי התכנון</span>
+      <div class="mt-panel" id="mtPanel" role="tabpanel" aria-live="polite"></div>
     </div>
+    <p class="mt-close rv">הסקילים אינם נקודת המוצא. <span>הם תוצר של תכנון מקצועי נכון.</span></p>
+  </div>
+</section>
+
+<!-- ======================= 04 · CASE STUDY ======================= -->
+<section class="sec dark" id="casestudy">
+  <div class="wrap">
+    <span class="label rv"><b>04</b> / FROM VISION TO IMPLEMENTATION</span>
+    <h2 class="rv cs-title">איך הופכים חזון של פיתוח מונחה אפיון <em>למציאות ארגונית?</em></h2>
+    <div class="cs rv" id="cs">
+      <div class="cs-side">
+        <div class="cs-block"><span class="cs-tag">VISION · נקודת המוצא</span><p>היעד היה מעבר לפיתוח מונחה אפיון — <span class="en">Spec-Driven Development</span> — שבו הדרישות והתוצרים האפיוניים משמשים בסיס מקצועי לתהליך הפיתוח באמצעות AI.</p></div>
+        <div class="cs-block"><span class="cs-tag">CHALLENGE · האתגר</span><p>כדי שפיתוח מבוסס AI יוכל להתבסס על האפיון, לא מספיק להשתמש בבינה כדי לכתוב את האפיונים הקיימים מהר יותר. נדרש שינוי בתוצרי האפיון עצמם, בתהליך יצירתם, בהנגשת הידע ובמנגנוני בקרת האיכות.</p></div>
+        <div class="cs-block cs-result"><span class="cs-tag">RESULT · התוצאה</span>
+          <div class="cs-res"><div class="cs-big" aria-hidden="true">60<sup>%</sup></div><p class="cs-cap">חיסכון בזמן בתהליכי אפיון שנבחנו.</p></div>
+          <span class="hp">60 אחוז חיסכון בזמן בתהליכי אפיון שנבחנו</span>
+          <ul class="cs-gains"><li>שיטת עבודה מקצועית סדורה</li><li>תוצרים המותאמים להמשך תהליך הפיתוח</li><li>בקרת איכות כחלק מתהליך העבודה</li><li>שימוש בידע על מערכות קיימות</li><li>ליווי מקצועי באמצעות AI</li></ul>
+        </div>
+      </div>
+      <div class="cs-path">
+        <span class="cs-tag">PATH · הדרך</span>
+        <ol class="cs-steps" id="csSteps">
+          <li><b>הגדרת תפיסת הפיתוח באמצעות <span class="en">SDD</span></b></li>
+          <li><b>תכנון לאחור של תוצרי האפיון הנדרשים</b></li>
+          <li><b>הגדרת תהליך העבודה של מנתחי המערכות</b></li>
+          <li><b>בניית ארכיטקטורת ידע על מערכות קיימות</b></li>
+          <li><b>הגדרת סטנדרטים ושערי איכות</b></li>
+          <li class="ai"><b>תרגום המתודולוגיה ל־<span class="en">Skills</span> מקצועיים</b></li>
+          <li class="ai"><b>יצירת סוכן המלווה את איש המקצוע לאורך התהליך</b></li>
+          <li><b>פיילוטים, משוב, שיפור והטמעה</b></li>
+        </ol>
+        <p class="cs-note">רק אחרי חמישה שלבי תכנון — מגיעים ל־<span class="en">Skills</span> ולסוכן.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 03 · THE THIRD MASTER ======================= -->
+<section class="sec" id="master" style="background:var(--paper-2)">
+  <div class="wrap master">
+    <div class="m-copy">
+      <span class="label rv"><b>05</b> / THE THIRD MASTER</span>
+      <h2 class="rv">שלושה שותפים. <em>יכולת מקצועית חדשה.</em></h2>
+      <p class="lead rv">כשהמתודולוגיה הופכת למערכת, היא נשענת על שלושה שותפים. איש המקצוע מביא את שיקול הדעת. הבינה המלאכותית מביאה את יכולות הביצוע. הסקיל מביא את המומחיות ואת שיטת העבודה. השילוב ביניהם יוצר יכולת מקצועית חדשה.</p>
+      <ul class="partners rv" id="partners">
+        <li data-p="0" tabindex="0"><i class="sw s0"></i><b>איש המקצוע</b><span>הבנת הצורך, שיקול דעת וקבלת החלטות.</span></li>
+        <li data-p="1" tabindex="0"><i class="sw s1"></i><b><span class="en">AI</span></b><span>יכולות ניתוח, עיבוד וביצוע.</span></li>
+        <li data-p="2" tabindex="0"><i class="sw s2"></i><b><span class="en">Skill</span></b><span>המומחיות, הידע ושיטת העבודה המקצועית.</span></li>
+      </ul>
+    </div>
+    <figure class="ring rv" id="ring" aria-label="שלושה רכיבים — איש המקצוע, AI וסקיל — מתחברים יחד למאסטר השלישי. בלי אחד מהם המעגל אינו שלם.">
+      <svg viewBox="0 0 520 520" id="ringSvg"></svg>
+    </figure>
   </div>
 </section>
 
@@ -774,10 +993,10 @@ svg text{font-family:var(--font)}
   <div class="wrap">
     <div class="arch-head">
       <div>
-        <span class="label rv"><b>05</b> / THE ARCHITECTURE OF EXPERTISE</span>
-        <h2 class="rv">לא אוסף פרומפטים. <em>ארכיטקטורה</em> של מומחיות.</h2>
+        <span class="label rv"><b>05</b> / FROM METHODOLOGY TO SYSTEM</span>
+        <h2 class="rv">כשהמתודולוגיה הופכת <em>למערכת שעובדת.</em></h2>
       </div>
-      <p class="lead rv">חמש שכבות, תהליך מקצועי אחד: הבקשה יורדת מאיש המקצוע אל הידע הארגוני, והתוצר חוזר אליו לבדיקה ואישור. העבירו את העכבר על שכבה כדי לראות את תפקידה והקשרים שלה.</p>
+      <p class="lead rv">תוצרי היעד, תהליכי העבודה, הידע הארגוני והסטנדרטים המקצועיים מתחברים לארכיטקטורת AI אחת, המלווה את אנשי המקצוע בעבודה היומיומית. הסוכן אינו מוצר שעומד בפני עצמו — הוא מימוש של שיטת העבודה שתוכננה.</p>
     </div>
 
     <div class="arch rv" id="arch">
@@ -789,12 +1008,12 @@ svg text{font-family:var(--font)}
         </div>
         <div class="conn" aria-hidden="true"><i></i><span>בקשה, הקשר והחלטות</span></div>
         <div class="layer" tabindex="0" data-l="2" data-rel="1,3,4,5">
-          <div class="ly-name"><small>LAYER 02</small><b>המלווה המקצועי</b></div>
+          <div class="ly-name"><small>LAYER 02</small><b>הסוכן המלווה</b></div>
           <div class="companion"><i class="pulse" aria-hidden="true"></i><span>סוכן AI המלווה את העובד לאורך תהליך העבודה, מבין את ההקשר ומפעיל את היכולות המקצועיות הרלוונטיות.</span></div>
         </div>
         <div class="conn" aria-hidden="true"><i></i><span>הפעלת היכולת המקצועית המתאימה</span></div>
         <div class="layer" tabindex="0" data-l="3" data-rel="2,4,5">
-          <div class="ly-name"><small>LAYER 03</small><b class="en" style="text-align:right">Professional Skills</b></div>
+          <div class="ly-name"><small>LAYER 03</small><b><span class="en">Skills</span> מתמחים</b></div>
           <div class="chips"><span class="chip">תחקור וגיבוש דרישות</span><span class="chip">ניתוח ואפיון</span><span class="chip">הבנת מערכות קיימות</span><span class="chip">סקירה ובקרת איכות</span><span class="chip">הכנת תוצרים להמשך הפיתוח</span><span class="chip">ניהול שינויים</span><span class="chip">פרסום ושימור תוצרים</span></div>
         </div>
         <div class="conn both" aria-hidden="true"><i></i><span>שימוש בהקשר הרלוונטי מתוך הידע</span></div>
@@ -805,7 +1024,7 @@ svg text{font-family:var(--font)}
       </div>
       <aside class="gov" tabindex="0" data-l="5" data-rel="1,2,3,4">
         <span class="gov-tag" aria-hidden="true">חוצה את כל השכבות</span>
-        <div class="ly-name"><small>LAYER 05</small><b>ממשל ובקרה</b></div>
+        <div class="ly-name"><small>LAYER 05</small><b>ממשל ובקרת איכות</b></div>
         <ul><li class="en" style="text-align:right">Quality Gates</li><li class="en" style="text-align:right">Human in the Loop</li><li>ניהול גרסאות</li><li>אינטגרציה עם סביבת העבודה</li><li>מדידה ושיפור מתמשך</li></ul>
       </aside>
     </div>
@@ -818,7 +1037,7 @@ svg text{font-family:var(--font)}
   <div class="wrap">
     <div class="demo-head">
       <div>
-        <span class="label rv"><b>05</b> / THE MASTER IN ACTION</span>
+        <span class="label rv"><b>05</b> / THE COMPANION IN ACTION</span>
         <h2 class="rv">לא רק מייצר תוצרים. <em>מפעיל שיקול דעת מקצועי.</em></h2>
       </div>
       <p class="lead rv" style="max-width:460px">המלווה לא תמיד יודע את התשובה. הערך הוא ביכולת לזהות חוסר ודאות, לשאול, לעצור ולהתריע.</p>
@@ -848,45 +1067,90 @@ svg text{font-family:var(--font)}
   </div>
 </section>
 
-<!-- ======================= 05 · PROCESS MAP ======================= -->
-<section class="sec dark" id="method">
+<!-- ======================= 04 · ENTERPRISE AI CHALLENGES ======================= -->
+<section class="sec dark" id="challenges">
   <div class="wrap">
-    <span class="label rv"><b>05</b> / END-TO-END METHODOLOGY</span>
-    <h2 class="rv">המומחיות אינה נעצרת <em>במשימה אחת.</em></h2>
-    <p class="lead rv" style="margin-top:22px">הערך אינו רק באוטומציה של משימה בודדת — אלא בחיבור בין שלבי העבודה ובשמירה על רציפות מקצועית מהצורך העסקי ועד הבדיקות.</p>
-    <div class="flow-wrap rv">
-      <p class="sdd-m"><span class="en">SDD · Spec-Driven Development</span> — דוגמה ליישום בעולם הפיתוח (שלבים מסומנים)</p>
-      <div class="flow" id="flow">
-        <div class="sdd"><span class="en">SDD · Spec-Driven Development</span></div>
-        <div class="st"><i class="dotn"></i><b>צורך עסקי</b><small>NEED</small></div>
-        <div class="st"><i class="dotn"></i><b>תחקור</b><small>DISCOVERY</small></div>
-        <div class="st sdd-in"><i class="dotn"></i><b>אפיון</b><small>SPECIFICATION</small></div>
-        <div class="st sdd-in"><i class="dotn"></i><b>בקרת איכות</b><small>QUALITY GATE</small></div>
-        <div class="st sdd-in"><i class="dotn"></i><b>הכנה לפיתוח</b><small>DEV-READY</small></div>
-        <div class="st sdd-in"><i class="dotn"></i><b>פיתוח</b><small>DEVELOPMENT</small></div>
-        <div class="st"><i class="dotn"></i><b>בדיקות</b><small>TESTING</small></div>
-        <div class="lane"><b>דרישות שינוי במערכות קיימות</b>מסלול מקביל שמצטרף לאותה שיטת עבודה</div>
-        <div class="lane-arrow" aria-hidden="true"></div>
-        <span class="thread" id="thread" aria-hidden="true"></span>
+    <div class="ch-head">
+      <div>
+        <span class="label rv"><b>05</b> / ENTERPRISE AI CHALLENGES</span>
+        <h2 class="rv">האתגרים האמיתיים מתחילים <em>אחרי שמכניסים AI לארגון.</em></h2>
       </div>
+      <p class="lead rv">הטמעה ארגונית מחייבת הרבה יותר מבחירת מודל או כתיבת פרומפטים. היא מחייבת התמודדות עם ידע מורכב, תהליכים קיימים, איכות תוצרים ושיטות עבודה.</p>
     </div>
-    <div class="flow-note rv"><p><span class="en">SDD</span> הוא דוגמה משמעותית ליישום המתודולוגיה בעולם הפיתוח — לא הגבול שלה. את השיטה ניתן להתאים לתהליכים ולתפקידים נוספים בארגון.</p></div>
+    <div class="ch rv" id="ch">
+      <ol class="ch-list" id="chList" role="tablist" aria-label="ששת האתגרים"></ol>
+      <div class="ch-stage" id="chStage" role="tabpanel" aria-live="polite"></div>
+    </div>
   </div>
 </section>
 
+<!-- ======================= 06 · APPLICATIONS ======================= -->
+<section class="sec" id="applications">
+  <div class="wrap">
+    <div class="ap-head">
+      <div>
+        <span class="label rv"><b>06</b> / ONE METHODOLOGY. MULTIPLE APPLICATIONS.</span>
+        <h2 class="rv">אותה דרך מתודולוגית. <em>שיטת עבודה המותאמת לכל ארגון.</em></h2>
+      </div>
+      <p class="lead rv">כל ארגון פועל בסביבה מקצועית וטכנולוגית שונה. המתודולוגיה אינה מחייבת אימוץ של תהליך מדף, אלא מאפשרת לתכנן את שיטת העבודה בהתאם לצרכים, לידע וליעדים של הארגון.</p>
+    </div>
+    <div class="apps rv">
+      <div class="apps-axis" aria-hidden="true"><span></span><b>DESIGN</b><b>BUILD</b><b>TRANSFORM</b></div>
+      <div class="app"><h3 class="en">Software Development &amp; SDD</h3><p>תכנון מחדש של תהליכי אפיון, ארכיטקטורה ופיתוח מבוסס AI.</p><i class="rail" aria-hidden="true"><em></em><em></em><em></em></i></div>
+      <div class="app"><h3 class="en">CRM &amp; Enterprise Platforms</h3><p>תכנון תהליכי אפיון, התאמה, יישום ופיתוח בסביבות כגון <span class="en">Microsoft Dynamics 365</span>. <a class="app-link" href="#d365">איך זה יכול להיראות? ←</a></p><i class="rail" aria-hidden="true"><em></em><em></em><em></em></i></div>
+      <div class="app"><h3 class="en">Legacy &amp; Core Systems</h3><p>תכנון שיטות עבודה מבוססות AI להבנת מערכות קיימות, ניתוח השפעות וניהול שינויים.</p><i class="rail" aria-hidden="true"><em></em><em></em><em></em></i></div>
+      <div class="app"><h3 class="en">QA &amp; Professional Governance</h3><p>תכנון תהליכי סקירה, בדיקות ובקרת איכות המשלבים מומחיות מקצועית ובינה מלאכותית.</p><i class="rail" aria-hidden="true"><em></em><em></em><em></em></i></div>
+    </div>
+    <p class="ap-note rv">יישומים אפשריים של המתודולוגיה — לא רשימת פרויקטים שבוצעו.</p>
+  </div>
+</section>
+
+<!-- ======================= 06 · DYNAMICS 365 (possible fit) ======================= -->
+<section class="sec dark" id="d365">
+  <div class="wrap">
+    <span class="label rv"><b>06</b> / ILLUSTRATION · CRM &amp; ENTERPRISE PLATFORMS</span>
+    <h2 class="rv d-title">איך יכול להיראות פרויקט <span class="en">Dynamics 365</span> <em>בעידן ה־AI?</em></h2>
+    <div class="dx rv">
+      <div class="dx-q">
+        <span class="cs-tag">קודם — השאלות האסטרטגיות</span>
+        <ol>
+          <li>איך נראה תהליך העבודה העתידי של המאפיין, המיישם והמפתח?</li>
+          <li>אילו תוצרים נדרשים כדי לאפשר מעבר יעיל מדרישה עסקית לפתרון מיושם?</li>
+          <li>איך משלבים את יכולות הפלטפורמה המובנות בתהליך התכנון?</li>
+          <li>איך מנגישים את המומחיות המצטברת מפרויקטים קודמים?</li>
+          <li>איך מגדירים החלטות ארכיטקטוניות בין פתרון מובנה, קונפיגורציה ופיתוח ייעודי?</li>
+          <li>איך מבטיחים איכות ואחידות בין צוותים ופרויקטים?</li>
+        </ol>
+      </div>
+      <div class="dx-arrow" aria-hidden="true"><span>תכנון</span><i></i><span>יכולות</span></div>
+      <div class="dx-c">
+        <span class="cs-tag">ואז — היכולות שנגזרות מהתכנון</span>
+        <ul>
+          <li>מלווה מקצועי לתהליכי אפיון ויישום</li>
+          <li>בסיס ידע מקצועי וארגוני</li>
+          <li><span class="en">Skills</span> המתמחים בתהליכים ובסטנדרטים של הארגון</li>
+          <li>מנגנוני סקירה ובקרת איכות</li>
+          <li>חיבור לתשתיות ולכלים הארגוניים</li>
+        </ul>
+      </div>
+    </div>
+    <p class="dx-close rv">לא מתאימים את הארגון לסוכן קיים. <span>מתכננים את הסוכן בהתאם לשיטת העבודה העתידית של הארגון.</span></p>
+    <p class="dx-note rv">המחשת התאמה אפשרית בלבד.</p>
+  </div>
+</section>
 
 <!-- ======================= 07 · SERVICES ======================= -->
 <section class="sec" id="services" style="background:var(--paper-2)">
   <div class="wrap">
-    <span class="label rv"><b>06</b> / CONSULTING &amp; ENABLEMENT</span>
-    <h2 class="rv">בונים את שיטת העבודה החדשה <em>של הארגון שלכם.</em></h2>
+    <span class="label rv"><b>07</b> / ADVISORY &amp; ENABLEMENT</span>
+    <h2 class="rv">השותפים שלכם לתכנון ולהובלת <em>שיטת העבודה החדשה.</em></h2>
     <ol class="eng svc-seq">
-      <li class="rv"><span class="num">01</span><h3 class="en">AI Strategy &amp; Architecture</h3><p>מיפוי תהליכי העבודה, זיהוי הזדמנויות וגיבוש ארכיטקטורת AI המותאמת לארגון.</p></li>
-      <li class="rv"><span class="num">02</span><h3 class="en">Methodology Design</h3><p>גיבוש מתודולוגיית עבודה, מבנה הידע, סוכנים מקצועיים, <span class="en">Skills</span> ומנגנוני בקרה.</p></li>
-      <li class="rv"><span class="num">03</span><h3 class="en">Pilot &amp; Enablement</h3><p>ליווי הצוותים ביישום המתודולוגיה בתהליכים אמיתיים, מדידת תוצאות ושיפור.</p></li>
-      <li class="rv"><span class="num">04</span><h3 class="en">Enterprise Scale</h3><p>הרחבת השיטה, הכשרת הצוותים ובניית יכולת ארגונית עצמאית.</p></li>
+      <li class="rv"><span class="num">01</span><h3 class="en">AI Transformation Strategy</h3><p>גיבוש חזון ומודל עבודה עתידי, זיהוי הזדמנויות והגדרת יעדים עסקיים ומקצועיים.</p></li>
+      <li class="rv"><span class="num">02</span><h3 class="en">Methodology &amp; Process Architecture</h3><p>תכנון תהליכי העבודה, התוצרים, הסטנדרטים וארכיטקטורת הידע.</p></li>
+      <li class="rv"><span class="num">03</span><h3 class="en">AI Capability Design</h3><p>ייעוץ וליווי בתכנון ארכיטקטורת סוכנים, <span class="en">Skills</span> ומנגנוני בקרה המותאמים למתודולוגיה.</p></li>
+      <li class="rv"><span class="num">04</span><h3 class="en">Enterprise Enablement</h3><p>ליווי פיילוטים, מדידה, שיפור, הכשרת צוותים והטמעה ארגונית.</p></li>
     </ol>
-    <p class="svc-note rv">ליווי, ייעוץ והובלה מקצועית של התהליך — לא התחייבות לפיתוח ולתחזוקה של כלל הסוכנים עבור הארגון.</p>
+    <p class="svc-note rv">ייעוץ, תכנון ארכיטקטוני, הובלה וליווי מקצועי — לא התחייבות לפיתוח ולתחזוקה של כלל הפתרונות עבור הארגון.</p>
   </div>
 </section>
 
@@ -914,40 +1178,7 @@ svg text{font-family:var(--font)}
   </div>
 </section>
 
-
-
-<!-- ======================= 10 · EXPERIENCE ======================= -->
-<section class="sec" id="experience" style="background:var(--paper-2)">
-  <div class="wrap exp">
-    <div>
-      <span class="label rv"><b>07</b> / EXPERIENCE</span>
-      <h2 class="rv">ניסיון שמחבר בין טכנולוגיה, תהליכים <em>ובינה מלאכותית.</em></h2>
-      <ul class="exp-list rv" style="margin-top:36px">
-        <li><i></i>למעלה מעשור של ניסיון במערכות מורכבות בעולמות הבנקאות והביטוח.</li>
-        <li><i></i>פיתוח, ניתוח מערכות וארכיטקטורת פתרונות.</li>
-        <li><i></i>הובלת תהליכי הטמעת AI ומתודולוגיות עבודה בסביבה ארגונית מורכבת.</li>
-      </ul>
-    </div>
-    <figure class="venn rv" aria-hidden="true">
-      <svg viewBox="0 0 520 470">
-        <circle class="c" cx="260" cy="170" r="140" fill="#171a18" stroke="#171a18"/>
-        <circle class="c" cx="182" cy="300" r="140" fill="#6d706a" stroke="#6d706a"/>
-        <circle class="c" cx="338" cy="300" r="140" fill="#fc693f" stroke="#fc693f"/>
-        <text x="260" y="98" text-anchor="middle" class="t">מערכות מורכבות</text>
-        <text x="260" y="118" text-anchor="middle" class="s">בנקאות וביטוח</text>
-        <text x="128" y="352" text-anchor="middle" class="t">פיתוח וארכיטקטורה</text>
-        <text x="128" y="372" text-anchor="middle" class="s">ניתוח מערכות ופתרונות</text>
-        <text x="392" y="352" text-anchor="middle" class="t">הטמעת AI</text>
-        <text x="392" y="372" text-anchor="middle" class="s">מתודולוגיות עבודה</text>
-        <circle cx="260" cy="256" r="30" fill="#171a18"/>
-        <g transform="rotate(-9 260 255)"><circle cx="260" cy="255" r="13" fill="none" stroke="#fffdf7" stroke-width="2.2"/><rect x="257" y="248" width="6" height="14" fill="#fffdf7"/></g>
-        <circle cx="250" cy="243" r="3.5" fill="#fc693f"/>
-      </svg>
-    </figure>
-  </div>
-</section>
-
-<!-- ======================= 11 · FINAL ======================= -->
+<!-- ======================= 08 · FINAL ======================= -->
 <section class="sec dark" id="contact">
   <div class="wrap final">
     <div>
@@ -998,7 +1229,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 $$('.rv').forEach(n=>io.observe(n));
 /* active nav */
 const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('.nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
-['proof','master','challenges','architecture','services','independence'].forEach(id=>navIO.observe(document.getElementById(id)));
+['proof','methodology','casestudy','architecture','applications','services'].forEach(id=>navIO.observe(document.getElementById(id)));
 
 /* ---------- 01 hero system: skills orbit + knowledge stack ---------- */
 (function(){const g=$('#skills');for(let i=0;i<7;i++){const a=(-90+i*360/7)*Math.PI/180,x=300+104*Math.cos(a),y=238+104*Math.sin(a);
@@ -1197,8 +1428,47 @@ const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('
   mob.addEventListener('change',()=>{$$('.ch-acc').forEach(x=>{x.hidden=true;x.innerHTML=''});btns.forEach(b=>b.removeAttribute('aria-expanded'));if(mob.matches)toggle(cur);else select(cur)});
 })();
 
+/* ---------- 03 methodology: transformation map ---------- */
+(function(){
+  const track=$('#track'),panel=$('#mtPanel');if(!track)return;
+  // [phase, EN, short title, question, work, output, foundation label, emphasis?]
+  const M=[
+    ['d','Future State','מתחילים מהעתיד','איך אנחנו רוצים שהארגון יעבוד בעידן הבינה המלאכותית?','הגדרת חזון מקצועי, מודל עבודה עתידי, חלוקת האחריות בין האדם לבינה והיעדים העסקיים של השינוי.','תפיסת עבודה ארגונית חדשה','תפיסת עבודה'],
+    ['d','Target Deliverables','מתכננים את התוצרים מהסוף להתחלה','אילו תוצרים נדרשים כדי שמודל העבודה החדש יוכל להתקיים?','הגדרת התוצרים המקצועיים, רמת הפירוט, מבנה המידע והקשר בין תוצרי השלבים השונים.','ארכיטקטורת תוצרים המותאמת לעולם העבודה החדש','ארכיטקטורת תוצרים','לא מאיצים את יצירת התוצרים הישנים. מתכננים מחדש את התוצרים בהתאם לדרך שבה ישתמשו בהם.'],
+    ['d','Workflow Architecture','בונים את הדרך להגיע לתוצאה','איזה תהליך מקצועי יבטיח שהתוצרים יהיו שלמים, איכותיים ומדויקים?','הגדרת שלבי העבודה, מסלולים, אחריות, נקודות החלטה, תלויות ומנגנוני מעבר בין שלבים.','מתודולוגיית עבודה מקצועית','מתודולוגיית עבודה'],
+    ['b','Organizational Knowledge','בונים את תשתית הידע הארגונית','מה הבינה צריכה לדעת כדי לעבוד כמו איש מקצוע שמכיר את הארגון?','מיפוי מקורות ידע, תיעוד מערכות, ידע עסקי, ארכיטקטורה, קוד, נתונים, סטנדרטים והחלטות מקצועיות. הגדרת הדרך שבה הידע נשמר, מתעדכן ומונגש בהתאם להקשר העבודה.','ארכיטקטורת ידע ארגונית','ארכיטקטורת ידע'],
+    ['b','Professional Governance','מגדירים את הרמה המקצועית','איך מבטיחים שהבינה פועלת לפי הסטנדרטים שהארגון דורש?','הגדרת כללים מקצועיים, מנגנוני סקירה, שערי איכות, זיהוי פערים ונקודות שבהן נדרשת החלטה אנושית.','מסגרת מקצועית לבקרה ולהבטחת איכות','מסגרת בקרה ואיכות'],
+    ['b','AI Capability Architecture','הופכים את המתודולוגיה ליכולות AI','איך מתרגמים את שיטת העבודה, המומחיות והידע הארגוני ליכולות מקצועיות שהבינה יכולה להפעיל?','תכנון Skills מקצועיים, סוכנים, מנגנוני ליווי, תהליכי עבודה מבוקרים וחיבור לתשתיות הארגוניות.','מערכת יכולות AI מקצועיות המותאמת לארגון','יכולות AI מקצועיות','רק בשלב זה מגיעים הסוכנים והסקילים — על בסיס כל מה שתוכנן לפניהם.'],
+    ['t','Validation & Evolution','בודקים מול המציאות','האם המתודולוגיה החדשה באמת משפרת את העבודה?','פיילוטים על תהליכים אמיתיים, מדידת איכות וזמן, זיהוי בעיות, איסוף משוב ושיפור מבוקר של המתודולוגיה והיכולות המקצועיות.','שיטת עבודה שנבחנה והותאמה לעבודה בפועל','שיטה שנבחנה בפועל','המשוב מהפיילוט חוזר לשלבי התכנון — התהליך איטרטיבי, לא חד־כיווני.'],
+    ['t','Enterprise Transformation','הופכים את השיטה ליכולת ארגונית','איך עוברים מהצלחה של צוות אחד לשינוי ארגוני?','הכשרת צוותים, ליווי מקצועי, הרחבת היישום, שיתוף ידע ובניית יכולת עצמאית להמשך פיתוח המתודולוגיה.','שיטת עבודה ארגונית מוטמעת ומתפתחת','שיטה ארגונית מוטמעת']
+  ];
+  const esc=t=>t.replace(/Skills/g,'<span class="en">Skills</span>').replace(/\bAI\b/g,'<span class="en">AI</span>');
+  M.forEach((m,k)=>{const li=document.createElement('li');
+    li.innerHTML=`<button type="button" class="tk" role="tab" id="tk${k}" data-ph="${m[0]}" aria-controls="mtPanel"><span class="dot">0${k+1}</span><small>${m[1]}</small><b>${m[2]}</b>${k===5?'<span class="ai">Agents · Skills</span>':''}</button>`;
+    track.appendChild(li)});
+  const btns=$$('.tk');let cur=0;
+  function sel(k,focus){cur=k;const m=M[k];
+    btns.forEach((b,j)=>{b.setAttribute('aria-selected',String(j===k));b.classList.toggle('done',j<k);b.tabIndex=j===k?0:-1});
+    panel.setAttribute('aria-labelledby','tk'+k);
+    const found=M.slice(0,k).map(x=>`<i>${x[6]}</i>`).reverse().join('');
+    panel.innerHTML=`<div><h3><small>0${k+1} · ${m[1]}</small>${m[2]}</h3>
+      <div class="mt-row q"><span>השאלה</span><p>${esc(m[3])}</p></div>
+      <div class="mt-row"><span>העבודה</span><p>${esc(m[4])}</p></div>
+      <div class="mt-row o"><span>התוצר</span><p>${esc(m[5])}</p></div>${m[7]?`<p class="mt-em">${esc(m[7])}</p>`:''}</div>
+      <div class="found" aria-label="התשתית שנבנתה עד כאן"><span class="fh">התשתית שנבנתה עד כאן</span><i class="now">${esc(m[6])}</i>${found}<span class="base">כל תוצר הופך לבסיס של השלבים הבאים</span></div>`;
+    panel.style.animation='none';void panel.offsetWidth;panel.style.animation='';
+    if(focus)btns[k].focus()}
+  btns.forEach((b,k)=>{b.addEventListener('click',()=>sel(k));
+    b.addEventListener('keydown',e=>{const d=e.key==='ArrowLeft'?1:e.key==='ArrowRight'?-1:0;if(!d)return;e.preventDefault();e.stopPropagation();sel((cur+d+8)%8,true)})});
+  sel(0);
+})();
+
+/* ---------- 04 case study: the path builds up step by step ---------- */
+(function(){const ol=$('#csSteps');if(!ol)return;const li=[...ol.children];
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();li.forEach((x,k)=>setTimeout(()=>x.classList.add('on'),reduce?0:200+k*260))}),{threshold:.3}).observe(ol)})();
+
 /* ---------- 05 continuity thread ---------- */
-(function(){const flow=$('#flow'),th=$('#thread'),sts=$$('#flow .st');
+(function(){const flow=$('#flow');if(!flow)return;const th=$('#thread'),sts=$$('#flow .st');
   new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();
     // the thread runs from the first stage dot to the last one
     const cx=st=>{const d=st.querySelector('.dotn');return st.offsetLeft+d.offsetLeft+d.offsetWidth/2},d=sts[0].querySelector('.dotn');
@@ -1254,8 +1524,8 @@ const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('
 (function(){
   const desk=matchMedia('(min-width:1001px)');
   const secs=[...document.querySelectorAll('main>section')],ids=secs.map(x=>x.id);
-  const NAMES={home:'פתיחה',proof:'הוכחה מהשטח',master:'המאסטר השלישי',shift:'השינוי בשיטת העבודה',challenges:'האתגרים',architecture:'הארכיטקטורה',demo:'המלווה בפעולה',method:'המתודולוגיה',services:'הליווי',independence:'עצמאות הארגון',experience:'ניסיון',contact:'פגישת היכרות'};
-  const NAVOF={shift:'master',demo:'architecture',method:'architecture',experience:'independence'};
+  const NAMES={home:'פתיחה',proof:'הוכחה מהשטח',experience:'ניסיון',shift:'למה מתודולוגיה קודם',methodology:'המתודולוגיה',casestudy:'מקרה בוחן',master:'שלושה שותפים',architecture:'המערכת',demo:'הסוכן בפעולה',challenges:'האתגרים',applications:'יישומים',d365:'דוגמה: Dynamics 365',services:'הליווי',independence:'עצמאות הארגון',contact:'פגישת היכרות'};
+  const NAVOF={experience:'proof',shift:'methodology',master:'architecture',demo:'architecture',challenges:'architecture',d365:'applications',independence:'services'};
   // "next" link at the bottom of every screen
   secs.forEach((x,k)=>{if(k<secs.length-1){const a=document.createElement('a');a.className='next-link';a.href='#'+ids[k+1];a.textContent='הבא: '+NAMES[ids[k+1]]+' ←';x.appendChild(a)}});
   let cur=-1,lock=0;
